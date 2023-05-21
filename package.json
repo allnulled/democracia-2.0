@@ -1,0 +1,40 @@
+{
+  "name": "democracia-2.0",
+  "version": "1.0.0",
+  "description": "Democracia 2.0 gratis para todos",
+  "main": "src/iniciar.js",
+  "scripts": {
+    "up": "node dev/up.js",
+    "start": "node src/iniciar.js",
+    "test": "mocha test/*.test.js"
+  },
+  "bin": {
+    "democracia20": "bin/democracia20.js"
+  },
+  "keywords": [
+    "direct democracy 2.0",
+    "democracy 2.0",
+    "dd",
+    "dd2",
+    "dd2.0",
+    "direct",
+    "direct democracy",
+    "democracy",
+    "democracy 2"
+  ],
+  "author": "allnulled",
+  "license": "WTFPL",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.3.1",
+    "sqlite3": "^5.1.6",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}

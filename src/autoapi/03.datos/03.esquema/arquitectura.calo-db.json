@@ -1,0 +1,66 @@
+{
+  "infraestructura": [
+    {
+      "tipo": "máquina",
+      "nombre": "Índice de máquinas",
+      "descripcion": "Esta máquina lista el índice de máquinas totales en el sistema.",
+      "url": "https://127.0.0.1",
+      "puerto_de_url": "10100",
+      "identificador_unico": "MAQ_INDICES",
+      "proyectos": [
+        {
+          "tipo": "proyecto",
+          "nombre": "Índice de máquinas del sistema",
+          "descripcion": "",
+          "ruta_de_url": "/",
+          "identificador_unico": "",
+          "conexiones": [],
+          "esta_mostrando_detalles": false
+        }
+      ],
+      "esta_mostrando_detalles": true
+    }
+  ],
+  "esquema": {
+    "Civil": {
+      "tipo": "tabla",
+      "nombre": "Civil",
+      "descripcion": "Civiles identificados o por identificar.",
+      "identificador_unico": "CIVIL",
+      "ruta_de_url_de_tabla": "/civil",
+      "atributos_de_tabla": {
+        "es_usuario": "true"
+      },
+      "columnas": {
+        "Nombre": {
+          "tipo": "columna",
+          "nombre": "Nombre_completo",
+          "descripcion": "Nombre completo del civil.",
+          "identificador_unico": "CIVIL__NOMBRE_COMPLETO",
+          "ruta_de_url_de_columna": "/nombre_completo",
+          "atributos_de_columna": {
+            "es_tipo": "texto,corto"
+          },
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": true
+        }
+      },
+      "esta_mostrando_detalles": false
+    },
+    "Localidad": {
+      "tipo": "tabla",
+      "nombre": "Localidad",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "APLICACION_ID": "Democracia 2.0",
+    "APLICACION_PROTOCOLO": "http",
+    "APLICACION_PUERTO": 10100,
+    "BASE_DE_DATOS_TIPO": "local",
+    "BASE_DE_DATOS_LOCAL_FICHERO": "datos_locales",
+    "BASE_DE_DATOS_HOST": "127.0.0.1",
+    "BASE_DE_DATOS_PORT": "3306",
+    "BASE_DE_DATOS_USER": "root",
+    "BASE_DE_DATOS_PASSWORD": "toor",
+    "BASE_DE_DATOS_NAME": "por_defecto"
+}
