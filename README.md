@@ -42,7 +42,9 @@ He hecho muchos proyectos de software. Y he fracasado en todos ellos, conste ah�
 
 Con todo esto, quiero decir, que haberme labrado la libertad y la confianza para elaborar este software, me enorgullece. Pero ha sido costoso. Y en mi camino, he dejado migas de pan para que otros puedan irrumpir en la tecnología y en la lógica formal natural de forma mucho más rápida, eficaz y sencilla. Y en todo ese lago de proyectos muertos, hay algo más que código y un tipo que no se adapta a la forma de funcionar. Hay un rayo de luz y cordura, enmascarado por la rabia de haber comprendido lo que a su alrededor parece ser invisible o no existir, aunque cada día le hagan reverencias.
 
-Es un grito. Igual, decía *Black Eyed Peas* lo de *¿dónde está el amor?* Pues igual, pero *¿dónde está la lógica? cuál es la verdad?*. Es mi lucha. Yo no lucho ni por mí en un mundo tan injusto y desproporcionadamente repartido. Yo lucho por destruirte, la broma fue llevada muy lejos y no piensan parar. No caeré en la psicosis, sé dónde estoy, eso es a lo que juegas. Quiero verte. Pero voy a seguir apretando normal, como siempre, como hasta ahora.
+Es un grito. Igual, decía *Black Eyed Peas* lo de *¿dónde está el amor?* Pues igual, pero *¿dónde está la lógica? ¿Cuál es la verdad?*
+
+Es mi lucha. Yo no lucho ni por mí en un mundo tan injusto y desproporcionadamente repartido. Yo lucho por destruirte, la broma fue llevada muy lejos y no piensan parar. No caeré en la psicosis, sé dónde estoy, eso es a lo que juegas. Quiero verte. Pero voy a seguir apretando normal, como siempre, como hasta ahora.
 
 ## Teoría
 
@@ -54,14 +56,12 @@ Este programa se subscribe a los estándares civilizatorios [Sociedad Horizontal
 
 La `democracia 2.0` es:
 
-```
-democracia 2.0 = máquina física
+  + máquina física
   + sistema operativo (Windows, Linux, Mac)
   + [prerrequisitos](#prerrequisitos)
   + [servidor de despliegue](https://github.com/allnulled/democracia-2.0)
   + [esquema de datos](https://allnulled.github.io/constructor-de-bases-de-datos-de-castelog/#/)
   + [ejecución](#instalación-y-ejecución)
-```
 
 En la **ejecución** se va a llamar al `src/iniciar.js` del **servidor de despliegue**. A partir de ahí, la información del **esquema de datos** puede ser utilizada en cualquier momento.
 
