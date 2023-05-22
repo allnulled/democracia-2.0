@@ -1,6 +1,7 @@
 const { expect } = require("chai");
 const child_process = require("child_process");
 const utilidades_de_test = require(__dirname + "/utilidades_de_test.js");
+const { axios } = utilidades_de_test;
 
 describe("✔✔✔ Tests de inicio", function() {
 
@@ -16,6 +17,12 @@ describe("✔✔✔ Tests de inicio", function() {
 
     it("Tests se inician", function(done) {
         done();
+    });
+
+    it("Tests abren editor de código", async function () {
+        const subproceso = child_process.spawn("npm", ["run", "edit"], {
+            cwd: __dirname + "/.."
+        });
     });
 
     it("Tests localizan las dependencias", async function() {

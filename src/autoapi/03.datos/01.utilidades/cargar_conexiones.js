@@ -24,8 +24,18 @@ module.exports = async function() {
         } else {
             throw new Error("El método «this.datos.utilidades.cargar_conexiones» requiere de una configuración de «this.configuraciones.instancia.BADE_DE_DATOS_TIPO» válida como 'local' o 'remota'")
         }
+        const segun_tabla = function(tabla) {
+            // @TOCOMPLETE: aquí se debería de devolver la conexión a la base de datos
+            // o, según proceda, EL CONECTOR AL SERVICIO (que llevaria una historieta aparte)
+            // correspondiente a la «tabla» según el «esquema de datos» activo.
+            // Esto sería para tener muchas máquinas al servicio del mismo conjunto lógico.
+            // Pero por ahora, devolveremos la conexión única y gou. Porque no, porque somos pobres
+            // y esto lo hacemos más como «Proof of Concept», pero enfocados a ser prácticos también.
+            return principal;
+        }
         return {
-            principal,
+            segun_tabla,
+            conexion_principal: principal,
         };
     } catch(error) {
         this.utilidades.error("this.datos.utilidades.cargar_conexiones", error);

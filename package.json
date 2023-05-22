@@ -4,6 +4,8 @@
   "description": "Democracia 2.0 gratis para todos",
   "main": "src/iniciar.js",
   "scripts": {
+    "edit": "code .",
+    "dev": "npx nodemon -w src/autoapi -x 'npm test'",
     "up": "node dev/up.js",
     "start": "node src/iniciar.js",
     "test": "mocha test/*.test.js"
@@ -34,6 +36,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "axios": "^1.4.0",
     "chai": "^4.3.7",
     "mocha": "^10.2.0"
   }
