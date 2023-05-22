@@ -1,4 +1,5 @@
 {
+    "NIVEL_DE_DEBUG": 1,
     "APLICACION_ID": "Democracia 2.0",
     "APLICACION_PROTOCOLO": "http",
     "APLICACION_PUERTO": 10100,

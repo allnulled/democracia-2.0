@@ -16,6 +16,12 @@ module.exports = async function(opciones) {
                 this.utilidades.tracear("this.datos.conectores.conector_para_mysql(...).consulta");
                 this.utilidades.log("[sql] " + sql);
                 return conexion.query(sql, parameters);
+            },
+            cerrar_conexion: function() {
+                return new Promise(ok => {
+                    conexion.end();
+                    return ok();
+                });
             }
         };
     } catch(error) {

@@ -35,10 +35,9 @@ module.exports = function () {
                 const protocolo = this.configuraciones.instancia.obtener("APLICACION_PROTOCOLO");
                 const puerto = this.configuraciones.instancia.obtener("APLICACION_PUERTO");
                 this.servidor.generado = this.aplicacion.instancia.listen(puerto, (direccion) => {
-                    this.utilidades.log(`[*] Servidor de «${aplicacion}» iniciado en:`);
                     let dominio = this.servidor.generado.address().address;
                     dominio = dominio === "::" ? "127.0.0.1" : dominio;
-                    this.utilidades.log(`  - ${protocolo}://${dominio}:${puerto}`);
+                    this.utilidades.log(`[*] «${aplicacion}» desplegó el servidor correctamente en «${protocolo}://${dominio}:${puerto}».`);
                 });
             } catch(error) {
                 this.utilidades.error("this.servidor.instancia.abrir_puerto", error);

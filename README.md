@@ -8,7 +8,7 @@ Democracia Directa 2.0. Servidores para la gestión de comunidades humanas igual
 2. [Instalación y ejecución](#instalación-y-ejecución)
 3. [Teoría](#teoría)
 4. [Programa](#programa)
-5. [Contextualización](#contextualización)
+
 
 ## Prerrequisitos
 

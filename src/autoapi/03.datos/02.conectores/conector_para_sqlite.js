@@ -26,6 +26,12 @@ module.exports = async function (opciones) {
                         return ok(data);
                     });
                 });
+            },
+            cerrar_conexion: function () {
+                return new Promise(ok => {
+                    conexion.close();
+                    return ok();
+                });
             }
         };
     } catch (error) {
