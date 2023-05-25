@@ -6,8 +6,15 @@ describe("✔✔✔ Tests de servicios de autorización", function() {
     
     this.timeout(1000 * 5);
  
-    before(function() {
-        //
+    before(async function() {
+        try {
+            const ruta_objetivo = utilidades_de_test.ruta_de_app("/auth/login");
+            console.log(ruta_objetivo);
+            const resp = await axios.post(ruta_objetivo, {});
+            console.log(resp.data);
+        } catch(error) {
+            console.log(error);
+        }
     });
  
     after(function() {

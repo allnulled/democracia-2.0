@@ -2,6 +2,7 @@
     "NIVEL_DE_DEBUG": 1,
     "APLICACION_ID": "Democracia 2.0",
     "APLICACION_PROTOCOLO": "http",
+    "APLICACION_HOST": "127.0.0.1",
     "APLICACION_PUERTO": 10100,
     "BASE_DE_DATOS_TIPO": "local",
     "BASE_DE_DATOS_LOCAL_FICHERO": "datos_locales",

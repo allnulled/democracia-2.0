@@ -32,7 +32,8 @@ describe("✔✔✔ Tests de inicio", function() {
     it("Tests levantan el servidor de «democracia 2.0»", async function () {
         try {
             const subproceso = child_process.spawn("npm", ["start"], {
-                cwd: __dirname + "/.."
+                cwd: __dirname + "/..",
+                stdio: [process.stdin, process.stdout, process.stderr]
             });
             utilidades_de_test.pid_de_proceso_de_servidor = subproceso.pid;
         } catch(error) {

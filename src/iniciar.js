@@ -1,5 +1,6 @@
 const despliegue = async function(democracia) {
     try {
+        await democracia.utilidades.terminar_proceso_de_pid();
         await democracia.servidor.instancia.iniciar();
         await democracia.utilidades.actualizar_fichero_de_pid();
         await democracia.utilidades.log(`[*] «${democracia.configuraciones.instancia.valores.APLICACION_ID}» desplegó la aplicación correctamente en proceso «${process.pid}» y puerto «${democracia.configuraciones.instancia.valores.APLICACION_PUERTO}».`);

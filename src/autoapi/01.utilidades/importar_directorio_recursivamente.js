@@ -1,4 +1,5 @@
 const fs = require("fs");
+const ejs = require("ejs");
 const path = require("path");
 const importar_directorio_recursivamente = async function (directory, obj, prop, rootParameter = undefined) {
     try {
@@ -41,6 +42,10 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
                     mod = mod.bind(rootParameter);
                 }
                 obj[prop][subprop] = mod;
+            } else if (file.endsWith(".ejs")) {
+                const text = fs.readFileSync(filepath).toString();
+                const template = ejs.compile(text, { this: rootParameter, file }, { async: true });
+                obj[prop][subprop] = template;
             }
         }
     } catch (error) {
