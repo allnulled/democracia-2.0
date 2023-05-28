@@ -14,17 +14,9 @@ describe("✔✔✔ Tests de final", function () {
         // 
     });
 
-    it("Cancelación de servicio", async function () {
+    it("Cancelación de proceso de «democracia-2.0» desde línea de comandos", async function () {
         try {
-
-        } catch (error) {
-            throw error;
-        }
-    });
-
-    it("Cancelación de conexiones de bases de datos", async function () {
-        try {
-
+            utilidades_de_test.subproceso_de_democracia.kill();
         } catch (error) {
             throw error;
         }

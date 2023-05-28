@@ -36,6 +36,7 @@ describe("✔✔✔ Tests de inicio", function() {
                 stdio: [process.stdin, process.stdout, process.stderr]
             });
             utilidades_de_test.pid_de_proceso_de_servidor = subproceso.pid;
+            utilidades_de_test.subproceso_de_democracia = subproceso;
         } catch(error) {
             utilidades_de_test.pid_de_proceso_de_servidor = require(__dirname + "/../src/pid.json");
         }

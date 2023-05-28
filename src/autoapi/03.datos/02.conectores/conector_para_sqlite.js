@@ -14,13 +14,13 @@ module.exports = async function (opciones) {
         });
         return {
             conexion,
-            consulta: (sql, parameters = []) => {
+            consultar: (sql, parameters = []) => {
                 return new Promise((ok, fail) => {
-                    this.utilidades.tracear("this.datos.conectores.conector_para_sqlite(...).consulta");
+                    this.utilidades.tracear("this.datos.conectores.conector_para_sqlite(...).consultar");
                     this.utilidades.log("[sql] " + sql);
                     conexion.run(sql, parameters, (error, data) => {
                         if(error) {
-                            this.utilidades.error("this.datos.conectores.conector_para_sqlite(...).consulta", error);
+                            this.utilidades.error("this.datos.conectores.conector_para_sqlite(...).consultar", error);
                             return fail(error);
                         }
                         return ok(data);

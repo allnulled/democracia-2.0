@@ -8,7 +8,7 @@
     "dev": "npx nodemon -w src/autoapi test -x 'npm test'",
     "up": "node dev/up.js",
     "start": "node src/iniciar.js",
-    "test": "mocha test/*.test.js"
+    "test": "mocha test/e2e/*.test.js"
   },
   "bin": {
     "democracia20": "bin/democracia20.js"

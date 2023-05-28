@@ -12,8 +12,8 @@ module.exports = async function(opciones) {
         const conexion = conexion_simple.promise();
         return {
             conexion,
-            consulta: (sql, parameters = []) => {
-                this.utilidades.tracear("this.datos.conectores.conector_para_mysql(...).consulta");
+            consultar: (sql, parameters = []) => {
+                this.utilidades.tracear("this.datos.conectores.conector_para_mysql(...).consultar");
                 this.utilidades.log("[sql] " + sql);
                 return conexion.query(sql, parameters);
             },

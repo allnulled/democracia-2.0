@@ -32,7 +32,7 @@ module.exports = async function() {
             // Pero por ahora, devolveremos la conexión única y gou. Porque no, porque somos pobres
             // y esto lo hacemos más como «Proof of Concept», pero enfocados a ser prácticos también.
             return principal;
-        }
+        };
         return {
             segun_tabla,
             conexion_principal: principal,

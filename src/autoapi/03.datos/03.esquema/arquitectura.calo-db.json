@@ -2,64 +2,175 @@
   "infraestructura": [
     {
       "tipo": "máquina",
-      "nombre": "Índice de máquinas",
-      "descripcion": "Esta máquina lista el índice de máquinas totales en el sistema.",
-      "url": "https://127.0.0.1",
-      "puerto_de_url": "10100",
-      "identificador_unico": "MAQ_INDICES",
+      "nombre": "Maquina_unica",
+      "descripcion": "",
+      "url": "",
+      "puerto_de_url": 80,
+      "identificador_unico": "",
       "proyectos": [
         {
           "tipo": "proyecto",
-          "nombre": "Índice de máquinas del sistema",
+          "nombre": "Proyecto_unico",
           "descripcion": "",
           "ruta_de_url": "/",
           "identificador_unico": "",
-          "conexiones": [],
+          "conexiones": [
+            {
+              "tipo": "conexión",
+              "nombre": "Conexion_unica",
+              "descripcion": "",
+              "usuario_de_base_de_datos": "",
+              "contrasenia_de_base_de_datos": "",
+              "url_de_base_de_datos": "",
+              "puerto_de_base_de_datos": "",
+              "nombre_de_base_de_datos": "",
+              "identificador_unico": "",
+              "esta_mostrando_detalles": false
+            }
+          ],
           "esta_mostrando_detalles": false
         }
       ],
-      "esta_mostrando_detalles": true
+      "esta_mostrando_detalles": false
     }
   ],
   "esquema": {
-    "Civil": {
+    "Usuario": {
       "tipo": "tabla",
-      "nombre": "Civil",
-      "descripcion": "Civiles identificados o por identificar.",
-      "identificador_unico": "CIVIL",
-      "ruta_de_url_de_tabla": "/civil",
-      "atributos_de_tabla": {
-        "es_usuario": "true"
-      },
+      "nombre": "Usuario",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
       "columnas": {
-        "Nombre": {
+        "nombre": {
           "tipo": "columna",
-          "nombre": "Nombre_completo",
-          "descripcion": "Nombre completo del civil.",
-          "identificador_unico": "CIVIL__NOMBRE_COMPLETO",
-          "ruta_de_url_de_columna": "/nombre_completo",
-          "atributos_de_columna": {
-            "es_tipo": "texto,corto"
-          },
+          "nombre": "nombre",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
           "tipo_de_dato": "texto",
           "es_identificador": false,
           "es_clave_unica": false,
           "es_clave_foranea": false,
           "es_columna_virtual": false,
           "tiene_valor_por_defecto": null,
-          "esta_mostrando_detalles": true
+          "esta_mostrando_detalles": false
+        },
+        "contrasenya": {
+          "tipo": "columna",
+          "nombre": "contrasenya",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        },
+        "correo": {
+          "tipo": "columna",
+          "nombre": "correo",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
         }
       },
       "esta_mostrando_detalles": false
     },
-    "Localidad": {
+    "Grupo": {
       "tipo": "tabla",
-      "nombre": "Localidad",
+      "nombre": "Grupo",
       "descripcion": "",
       "identificador_unico": "",
       "ruta_de_url_de_tabla": "/",
       "atributos_de_tabla": {},
-      "columnas": {},
+      "columnas": {
+        "nombre": {
+          "tipo": "columna",
+          "nombre": "nombre",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        },
+        "descripcion": {
+          "tipo": "columna",
+          "nombre": "descripcion",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        }
+      },
+      "esta_mostrando_detalles": false
+    },
+    "Permiso": {
+      "tipo": "tabla",
+      "nombre": "Permiso",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {
+        "nombre": {
+          "tipo": "columna",
+          "nombre": "nombre",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        },
+        "descripcion": {
+          "tipo": "columna",
+          "nombre": "descripcion",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        }
+      },
       "esta_mostrando_detalles": false
     }
   }

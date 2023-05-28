@@ -1,0 +1,49 @@
+<%
+
+const autoincrement_keyword = framework.configuraciones.instancia.valores.BASE_DE_DATOS_TIPO === 'local' ? "AUTOINCREMENT" : "AUTO_INCREMENT";
+
+%>
+
+CREATE TABLE Usuario (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255),
+  contrasenya VARCHAR(255),
+  correo VARCHAR(255),
+  detalles TEXT
+);
+
+CREATE TABLE Grupo (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255),
+  detalles TEXT
+);
+
+CREATE TABLE Permiso (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255),
+  detalles TEXT
+);
+
+CREATE TABLE Grupos_de_usuario (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_grupo INT,
+  id_usuario INT,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id),
+  FOREIGN KEY (id_grupo) REFERENCES Grupo (id)
+);
+
+CREATE TABLE Permisos_de_grupo (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_permiso INT,
+  id_grupo INT,
+  FOREIGN KEY (id_permiso) REFERENCES Permiso (id),
+  FOREIGN KEY (id_grupo) REFERENCES Grupo (id)
+);
+
+CREATE TABLE Permisos_de_usuario (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_permiso INT,
+  id_usuario INT,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id),
+  FOREIGN KEY (id_permiso) REFERENCES Permiso (id)
+);

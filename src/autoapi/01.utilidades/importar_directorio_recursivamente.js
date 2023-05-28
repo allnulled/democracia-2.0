@@ -9,7 +9,7 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
         for (let index = 0; index < files.length; index++) {
             const file = files[index];
             const filepath = path.resolve(directory, file);
-            const subprop = file.replace(/^[0-9]+\./g, "").replace(/(\.(factoria|clase|estatico|prometedor|promesa))?\.js$/g, "");
+            const subprop = file.replace(/^[0-9]+\./g, "").replace(/(\.(factoria|clase|estatico|prometedor|promesa))?\.js$/g, "").replace(/(\.async)?\.ejs$/g, "");
             const isDirectory = (await fs.promises.lstat(filepath)).isDirectory();
             if (isDirectory) {
                 obj[prop][subprop] = {};
@@ -42,9 +42,13 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
                     mod = mod.bind(rootParameter);
                 }
                 obj[prop][subprop] = mod;
+            } else if (file.endsWith(".async.ejs")) {
+                const text = fs.readFileSync(filepath).toString();
+                const template = ejs.compile(text, { async: true });
+                obj[prop][subprop] = template;
             } else if (file.endsWith(".ejs")) {
                 const text = fs.readFileSync(filepath).toString();
-                const template = ejs.compile(text, { this: rootParameter, file }, { async: true });
+                const template = ejs.compile(text, { async: false });
                 obj[prop][subprop] = template;
             }
         }
