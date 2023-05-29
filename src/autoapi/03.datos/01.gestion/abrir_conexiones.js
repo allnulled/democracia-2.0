@@ -1,6 +1,6 @@
 module.exports = async function() {
     try {
-        this.utilidades.tracear("this.datos.utilidades.cargar_conexiones");
+        this.utilidades.tracear("this.datos.gestion.abrir_conexiones");
         const maquinas = this.datos.esquema.instancia.arquitectura.infraestructura;
         this.utilidades.log(`[*] Cargando conexiones para una infraestructura de ${maquinas.length} bases de datos (modalidad: '${this.configuraciones.instancia.valores.BASE_DE_DATOS_TIPO}')`);
         let principal = undefined;
@@ -22,7 +22,7 @@ module.exports = async function() {
                 database: this.configuraciones.instancia.valores.BASE_DE_DATOS_NAME,
             });
         } else {
-            throw new Error("El método «this.datos.utilidades.cargar_conexiones» requiere de una configuración de «this.configuraciones.instancia.BADE_DE_DATOS_TIPO» válida como 'local' o 'remota'")
+            throw new Error("El método «this.datos.gestion.abrir_conexiones» requiere de una configuración de «this.configuraciones.instancia.BADE_DE_DATOS_TIPO» válida como 'local' o 'remota'")
         }
         const segun_tabla = function(tabla) {
             // @TOCOMPLETE: aquí se debería de devolver la conexión a la base de datos
@@ -38,7 +38,7 @@ module.exports = async function() {
             conexion_principal: principal,
         };
     } catch(error) {
-        this.utilidades.error("this.datos.utilidades.cargar_conexiones", error);
+        this.utilidades.error("this.datos.gestion.abrir_conexiones", error);
         throw error;
     }
 };

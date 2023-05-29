@@ -13,6 +13,7 @@ module.exports = function() {
         multer: require("multer"),
         sqlite3: require("sqlite3").verbose(),
         mysql2original: require("mysql2"),
-        mysql2: require("mysql2/promise")
+        mysql2: require("mysql2/promise"),
+        sqlstring: require("sqlstring")
     };
 };

@@ -3,7 +3,7 @@ const child_process = require("child_process");
 const utilidades_de_test = require(__dirname + "/utilidades_de_test.js");
 const { axios } = utilidades_de_test;
 
-describe("✔✔✔ Tests de inicio", function() {
+describe("✔✔✔ Tests de inicio (end to end)", function() {
 
     this.timeout(1000 * 5);
  
@@ -15,8 +15,8 @@ describe("✔✔✔ Tests de inicio", function() {
         
     });
 
-    it("Tests se inician", function(done) {
-        done();
+    it("Tests se inician", function() {
+        
     });
 
     it("Tests abren editor de código", async function () {

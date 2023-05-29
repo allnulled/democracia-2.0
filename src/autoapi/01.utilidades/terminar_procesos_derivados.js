@@ -8,7 +8,7 @@ module.exports = async function() {
     }
     Terminar_conexiones_a_bases_de_datos: {
         try {
-            await this.datos.utilidades.cerrar_conexiones();
+            await this.datos.gestion.cerrar_conexiones();
         } catch (error) {
             this.utilidades.log("No se pudo terminar el proceso derivado relativo al servidor.");
         }

@@ -5,10 +5,10 @@
   "main": "src/iniciar.js",
   "scripts": {
     "edit": "code .",
-    "dev": "npx nodemon -w src/autoapi test -x 'npm test'",
+    "dev": "npx nodemon -w 'src/autoapi' -w 'test/**/*.js' -x 'npm test'",
     "up": "node dev/up.js",
     "start": "node src/iniciar.js",
-    "test": "mocha test/e2e/*.test.js"
+    "test": "mocha test/e2e/*.test.js && mocha test/unit/*.test.js"
   },
   "bin": {
     "democracia20": "bin/democracia20.js"
@@ -34,11 +34,16 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.3.1",
     "sqlite3": "^5.1.6",
+    "sqlstring": "^2.3.3",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
     "axios": "^1.4.0",
     "chai": "^4.3.7",
     "mocha": "^10.2.0"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
   }
 }
