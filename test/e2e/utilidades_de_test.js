@@ -9,5 +9,6 @@ module.exports = {
         const host = configuraciones_de_app.APLICACION_HOST;
         const puerto = configuraciones_de_app.APLICACION_PUERTO;
         return `${protocolo}://${host}:${puerto}/${ruta.replace(/^\//g, "")}`;
-    }
+    },
+    tester: require(__dirname + "/../tester.js")
 };
