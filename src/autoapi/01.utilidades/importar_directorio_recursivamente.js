@@ -1,6 +1,14 @@
 const fs = require("fs");
 const ejs = require("ejs");
 const path = require("path");
+const preparar_plantilla_compilada = function(plantilla_compilada, parametros_fijos = {}, configuraciones_fijas = {}) {
+    return function(parametros_arg = {}, configuraciones_arg = {}) {
+        return plantilla_compilada(
+            Object.assign({}, parametros_arg, parametros_fijos),
+            Object.assign({}, configuraciones_arg, configuraciones_fijas)
+        );
+    }
+};
 const importar_directorio_recursivamente = async function (directory, obj, prop, rootParameter = undefined) {
     try {
         const files = await fs.promises.readdir(directory);
@@ -44,12 +52,12 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
                 obj[prop][subprop] = mod;
             } else if (file.endsWith(".async.ejs")) {
                 const text = fs.readFileSync(filepath).toString();
-                const template = ejs.compile(text, { async: true });
-                obj[prop][subprop] = template;
+                const plantilla_compilada = ejs.compile(text, { async: true });
+                obj[prop][subprop] = preparar_plantilla_compilada(plantilla_compilada, { framework: rootParameter });
             } else if (file.endsWith(".ejs")) {
                 const text = fs.readFileSync(filepath).toString();
-                const template = ejs.compile(text, { async: false });
-                obj[prop][subprop] = template;
+                const plantilla_compilada = ejs.compile(text, { async: false });
+                obj[prop][subprop] = preparar_plantilla_compilada(plantilla_compilada, { framework: rootParameter });
             }
         }
     } catch (error) {

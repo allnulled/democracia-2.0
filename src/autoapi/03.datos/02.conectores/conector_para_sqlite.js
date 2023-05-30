@@ -29,8 +29,13 @@ module.exports = async function (opciones) {
             },
             cerrar_conexion: function () {
                 return new Promise(ok => {
-                    conexion.close();
-                    return ok();
+                    try {
+                        conexion.close();
+                    } catch(error) {
+                        
+                    } finally {
+                        return ok();
+                    }
                 });
             }
         };
