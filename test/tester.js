@@ -5,7 +5,7 @@ const opciones_por_defecto = {
 const tester = function (nombre_de_test = undefined, opciones_arg = {}) {
     const opciones = Object.assign({}, opciones_por_defecto, opciones_arg);
     if (nombre_de_test) {
-        console.log(`✔ Iniciando conjunto de tests «${nombre_de_test}`);
+        console.log(`    ✔ Iniciando conjunto de tests «${nombre_de_test}`);
     }
     const debuga = function (...args) {
         if (opciones.debuga) {
@@ -18,7 +18,7 @@ const tester = function (nombre_de_test = undefined, opciones_arg = {}) {
         _completados: [],
         opciones,
         subtest: function (id, test) {
-            debuga(`✔ Añadido test: «${id}»`);
+            debuga(`    ✔ Añadido test: «${id}»`);
             subtests._pendientes.push({ id, test, indice: subtests.length + 1 });
         },
         iniciar: async function () {
@@ -26,13 +26,13 @@ const tester = function (nombre_de_test = undefined, opciones_arg = {}) {
                 const fallos = [];
                 for (let index = 0; index < subtests._pendientes.length; index++) {
                     const test_pendiente = subtests._pendientes[index];
-                    debuga(`✔ Iniciando test: «${test_pendiente.id}»`);
+                    debuga(`    ✔ Iniciando test: «${test_pendiente.id}»`);
                     try {
                         await test_pendiente.test();
-                        console.log(`✔ Completado test: «${test_pendiente.id}»`);
+                        console.log(`    ✔ Completado test: «${test_pendiente.id}»`);
                         subtests._completados.push(test_pendiente.id);
                     } catch (error) {
-                        console.log(`✘ Falló test: «${test_pendiente.id}»`);
+                        console.log(`   ✘ Falló test: «${test_pendiente.id}»`);
                         if (opciones.interrumpe) {
                             throw error;
                         } else {
@@ -53,7 +53,7 @@ const tester = function (nombre_de_test = undefined, opciones_arg = {}) {
                     mensaje_de_error += `☢☢☢ Fin de reporte de errores de tests ☢☢☢`;
                     throw new Error(mensaje_de_error);
                 } else {
-                    console.log(`✔ Completados correctamente todos los tests.`);
+                    console.log(`    ✔ Completados correctamente todos los tests.`);
                 }
             } catch (error) {
                 throw error;

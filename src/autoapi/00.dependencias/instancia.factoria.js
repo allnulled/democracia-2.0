@@ -6,6 +6,7 @@ module.exports = function() {
             return this.dependencias.instancia.path.resolve(__dirname, "..", "..", "..", ...args);
         },
         noop: () => undefined,
+        cli_color: require("cli-color"),
         ejs: require("ejs"),
         express: require("express"),
         body_parser: require("body-parser"),
