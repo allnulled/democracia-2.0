@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const child_process = require("child_process");
 const utilidades_de_test = require(__dirname + "/utilidades_de_test.js");
-const { axios } = utilidades_de_test;
+const { axios, configuraciones_de_test } = utilidades_de_test;
 
 describe("✔✔✔ Tests de inicio (end to end)", function() {
 
@@ -33,8 +33,9 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
         try {
             const subproceso = child_process.spawn("npm", ["start"], {
                 cwd: __dirname + "/..",
+            }, configuraciones_de_test.salida_comun ? {
                 stdio: [process.stdin, process.stdout, process.stderr]
-            });
+            } : {});
             utilidades_de_test.pid_de_proceso_de_servidor = subproceso.pid;
             utilidades_de_test.subproceso_de_democracia = subproceso;
         } catch(error) {

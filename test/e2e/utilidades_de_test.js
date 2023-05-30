@@ -4,6 +4,9 @@ module.exports = {
     axios: require("axios"),
     chai: require("chai"),
     configuraciones_de_app,
+    configuraciones_de_test: {
+        salida_comun: true,
+    },
     ruta_de_app: function(ruta) {
         const protocolo = configuraciones_de_app.APLICACION_PROTOCOLO;
         const host = configuraciones_de_app.APLICACION_HOST;
