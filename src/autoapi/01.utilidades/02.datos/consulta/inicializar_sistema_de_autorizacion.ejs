@@ -8,9 +8,9 @@ const autoincrement_keyword = framework.configuraciones.instancia.valores.BASE_D
 
 CREATE TABLE Usuario_no_confirmado (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
-  nombre VARCHAR(255),
+  nombre VARCHAR(255) NOT NULL UNIQUE,
   contrasenya VARCHAR(255),
-  correo VARCHAR(255),
+  correo VARCHAR(255) NOT NULL UNIQUE,
   otros VARCHAR(512),
   token_de_confirmacion VARCHAR(100),
   detalles TEXT

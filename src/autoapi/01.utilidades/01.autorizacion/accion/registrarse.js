@@ -18,13 +18,23 @@ module.exports = async function (nombre, correo, contrasenya, otros = "{}") {
         let correo_formateado = undefined;
         let otros_formateado = undefined;
         Formatear_parametros: {
-            nombre_formateado = nombre;
-            contrasenya_formateado = contrasenya;
-            correo_formateado = correo;
-            otros_formateado = JSON.parse(otros);
+            nombre_formateado = this.utilidades.datos.funcion.sanitizar_valor(nombre);
+            contrasenya_formateado = this.utilidades.datos.funcion.sanitizar_valor(contrasenya);
+            correo_formateado = this.utilidades.datos.funcion.sanitizar_valor(correo);
+            otros_formateado = this.utilidades.datos.funcion.sanitizar_valor(otros);
         }
         Ingresar_usuario_no_registrado_en_base_de_datos: {
-            
+            const db = this.datos.conexion.instancia.segun_tabla("Usuario_no_confirmado");
+            let sql = "INSERT INTO Usuario_no_confirmado (nombre, contrasenya, correo, otros) VALUES (";
+            sql += nombre_formateado;
+            sql += ", ";
+            sql += contrasenya_formateado;
+            sql += ", ";
+            sql += correo_formateado;
+            sql += ", ";
+            sql += otros_formateado;
+            sql += ")";
+            await db.consultar(sql);
         }
     } catch (error) {
         this.utilidades.error("this.utilidades.autorization.accion.registrarse", error);

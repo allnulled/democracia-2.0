@@ -4,7 +4,9 @@ module.exports = async function () {
         const db = this.datos.conexion.instancia.segun_tabla("Usuario");
         try {
             const resultados = await db.consultar("SELECT * FROM Usuario;");
-            // @OK entonces.
+            Borrando_registros_de_tests: {
+                await db.consultar("DELETE FROM Usuario_no_confirmado WHERE nombre = '00' OR correo = '00@00.00';")
+            }
         } catch(error) {
             this.utilidades.log(error);
             try {
