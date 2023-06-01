@@ -22,5 +22,6 @@ module.exports = {
         const puerto = configuraciones_de_app.APLICACION_PUERTO;
         return `${protocolo}://${host}:${puerto}/${ruta.replace(/^\//g, "")}`;
     },
-    tester: require(__dirname + "/../tester.js")
+    tester: require(__dirname + "/../tester.js"),
+    revisor_de_objeto: require(__dirname + "/../revisor_de_objeto.js")
 };

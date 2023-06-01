@@ -13,11 +13,18 @@ module.exports = async function (nombre, correo, contrasenya, otros = "{}") {
             comprueba.que(otros, "otros", "el parámetro «otros» debe ser un jsonable «al registrarse»").es_jsonable();
             comprueba.que(otros, "otros", "el parámetro «otros» debe tener menos de 500 caracteres «al registrarse»").tiene_longitud_menor_que(500);
         }
+        let nombre_formateado = undefined;
+        let contrasenya_formateado = undefined;
+        let correo_formateado = undefined;
+        let otros_formateado = undefined;
         Formatear_parametros: {
-            const nombre_formateado = nombre;
-            const contrasenya_formateado = contrasenya;
-            const correo_formateado = correo;
-            const otros_formateado = JSON.parse(otros);
+            nombre_formateado = nombre;
+            contrasenya_formateado = contrasenya;
+            correo_formateado = correo;
+            otros_formateado = JSON.parse(otros);
+        }
+        Ingresar_usuario_no_registrado_en_base_de_datos: {
+            
         }
     } catch (error) {
         this.utilidades.error("this.utilidades.autorization.accion.registrarse", error);

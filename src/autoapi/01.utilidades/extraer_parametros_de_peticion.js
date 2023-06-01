@@ -1,4 +1,4 @@
-module.exports = function (req, parametros = [], vias = ["body","querystring","httpheaders"], valor_por_defecto = undefined) {
+module.exports = function (req, parametros = [], vias = ["body","querystring","httpheaders"]) {
     const extraccion = {};
     for(let index_parametros = 0; index_parametros < parametros.length; index_parametros++) {
         const parametro_id = parametros[index_parametros];
@@ -11,22 +11,19 @@ module.exports = function (req, parametros = [], vias = ["body","querystring","h
                         extraccion[parametro_id] = parametro;
                         break Extraccion_de_parametro;
                     }
-                }
-                if (["querystring", "get"].indexOf(via) !== -1) {
+                } else if (["querystring", "get"].indexOf(via) !== -1) {
                     if (req.query && (parametro_id in req.query)) {
                         const parametro = req.query[parametro_id];
                         extraccion[parametro_id] = parametro;
                         break Extraccion_de_parametro;
                     }
-                }
-                if (["httpheaders", "headers"].indexOf(via) !== -1) {
+                } else if (["httpheaders", "headers"].indexOf(via) !== -1) {
                     if (req.headers && (parametro_id in req.headers)) {
                         const parametro = req.headers[parametro_id];
                         extraccion[parametro_id] = parametro;
                         break Extraccion_de_parametro;
                     }
                 }
-                extraccion[parametro_id] = valor_por_defecto;
             }
         }
     }

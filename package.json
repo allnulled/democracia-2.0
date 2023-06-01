@@ -8,7 +8,10 @@
     "dev": "npx nodemon -w 'src/autoapi' -w 'test/**/*.js' -x 'npm test'",
     "up": "node dev/up.js",
     "start": "node src/iniciar.js",
-    "test": "mocha test/e2e/*.test.js && mocha test/unit/*.test.js"
+    "test:e2e": "mocha test/e2e/*.test.js",
+    "test:unit": "mocha test/unit/*.test.js",
+    "test:all": "npm run test:e2e && npm run test:unit",
+    "test": "npm run test:e2e"
   },
   "bin": {
     "democracia20": "bin/democracia20.js"
