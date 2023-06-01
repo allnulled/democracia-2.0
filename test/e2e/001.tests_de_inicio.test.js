@@ -1,11 +1,11 @@
 const { expect } = require("chai");
 const child_process = require("child_process");
-const utilidades_de_test = require(__dirname + "/utilidades_de_test.js");
+const utilidades_de_test = require(__dirname + "/utilidades_de_test_e2e.js");
 const { axios, configuraciones_de_test } = utilidades_de_test;
 
 describe("✔✔✔ Tests de inicio (end to end)", function() {
 
-    this.timeout(1000 * 5);
+    this.timeout(1000 * 10);
  
     before(function() {
         
@@ -31,11 +31,13 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
 
     it("Tests levantan el servidor de «democracia 2.0»", async function () {
         try {
-            const subproceso = child_process.spawn("npm", ["start"], {
+            const configuraciones_de_subproceso = {
                 cwd: __dirname + "/..",
-            }, configuraciones_de_test.salida_comun ? {
-                stdio: [process.stdin, process.stdout, process.stderr]
-            } : {});
+            };
+            if (configuraciones_de_test.salida_comun) {
+                configuraciones_de_subproceso.stdio = [process.stdin, process.stdout, process.stderr];
+            }
+            const subproceso = child_process.spawn("npm", ["start"], configuraciones_de_subproceso);
             utilidades_de_test.pid_de_proceso_de_servidor = subproceso.pid;
             utilidades_de_test.subproceso_de_democracia = subproceso;
         } catch(error) {

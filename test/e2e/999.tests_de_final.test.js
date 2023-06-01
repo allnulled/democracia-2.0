@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const utilidades_de_test = require(__dirname + "/utilidades_de_test.js");
+const utilidades_de_test = require(__dirname + "/utilidades_de_test_e2e.js");
 const { axios } = utilidades_de_test;
 
 describe("✔✔✔ Tests de final", function () {

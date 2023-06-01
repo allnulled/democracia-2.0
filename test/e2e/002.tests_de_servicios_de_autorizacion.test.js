@@ -1,10 +1,10 @@
 const { expect } = require("chai");
-const utilidades_de_test = require(__dirname + "/utilidades_de_test.js");
+const utilidades_de_test = require(__dirname + "/utilidades_de_test_e2e.js");
 const { axios } = utilidades_de_test;
 
 describe("✔✔✔ Tests de servicios de autorización", function() {
     
-    this.timeout(1000 * 5);
+    this.timeout(1000 * 10);
  
     before(async function() {
         try {

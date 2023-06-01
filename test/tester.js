@@ -20,7 +20,11 @@ const tester = function (nombre_de_test = undefined, opciones_arg = {}) {
         opciones,
         subtest: function (id, test) {
             debuga(cli_color.cyanBright(`    ✔ Añadido test: «${id}»`));
-            subtests._pendientes.push({ id, test, indice: subtests.length + 1 });
+            subtests._pendientes.push({
+                id,
+                test,
+                indice: subtests.length + 1
+            });
         },
         iniciar: async function () {
             try {
@@ -32,37 +36,42 @@ const tester = function (nombre_de_test = undefined, opciones_arg = {}) {
                         const inicio_de_test = new Date();
                         await test_pendiente.test();
                         const final_de_test = new Date();
-                        const segundos_de_test = (final_de_test - inicio_de_test) / 1000;
-                        console.log("    " + cli_color.green(`✔ En «${segundos_de_test}» segundos se ha completado test «${test_pendiente.id}»`));
-                        subtests._completados.push({ id: test_pendiente.id, tiempo: segundos_de_test });
+                        const milisegundos_de_test = (final_de_test - inicio_de_test);
+                        console.log("    " + cli_color.green(`✔ ${test_pendiente.id} (${milisegundos_de_test}ms)`));
+                        subtests._completados.push({
+                            test: test_pendiente.id,
+                            tiempo: milisegundos_de_test
+                        });
                     } catch (error) {
-                        console.log(`    ✘ Justo falló test: «${test_pendiente.id}»`);
+                        console.log("    " + cli_color.redBright(`✘ Justo falló test: «${test_pendiente.id}»`));
                         if (opciones.interrumpe) {
                             throw error;
                         } else {
-                            fallos.push({ test: id, error });
+                            fallos.push({
+                                test: test_pendiente.id,
+                                error
+                            });
                         }
                     }
                 }
                 if (fallos.length) {
                     let mensaje_de_error = "";
-                    mensaje_de_error += `  ☢☢☢ Reporte de errores de tests ☢☢☢\n`;
-                    mensaje_de_error += `    ✘ Fallaron ${fallos.length} tests debido a los siguientes errores:\n`;
+                    mensaje_de_error += cli_color.redBright(`\n☢☢☢ Reporte de errores de tests ☢☢☢\n`);
+                    mensaje_de_error += ` ✘ Fallaron ${fallos.length} tests debido a los siguientes errores:\n`;
                     for (let index = 0; index < fallos.length; index++) {
                         const fallo = fallos[index];
                         const { indice, test, error } = fallo;
-                        mensaje_de_error += `    ☢ Test ${indice} «${test}» falló por el siguiente error: ☢\n`;
-                        mensaje_de_error += `    ☢ [${error.name}] ${error.message} [\n${error.stack.split(/\n  +/g)}\n]\n\n`;
+                        mensaje_de_error += `   ✘ [${indice}] ${test}: [${error.name}] ${error.message} [\n    ${error.stack.split(/\n  +/g).join("\n    ")}\n]\n`;
                     }
-                    mensaje_de_error += `☢☢☢ Fin de reporte de errores de tests ☢☢☢`;
-                    console.log(cli_color.redBright(mensaje_de_error));
+                    mensaje_de_error += cli_color.redBright(`☢☢☢ Fin de reporte de errores de tests ☢☢☢`);
+                    // console.log(mensaje_de_error);
                     throw new Error(mensaje_de_error);
                 } else {
-                    console.log("  " + cli_color.greenBright.underline(`✔✔✔ Completados correctamente todos los tests.`));
+                    console.log("    " + cli_color.greenBright.underline(`✔✔✔ Completados correctamente todos los tests.`));
                     for(let index = 0; index < subtests._completados.length; index++) {
                         const subtest_completado = subtests._completados[index];
-                        const { id, tiempo } = subtest_completado;
-                        console.log("    " + cli_color.greenBright.underline(`✔ Test «${id}» completado en «${tiempo}» segundos`));
+                        const { test, tiempo } = subtest_completado;
+                        console.log("      " + cli_color.greenBright.underline(`✔ ${test} (${tiempo}ms)`));
                     }
                 }
             } catch (error) {

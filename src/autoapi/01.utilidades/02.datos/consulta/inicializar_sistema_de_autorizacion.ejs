@@ -4,13 +4,30 @@ const autoincrement_keyword = framework.configuraciones.instancia.valores.BASE_D
 
 %>
 
+/* Inicio de nueva query */
+
+CREATE TABLE Usuario_no_confirmado (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255),
+  contrasenya VARCHAR(255),
+  correo VARCHAR(255),
+  otros VARCHAR(512),
+  token_de_confirmacion VARCHAR(100),
+  detalles TEXT
+);
+
+/* Inicio de nueva query */
+
 CREATE TABLE Usuario (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
   nombre VARCHAR(255),
   contrasenya VARCHAR(255),
   correo VARCHAR(255),
+  otros VARCHAR(512),
   detalles TEXT
 );
+
+/* Inicio de nueva query */
 
 CREATE TABLE Grupo (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
@@ -18,11 +35,15 @@ CREATE TABLE Grupo (
   detalles TEXT
 );
 
+/* Inicio de nueva query */
+
 CREATE TABLE Permiso (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
   nombre VARCHAR(255),
   detalles TEXT
 );
+
+/* Inicio de nueva query */
 
 CREATE TABLE Grupos_de_usuario (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
@@ -32,6 +53,8 @@ CREATE TABLE Grupos_de_usuario (
   FOREIGN KEY (id_grupo) REFERENCES Grupo (id)
 );
 
+/* Inicio de nueva query */
+
 CREATE TABLE Permisos_de_grupo (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
   id_permiso INT,
@@ -39,6 +62,8 @@ CREATE TABLE Permisos_de_grupo (
   FOREIGN KEY (id_permiso) REFERENCES Permiso (id),
   FOREIGN KEY (id_grupo) REFERENCES Grupo (id)
 );
+
+/* Inicio de nueva query */
 
 CREATE TABLE Permisos_de_usuario (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,

@@ -12,13 +12,33 @@ module.exports = async function (opciones) {
                 return ok();
             });
         });
-        return {
+        const conexion_de_alto_nivel = {
             conexion,
-            consultar: (sql, parameters = []) => {
+            consultar_multiplemente: async (consulta_sql_multiple, parameters = []) => {
+                try {
+                    this.utilidades.tracear("this.datos.conectores.conector_para_sqlite(...).consultar_multiplemente");
+                    const subconsultas = consulta_sql_multiple.split(/\/\* Inicio de nueva query \*\//g).map(sql => sql.trim()).filter(sql => sql.length);
+                    const resultados = [];
+                    Subconsultas_por_orden:
+                    for(let index = 0; index < subconsultas.length; index++) {
+                        const subconsulta = subconsultas[index];
+                        const resultado = await conexion_de_alto_nivel.consultar(subconsulta);
+                        resultados.push({
+                            indice_de_consulta: index,
+                            subconsulta,
+                            resultado,
+                        });
+                    }
+                    return resultados;
+                } catch(error) {
+                    this.utilidades.error("this.datos.conectores.conector_para_sqlite(...).consultar", error);
+                }
+            },
+            consultar: (consulta_sql_unica, parameters = []) => {
                 return new Promise((ok, fail) => {
                     this.utilidades.tracear("this.datos.conectores.conector_para_sqlite(...).consultar");
-                    this.utilidades.log("[sql] " + sql);
-                    conexion.run(sql, parameters, (error, data) => {
+                    this.utilidades.log("[sql] " + consulta_sql_unica);
+                    conexion.run(consulta_sql_unica, parameters, (error, data) => {
                         if(error) {
                             this.utilidades.error("this.datos.conectores.conector_para_sqlite(...).consultar", error);
                             return fail(error);
@@ -39,6 +59,7 @@ module.exports = async function (opciones) {
                 });
             }
         };
+        return conexion_de_alto_nivel;
     } catch (error) {
         this.utilidades.error("this.datos.conectores.conector_para_sqlite", error);
         throw error;

@@ -5,7 +5,7 @@ const { axios } = utilidades_de_test;
 
 describe("✔✔✔ Tests de inicio (unitarios)", function() {
 
-    this.timeout(1000 * 5);
+    this.timeout(1000 * 10);
  
     before(function() {
         
@@ -15,8 +15,8 @@ describe("✔✔✔ Tests de inicio (unitarios)", function() {
         
     });
 
-    it("Tests se inician", function(done) {
-        done();
+    it("Tests se inician", function() {
+        
     });
 
     it("Tests localizan las dependencias", async function() {

@@ -9,7 +9,7 @@ module.exports = async function () {
             this.utilidades.log(error);
             try {
                 const consulta_para_iniciar_auth = await this.utilidades.datos.consulta.inicializar_sistema_de_autorizacion();
-                await db.consultar(consulta_para_iniciar_auth);
+                await db.consultar_multiplemente(consulta_para_iniciar_auth);
             } catch(error) {
                 this.utilidades.log("No se pudo inicializar la base de datos de autorizaciones. El arranque de «democracia-2.0» no puede completarse correctamente.");
                 this.utilidades.finalizar(db, resultado);

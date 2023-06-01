@@ -5,6 +5,15 @@ module.exports = {
     chai: require("chai"),
     configuraciones_de_app,
     configuraciones_de_test: {
+        /**
+         * 
+         * @TOFIX !!
+         * 
+         * Si pones esta variable en 'false', los tests se cierran al acabar.
+         * Si pones esta variable en 'true', los tests NO SE CIERRAN al acabar.
+         * ¿Pooooooooooooooooooooooor?
+         * 
+         */
         salida_comun: true,
     },
     ruta_de_app: function(ruta) {
