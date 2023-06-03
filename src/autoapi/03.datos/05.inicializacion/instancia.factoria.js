@@ -5,7 +5,15 @@ module.exports = async function () {
         try {
             const resultados = await db.consultar("SELECT * FROM Usuario;");
             Borrando_registros_de_tests: {
-                await db.consultar("DELETE FROM Usuario_no_confirmado WHERE nombre = '00' OR correo = '00@00.00';")
+                const usuarios_de_tests = resultados.filter(usuario => {
+                    return usuario.nombre === "00";
+                });
+                if (usuarios_de_tests.length === 0) {
+                    break Borrando_registros_de_tests;
+                }
+                await db.consultar(`DELETE FROM Sesion WHERE id_usuario = '${ usuarios_de_tests[0].id }';`);
+                await db.consultar("DELETE FROM Usuario_no_confirmado WHERE nombre = '00';");
+                await db.consultar("DELETE FROM Usuario WHERE nombre = '00' OR correo = '00@00.00';");
             }
         } catch(error) {
             this.utilidades.log(error);

@@ -26,16 +26,16 @@ describe("✔✔✔ Tests de servicios de autorización", function() {
         try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «confirmar_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
-    it("Servicio de autorización para «identificarse»", async function () {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «identificarse».js")(utilidades_de_test); } catch (error) { throw error; }
+    it("Servicio de autorización para «entrar»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «entrar».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
     it("Servicio de autorización para «refrescarse»", async function () {
         try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «refrescarse».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
-    it("Servicio de autorización para «desidentificarse»", async function () {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «desidentificarse».js")(utilidades_de_test); } catch (error) { throw error; }
+    it("Servicio de autorización para «salir»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «salir».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
     it("Servicio de autorización para «desregistrarse»", async function () {
