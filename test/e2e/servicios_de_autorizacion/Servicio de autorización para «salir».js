@@ -18,7 +18,7 @@ module.exports = async function (utilidades_de_test) {
         });
 
         subtest("Servicio de autorización para «salir» al final acepta los parámetros correctos", async function () {
-            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_activa_1");
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_activa_2");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/salir"), { token_de_sesion });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
