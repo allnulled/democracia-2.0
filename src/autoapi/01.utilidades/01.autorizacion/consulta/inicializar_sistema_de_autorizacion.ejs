@@ -12,7 +12,7 @@ CREATE TABLE Usuario_no_confirmado (
   contrasenya VARCHAR(255),
   correo VARCHAR(255) NOT NULL UNIQUE,
   otros VARCHAR(512),
-  token_de_confirmacion VARCHAR(100),
+  token_de_confirmacion VARCHAR(100) NOT NULL UNIQUE,
   detalles TEXT
 );
 
