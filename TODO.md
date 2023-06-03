@@ -2,6 +2,11 @@
 
 -------------------------------------------
 
-[ ] src/autoapi/05.servidor/controlador/factoria/sistema_de_autentificacion.js
-[ ] src/autoapi/05.servidor/controlador/factoria/sistema_de_datos.js
+[ ] Sistema de autentificación: 
+  [ ] servicio de refrescarse sesion
+    [ ] con su test
+  [ ] servicio de desregistrarse del sistema
+    [ ] con su test
+
+Aquí estaremos de la auth. Pasaremos al de los datos.
 

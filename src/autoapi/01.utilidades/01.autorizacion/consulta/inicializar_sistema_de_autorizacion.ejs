@@ -24,6 +24,7 @@ CREATE TABLE Usuario (
   contrasenya VARCHAR(255),
   correo VARCHAR(255) NOT NULL UNIQUE,
   otros VARCHAR(512),
+  activado INT DEFAULT 1 NOT NULL,
   detalles TEXT
 );
 

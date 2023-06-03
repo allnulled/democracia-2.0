@@ -38,8 +38,8 @@ describe("✔✔✔ Tests de servicios de autorización", function() {
         try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «salir».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
-    it("Servicio de autorización para «desregistrarse»", async function () {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «desregistrarse».js")(utilidades_de_test); } catch (error) { throw error; }
+    it("Servicio de autorización para «eliminarse»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «eliminarse».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
 });
