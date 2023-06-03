@@ -35,15 +35,19 @@ module.exports = async function (opciones) {
                 }
             },
             consultar: (consulta_sql_unica, parameters = []) => {
+                const that = this;
                 return new Promise((ok, fail) => {
                     this.utilidades.tracear("this.datos.conectores.conector_para_sqlite(...).consultar");
                     this.utilidades.log("[sql] " + consulta_sql_unica);
-                    conexion.run(consulta_sql_unica, parameters, (error, data) => {
-                        if(error) {
-                            this.utilidades.error("this.datos.conectores.conector_para_sqlite(...).consultar", error);
-                            return fail(error);
-                        }
-                        return ok(data);
+                    conexion.serialize(() => {
+                        conexion.all(consulta_sql_unica, parameters, function(error, data) {
+                            if(error) {
+                                that.utilidades.error("this.datos.conectores.conector_para_sqlite(...).consultar", error);
+                                return fail(error);
+                            }
+                            that.utilidades.log("[sql-out] " + JSON.stringify(data, null, 2));
+                            return ok(data);
+                        });
                     });
                 });
             },

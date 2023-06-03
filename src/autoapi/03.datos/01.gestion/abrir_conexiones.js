@@ -6,7 +6,7 @@ module.exports = async function() {
         let principal = undefined;
         if(this.configuraciones.instancia.valores.BASE_DE_DATOS_TIPO === "local") {
             const fichero_id = this.configuraciones.instancia.obtener("BASE_DE_DATOS_LOCAL_FICHERO");
-            const fichero_path = this.dependencias.instancia.ruta("src/" + fichero_id + ".txt");
+            const fichero_path = this.dependencias.instancia.ruta("src/" + fichero_id + ".sqlite3");
             this.utilidades.log(`[*] Cargando conexión «principal» vía SQLite`);
             principal = await this.datos.conectores.conector_para_sqlite({
                 file: fichero_path,

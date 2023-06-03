@@ -1,5 +1,6 @@
 module.exports = async function (utilidades_de_test) {
     try {
+        
         const { chai, axios, ruta_de_app, tester, revisor_de_objeto } = utilidades_de_test;
         const { expect } = chai;
         const { subtest, iniciar } = tester("Conjunto de tests del servicio de autorización para «registrarse»", { debuga: 0 });
@@ -55,12 +56,11 @@ module.exports = async function (utilidades_de_test) {
                 nombre: "00",
                 contrasenya: "000000",
                 correo: "00@00.00",
-                token_conf: respuesta_1.data.respuesta.datos.token_de_confirmacion
+                token_de_confirmacion: respuesta_1.data.respuesta.datos.token_de_confirmacion
             });
         });
         
         await iniciar();
-        
 
     } catch (error) {
         throw error;
