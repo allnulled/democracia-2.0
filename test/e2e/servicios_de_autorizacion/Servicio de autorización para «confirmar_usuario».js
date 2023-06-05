@@ -8,7 +8,7 @@ module.exports = async function (utilidades_de_test) {
         subtest("Servicio de autorización para «confirmarse» exige un «token_de_confirmacion»", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/confirmarse"), {});
             console.log(respuesta_1.data);
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «token_de_confirmacion» es un texto [error: el parámetro «token_de_confirmacion» debe ser un texto «al confirmarse»]");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «token_de_confirmacion» es un texto [error: el parámetro «token_de_confirmacion» debe ser un texto al «confirmarse»]");
         });
 
         subtest("Servicio de autorización para «confirmarse» exige un «token_de_confirmacion» que esté registrado", async function () {

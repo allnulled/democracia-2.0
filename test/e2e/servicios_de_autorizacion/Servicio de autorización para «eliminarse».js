@@ -16,13 +16,13 @@ module.exports = async function (utilidades_de_test) {
         subtest("Servicio de autorización para «eliminarse» exige un «token_de_sesion»", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/eliminarse"), {});
             console.log(respuesta_1.data);
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «token_de_sesion» es un texto [error: el parámetro «token_de_sesion» debe ser un texto «al eliminarse»]");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «token_de_sesion» es un texto [error: el parámetro «token_de_sesion» debe ser un texto al «eliminarse»]");
         });
 
         subtest("Servicio de autorización para «eliminarse» exige una «token_de_sesion» existente", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/eliminarse"), { token_de_sesion: "xxx" });
             console.log(respuesta_1.data);
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "El «token_de_sesion» referido no está registrado en la base de datos «al eliminarse»");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "El «token_de_sesion» referido no está registrado en la base de datos al «eliminarse»");
         });
 
         subtest("Servicio de autorización para «eliminarse» al final acepta los parámetros correctos", async function () {

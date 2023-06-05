@@ -8,19 +8,19 @@ module.exports = async function (utilidades_de_test) {
         subtest("Servicio de autorización para «entrar» exige un «nombre» o un «correo»", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/entrar"), {});
             console.log(respuesta_1.data);
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «nombre» o «correo» es un texto [error: el parámetro «nombre» o «correo» debe ser un texto «al entrar»]");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «nombre» o «correo» es un texto [error: el parámetro «nombre» o «correo» debe ser un texto al «entrar»]");
         });
 
         subtest("Servicio de autorización para «entrar» exige una «contrasenya»", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/entrar"), { nombre: "xxx" });
             console.log(respuesta_1.data);
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «contrasenya» es un texto [error: el parámetro «contrasenya» debe ser un texto «al entrar»]");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "Comprueba que «contrasenya» es un texto [error: el parámetro «contrasenya» debe ser un texto al «entrar»]");
         });
 
         subtest("Servicio de autorización para «entrar» exige un «usuario referido» existente", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/entrar"), { nombre: "xxx", contrasenya: "xxx.xxx" });
             console.log(respuesta_1.data);
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "El «usuario» referido con la «contrasenya» especificada no está registrado en la base de datos «al entrar»");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "error"], "El «usuario» referido con la «contrasenya» especificada no está registrado en la base de datos al «entrar»");
         });
 
         subtest("Servicio de autorización para «entrar» al final acepta los parámetros correctos", async function () {
