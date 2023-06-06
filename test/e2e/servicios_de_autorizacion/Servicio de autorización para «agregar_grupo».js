@@ -5,8 +5,26 @@ module.exports = async function (utilidades_de_test) {
         const { expect } = chai;
         const { subtest, iniciar } = tester("Conjunto de tests del servicio de autorización para «agregar_grupo»", { debuga: 0 });
 
+        subtest("Servicio de autorización para «agregar_grupo» exige un «nombre» y unos «detalles»", async function () {
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_grupo"), {
+                // nombre: "grupo_0_para_test",
+                detalles: "Grupo inventado para tests 0.",
+            });
+            const respuesta_2 = await axios.post(ruta_de_app("/auth/agregar_grupo"), {
+                nombre: "grupo_0_para_test",
+                // detalles: "Grupo inventado para tests 0.",
+            });
+            console.log(respuesta_1.data);
+            console.log(respuesta_2.data);
+            revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => "error" in respuesta);
+            revisor_de_objeto(respuesta_2, ["data", "respuesta"], respuesta => "error" in respuesta);
+        });
+
         subtest("Servicio de autorización para «agregar_grupo» al final acepta los parámetros correctos", async function () {
-            const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_grupo"), {});
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_grupo"), {
+                nombre: "grupo_0_para_test",
+                detalles: "Grupo inventado para tests 0.",
+            });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
         });

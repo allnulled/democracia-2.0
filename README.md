@@ -45,5 +45,5 @@ Los documentos teóricos que fundamentan este software son:
 
 Los documentos técnicos que dan soporte a este software son:
 
-  - [Guía para el desarrollador de la Democracia 2.0](./info/Guía-para-el-desarrollador.md) explica más en profundidad el proyecto como pieza de software. Desde esta guía, puedes ir a otros documentos relacionados, como la [guía para la arquitectura de la base de datos de la Democracia 2.0](./info/Guía-para-la-arquitectura-de-la-base-de-datos-de-la-Democracia-2.0.md).
+  - [Guía para el desarrollador de la Democracia 2.0](./info/Guía-para-el-desarrollador.md) explica más en profundidad el proyecto como pieza de software. Desde esta guía, puedes ir a otros documentos relacionados, como la [Guía para la arquitectura de la base de datos de la Democracia 2.0](./info/Guía-para-la-arquitectura-de-la-base-de-datos-de-la-Democracia-2.0.md).
 

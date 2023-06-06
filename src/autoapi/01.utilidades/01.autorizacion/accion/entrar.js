@@ -12,9 +12,9 @@ module.exports = async function(nombre = false, correo = false, contrasenya = fa
         let resultado_1, resultado_2, resultado_3;
         Validar_parametros: {
             if((typeof nombre !== "string") && (typeof correo !== "string")) {
-                throw new Error("Comprueba que «nombre» o «correo» es un texto [error: el parámetro «nombre» o «correo» debe ser un texto «al entrar»]");
+                throw new Error("Comprueba que «nombre» o «correo» es un texto [error: el parámetro «nombre» o «correo» debe ser un texto al «entrar»]");
             }
-            comprueba.que(contrasenya, "contrasenya", "el parámetro «contrasenya» debe ser un texto «al entrar»").es_texto();
+            comprueba.que(contrasenya, "contrasenya", "el parámetro «contrasenya» debe ser un texto al «entrar»").es_texto();
         }
         Formatear_parametros: {
             nombre_sanitizado = sanitizar_valor(nombre);
@@ -37,10 +37,10 @@ module.exports = async function(nombre = false, correo = false, contrasenya = fa
             sql += contrasenya_sanitizada;
             resultado_1 = await db.consultar(sql);
             if (typeof resultado_1 === "undefined") {
-                throw new Error("El «usuario» referido con la «contrasenya» especificada no está registrado en la base de datos (0) «al entrar»");
+                throw new Error("El «usuario» referido con la «contrasenya» especificada no está registrado en la base de datos (0) al «entrar»");
             }
             if (resultado_1.length !== 1) {
-                throw new Error("El «usuario» referido con la «contrasenya» especificada no está registrado en la base de datos «al entrar»");
+                throw new Error("El «usuario» referido con la «contrasenya» especificada no está registrado en la base de datos al «entrar»");
             }
             usuario_referido = resultado_1[0];
         }

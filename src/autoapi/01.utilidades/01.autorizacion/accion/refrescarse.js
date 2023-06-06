@@ -10,7 +10,7 @@ module.exports = async function (token_de_sesion = false) {
         let token_de_sesion_sanitizado = undefined;
         let resultado_1, resultado_2;
         Validar_parametros: {
-            comprueba.que(token_de_sesion, "token_de_sesion", "el parámetro «token_de_sesion» debe ser un texto «al refrescarse»").es_texto();
+            comprueba.que(token_de_sesion, "token_de_sesion", "el parámetro «token_de_sesion» debe ser un texto al «refrescarse»").es_texto();
         }
         Formatear_parametros: {
             token_de_sesion_sanitizado = sanitizar_valor(token_de_sesion);
@@ -24,10 +24,10 @@ module.exports = async function (token_de_sesion = false) {
             sql += token_de_sesion_sanitizado;
             resultado_1 = await db.consultar(sql);
             if (typeof resultado_1 === "undefined") {
-                throw new Error("El «token_de_sesion» referido no está registrado en la base de datos (0) «al refrescarse»");
+                throw new Error("El «token_de_sesion» referido no está registrado en la base de datos (0) al «refrescarse»");
             }
             if (resultado_1.length !== 1) {
-                throw new Error("El «token_de_sesion» referido no está registrado en la base de datos «al refrescarse»");
+                throw new Error("El «token_de_sesion» referido no está registrado en la base de datos al «refrescarse»");
             }
         }
         Eliminar_sesion_activa: {

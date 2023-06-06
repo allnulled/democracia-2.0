@@ -34,6 +34,7 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
             const configuraciones_de_subproceso = {
                 cwd: __dirname + "/..",
             };
+            // @POR-ESTO!
             if (configuraciones_de_test.salida_comun) {
                 configuraciones_de_subproceso.stdio = [process.stdin, process.stdout, process.stderr];
             }

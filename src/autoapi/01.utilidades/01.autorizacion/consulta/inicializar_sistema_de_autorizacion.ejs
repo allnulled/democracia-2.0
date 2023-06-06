@@ -1,6 +1,8 @@
 <%
 
-const autoincrement_keyword = framework.configuraciones.instancia.valores.BASE_DE_DATOS_TIPO === 'local' ? "AUTOINCREMENT" : "AUTO_INCREMENT";
+const conf = framework.configuraciones.instancia.valores;
+const autoincrement_keyword = conf.BASE_DE_DATOS_TIPO === 'local' ? "AUTOINCREMENT" : "AUTO_INCREMENT";
+const es_entorno_de_pruebas = conf.ENTORNO_DE_PRUEBAS === 'si';
 
 %>
 
@@ -46,7 +48,7 @@ CREATE TABLE Permiso (
 
 /* Inicio de nueva query */
 
-CREATE TABLE Grupos_de_usuario (
+CREATE TABLE Grupos_por_usuario (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
   id_grupo INT,
   id_usuario INT,
@@ -56,7 +58,7 @@ CREATE TABLE Grupos_de_usuario (
 
 /* Inicio de nueva query */
 
-CREATE TABLE Permisos_de_grupo (
+CREATE TABLE Permisos_por_grupo (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
   id_permiso INT,
   id_grupo INT,
@@ -66,7 +68,7 @@ CREATE TABLE Permisos_de_grupo (
 
 /* Inicio de nueva query */
 
-CREATE TABLE Permisos_de_usuario (
+CREATE TABLE Permisos_por_usuario (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
   id_permiso INT,
   id_usuario INT,
@@ -82,3 +84,21 @@ CREATE TABLE Sesion (
   token_de_sesion VARCHAR(100) NOT NULL UNIQUE,
   FOREIGN KEY (id_usuario) REFERENCES Usuario (id)
 );
+
+<% if(es_entorno_de_pruebas) { %>
+
+/* Inicio de nueva query */
+
+INSERT INTO Usuario (nombre, contrasenya, correo) VALUES ('administrador', 'admin-admin-no-mucho', 'admin@admin.xx');
+
+/* Inicio de nueva query */
+
+INSERT INTO Grupo (nombre, detalles) VALUES ('administracion de autorizaciones', 'Administrar usuario, grupo y permiso');
+
+/* Inicio de nueva query */
+
+INSERT INTO Permiso (nombre, detalles) VALUES ('administrar autorizaciones', 'Permite administrar usuario, grupo y permiso');
+
+/* Inicio de nueva query */
+
+<% } %>

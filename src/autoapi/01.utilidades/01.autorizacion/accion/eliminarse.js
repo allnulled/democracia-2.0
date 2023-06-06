@@ -4,7 +4,7 @@ module.exports = async function (token_de_sesion = false) {
         const { comprueba } = this.dependencias.instancia;
         const { sanitizar_valor } = this.utilidades.datos.funcion;
         Validar_parametros: {
-            comprueba.que(token_de_sesion, "token_de_sesion", "el parámetro «token_de_sesion» debe ser un texto «al eliminarse»").es_texto();
+            comprueba.que(token_de_sesion, "token_de_sesion", "el parámetro «token_de_sesion» debe ser un texto al «eliminarse»").es_texto();
         }
         let token_de_sesion_sanitizado = undefined;
         let usuario_por_eliminarse = undefined;
@@ -22,7 +22,7 @@ module.exports = async function (token_de_sesion = false) {
             sql += ";";
             resultado_1 = await db.consultar(sql);
             if(resultado_1.length !== 1) {
-                throw new Error("El «token_de_sesion» referido no está registrado en la base de datos «al eliminarse»");
+                throw new Error("El «token_de_sesion» referido no está registrado en la base de datos al «eliminarse»");
             }
             usuario_por_eliminarse = resultado_1[0];
         }

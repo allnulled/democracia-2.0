@@ -1,4 +1,5 @@
 {
+    "ENTORNO_DE_PRUEBAS": "si",
     "NIVEL_DE_DEBUG": 1,
     "APLICACION_ID": "Democracia 2.0",
     "APLICACION_PROTOCOLO": "http",

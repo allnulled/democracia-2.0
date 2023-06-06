@@ -9,8 +9,8 @@ module.exports = async function (token_de_confirmacion = false) {
         let usuario_si_confirmado = undefined;
         let resultado_1, resultado_2;
         Validar_parametros: {
-            comprueba.que(token_de_confirmacion, "token_de_confirmacion", "el parámetro «token_de_confirmacion» debe ser un texto «al confirmarse»").es_texto();
-            comprueba.que(token_de_confirmacion, "token_de_confirmacion", "el parámetro «token_de_confirmacion» debe tener la longitud correspondiente «al confirmarse»").tiene_longitud_mayor_que(99);
+            comprueba.que(token_de_confirmacion, "token_de_confirmacion", "el parámetro «token_de_confirmacion» debe ser un texto al «confirmarse»").es_texto();
+            comprueba.que(token_de_confirmacion, "token_de_confirmacion", "el parámetro «token_de_confirmacion» debe tener la longitud correspondiente al «confirmarse»").tiene_longitud_mayor_que(99);
         }
         Formatear_parametros: {
             token_de_confirmacion_formateado = this.utilidades.datos.funcion.sanitizar_valor(token_de_confirmacion);
