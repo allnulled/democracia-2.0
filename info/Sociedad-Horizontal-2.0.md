@@ -52,3 +52,4 @@ Las cláusulas terceras hablan, directamente, de la implementación de las tecno
 **Tecnología**: técnica o método de comprender, fabricar o transformar las cosas.
 
 **Horizontalización social**: proceso por el cual el poder (legislativo, mediático, educativo, económico, tecnológico, etc.) es distribuido de forma horizontal, y no piramidal.
+

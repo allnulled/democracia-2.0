@@ -27,6 +27,12 @@ module.exports = function () {
                 resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_permiso_de_usuario(req, res, next);
             } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_grupo_de_usuario")) {
                 resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_grupo_de_usuario(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_usuario_segun_nombre")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_usuario_segun_nombre(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_grupo_segun_nombre")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_grupo_segun_nombre(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_permiso_segun_nombre")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_permiso_segun_nombre(req, res, next);
             } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_usuario")) {
                 resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_usuario(req, res, next);
             } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_grupo")) {

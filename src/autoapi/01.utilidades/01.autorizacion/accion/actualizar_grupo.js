@@ -1,4 +1,4 @@
-module.exports = async function (id_de_grupo, otros = {}) {
+module.exports = async function (id_grupo = false, dato = {}) {
     try {
         this.utilidades.tracear("this.utilidades.autorization.accion.actualizar_grupo");
         const { comprueba } = this.dependencias.instancia;
