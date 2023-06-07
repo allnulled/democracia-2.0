@@ -6,8 +6,8 @@ Este documento sirve para el proyecto de Democracia 2.0 porque define el esquema
 
 1. [El constructor de bases de datos gráfico](#el-constructor-de-bases-de-datos-grafico).
 2. [El esquema de datos](#el-esquema-de-datos).
-     2.1. [Campos para atributos de tabla](#campos-para-atributos-de-tabla).
-     2.3. [Campos para atributos de columna](#campos-para-atributos-de-columna).
+  - 2.1. [Campos para atributos de tabla](#campos-para-atributos-de-tabla).
+  - 2.3. [Campos para atributos de columna](#campos-para-atributos-de-columna).
 3. [Ejemplo](#ejemplo).
 
 ## El constructor de bases de datos gráfico
