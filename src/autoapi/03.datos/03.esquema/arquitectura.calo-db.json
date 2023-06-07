@@ -172,6 +172,96 @@
         }
       },
       "esta_mostrando_detalles": false
+    },
+    "Votacion": {
+      "tipo": "tabla",
+      "nombre": "Votacion",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Voto": {
+      "tipo": "tabla",
+      "nombre": "Voto",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Comentario_de_votacion": {
+      "tipo": "tabla",
+      "nombre": "Comentario_de_votacion",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Problema": {
+      "tipo": "tabla",
+      "nombre": "Problema",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Propuesta_de_problema": {
+      "tipo": "tabla",
+      "nombre": "Propuesta_de_problema",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Solucion": {
+      "tipo": "tabla",
+      "nombre": "Solucion",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Propuesta_de_solucion": {
+      "tipo": "tabla",
+      "nombre": "Propuesta_de_solucion",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Implementacion": {
+      "tipo": "tabla",
+      "nombre": "Implementacion",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Propuesta_de_implementacion": {
+      "tipo": "tabla",
+      "nombre": "Propuesta_de_implementacion",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {},
+      "esta_mostrando_detalles": false
     }
   }
 }

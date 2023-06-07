@@ -1,5 +1,5 @@
 module.exports = async function () {
-    this.utilidades.log("Borrando registros de tests de la BD.");
+    this.utilidades.tracear("this.datos.inicializacion.reseteo_de_registros_de_test");
     const db = this.datos.conexion.instancia.segun_tabla("Usuario");
     await db.consultar(`DELETE FROM Usuario WHERE nombre = '00';`);
     await db.consultar("DELETE FROM Usuario_no_confirmado WHERE nombre = '00';");

@@ -81,6 +81,8 @@ Las configuraciones globales, aquí, especifican cosas como:
 
 Puede usarse para ampliar las configuraciones del proyecto y así personalizarlo desde estos parámetros globales.
 
+> **Esto es importante:**: *el programa puede ser seguro y puede mejorarse, pero si alguien ajeno consigue ejecutar comandos contra la base de datos (local o remota) directamente, por vía de cualquier proceso del sistema, se salta toda la seguridad que pueda haber en el servidor.*
+
 #### El fichero de esquema de la base de datos
 
 Otro fichero importante es `src/autoapi/XX.datos/XX.esquema/arquitectura.calo-db.json`, también cargado por su vecino `instancia.factoria.js`.
@@ -111,7 +113,7 @@ Cabe destacar que la aplicación del usuario final, al fin y al cabo, se sirve d
 
 #### El fichero de la base de datos local
 
-Este fichero es el de `src/datos_locales.sqlite3`, y guarda la base de datos cuando se usa `sqlite3` y no `mysql`. Puedes usar utilidades como `sqlitebrowser` para navegar y modificar la base de datos.
+Este fichero es el de `src/datos_locales.sqlite3`, y guarda la base de datos cuando se usa `sqlite3` y no `mysql`. Puedes usar utilidades como `sqlitebrowser` o `mysqlworbench` o `phpmyadmin` para navegar y modificar la base de datos sin pasar por el programa de `Democracia 2.0`.
 
 #### El fichero del proceso del sistema
 

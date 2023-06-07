@@ -20,7 +20,19 @@ module.exports = function () {
                 resultado = await this.utilidades.autorizacion.accion.desde_peticion.confirmarse(req, res, next);
 ///////////////////////////////////////////////////////////////////////////////////
 ////////////// Métodos de modificación del sistema de autorizaciones //////////////
-///////////////////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_permiso_de_grupo")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_permiso_de_grupo(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_permiso_de_usuario")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_permiso_de_usuario(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_grupo_de_usuario")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_grupo_de_usuario(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_usuario")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_usuario(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_grupo")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_grupo(req, res, next);
+            } else if (subruta_de_auth_objetivo.startsWith("/seleccionar_permiso")) {
+                resultado = await this.utilidades.autorizacion.accion.desde_peticion.seleccionar_permiso(req, res, next);
             } else if (subruta_de_auth_objetivo.startsWith("/agregar_permiso_a_grupo")) {
                 resultado = await this.utilidades.autorizacion.accion.desde_peticion.agregar_permiso_a_grupo(req, res, next);
             } else if (subruta_de_auth_objetivo.startsWith("/agregar_permiso_a_usuario")) {
