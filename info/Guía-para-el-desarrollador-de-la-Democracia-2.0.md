@@ -4,12 +4,12 @@ A continuación se ofrece una explicación más detallada del funcionamiento de 
 
 ## Índice
 
-1. [La ejecución](#la-ejecución)
-2. [El ciclo de vida](#el-ciclo-de-vida)
-3. [La carga de la API de Node.js](#la-carga-de-la-api-de-node.js)
-  3.1. [El algoritmo de carga de la API de Node.js](#el-algoritmo-de-carga-de-la-api-de-node.js)
-  3.2. [Ventajas del algoritmo de carga](#ventajas-del-algoritmo-de-carga)
-  3.3. [Puntos importantes de la carga de la API de Node.js](#puntos-importantes-de-la-carga-de-la-api-de-node.js)
+- 1. [La ejecución](#la-ejecución)
+- 2. [El ciclo de vida](#el-ciclo-de-vida)
+- 3. [La carga de la API de Node.js](#la-carga-de-la-api-de-node.js)
+  - 3.1. [El algoritmo de carga de la API de Node.js](#el-algoritmo-de-carga-de-la-api-de-node.js)
+  - 3.2. [Ventajas del algoritmo de carga](#ventajas-del-algoritmo-de-carga)
+  - 3.3. [Puntos importantes de la carga de la API de Node.js](#puntos-importantes-de-la-carga-de-la-api-de-node.js)
     - 3.3.1. [El fichero de configuraciones](#el-fichero-de-configuraciones)
     - 3.3.2. [El fichero de esquema de la base de datos](#el-fichero-de-esquema-de-la-base-de-datos)
     - 3.3.3. [El fichero de rutas](#el-fichero-de-rutas)
