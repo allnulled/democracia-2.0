@@ -56,6 +56,32 @@ describe("✔✔✔ Tests de servicios de autorización", function() {
         try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «entrar_como_administrador».js")(utilidades_de_test); } catch (error) { throw error; }
     });
 
+    // Métodos auth para agregar:
+
+    it("Servicio de autorización para «agregar_usuario»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «agregar_grupo»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_grupo».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «agregar_permiso»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_permiso».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «agregar_permiso_a_grupo»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_permiso_a_grupo».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «agregar_permiso_a_usuario»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_permiso_a_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «agregar_grupo_a_usuario»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_grupo_a_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
     // Métodos auth para seleccionar:
 
     it("Servicio de autorización para «seleccionar_usuario»", async function () {
@@ -80,32 +106,6 @@ describe("✔✔✔ Tests de servicios de autorización", function() {
 
     it("Servicio de autorización para «seleccionar_grupo_a_usuario»", async function () {
         try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «seleccionar_grupo_de_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
-    });
-
-    // Métodos auth para agregar:
-
-    it("Servicio de autorización para «agregar_usuario»", async function() {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
-    });
-    
-    it("Servicio de autorización para «agregar_grupo»", async function() {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_grupo».js")(utilidades_de_test); } catch (error) { throw error; }
-    });
-    
-    it("Servicio de autorización para «agregar_permiso»", async function() {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_permiso».js")(utilidades_de_test); } catch (error) { throw error; }
-    });
-    
-    it("Servicio de autorización para «agregar_permiso_a_grupo»", async function() {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_permiso_a_grupo».js")(utilidades_de_test); } catch (error) { throw error; }
-    });
-    
-    it("Servicio de autorización para «agregar_permiso_a_usuario»", async function() {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_permiso_a_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
-    });
-    
-    it("Servicio de autorización para «agregar_grupo_a_usuario»", async function() {
-        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «agregar_grupo_a_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
     });
     
     // Métodos auth para actualizar:
