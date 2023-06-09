@@ -109,6 +109,20 @@ También se puede usar como lugar para descargar eso: documentos, vídeos, sonid
 
 Cabe destacar que la aplicación del usuario final, al fin y al cabo, se sirve desde aquí. No es una aplicación enfocada al SEO, porque usa `vue2`, simplemente, no hace falta explicar más si se sabe lo que se está haciendo. Y no se contempla en ningún caso una optimización para esto, porque sería en perjuicio del tiempo de respuesta del servidor. Si se quiere SEO, se tendrá que atacar desde otro lado. De hecho, se pueden subir documentos HTML sí optimizados para el SEO en este mismo directorio `src/www`. Pero las aplicaciones `vue2` no están pensadas para eso. Y la aplicación del cliente, se hace con `castelog + vue2`. Y `vue2`, pues eso, SEO no, JavaScript dinámico y cómodo para programar y escalar, sí. Si se entiende, esto no tiene por qué colisionar con estrategias para el SEO paralelas, gestionadas desde el mismo servidor, así como *landing pages*, y otras muchas cosas *superfancy* que, **en el proceso de democratizar el poder**, no influyen en nada, o no creo que debieran.
 
+#### La carpeta de plantillas estáticas
+
+Al igual que en `src/www/html` puedes servir ficheros estáticos, en `src/www/ejs` puedes servir plantillas dinámicas basadas en **Embedded JavaScript o EJS**.
+
+En ellas, puedes esperar las siguientes variables:
+ 
+   - `framework`: aquí se carga la autoapi.
+   - `request`: un objeto `Request` de `express`.
+   - `response`: un objeto `Request` de `express`.
+   - `__filename`: ruta del fichero de la plantilla.
+   - `__dirname`: ruta del directorio de la plantilla.
+   - `require`: el método `require` de `node`.
+
+
 #### El fichero de la base de datos local
 
 Este fichero es el de `src/datos_locales.sqlite3`, y guarda la base de datos cuando se usa `sqlite3` y no `mysql`. Puedes usar utilidades como `sqlitebrowser` o `mysqlworbench` o `phpmyadmin` para navegar y modificar la base de datos sin pasar por el programa de `Democracia 2.0`.

@@ -58,19 +58,29 @@ Hechos acción, desde petición y test:
 [x] actualizar_grupo
 [x] actualizar_permiso
 [x] actualizar_usuario
+[x] eliminar_grupo
+[x] eliminar_permiso
+[x] eliminar_usuario
 
 Próximos por hacer:
 
-[ ] eliminar_grupo
-[ ] eliminar_permiso
-[ ] eliminar_usuario
+[ ] agregar_grupo_a_usuario
+[ ] agregar_permiso_a_usuario
+[ ] agregar_permiso_a_grupo
 
-[ ] seleccionar_grupo
-[ ] seleccionar_permiso
-[ ] seleccionar_usuario
+[ ] eliminar_grupo_a_usuario
+[ ] eliminar_permiso_a_usuario
+[ ] eliminar_permiso_a_grupo
+
+[ ] seleccionar_grupo_de_usuario
+[ ] seleccionar_permiso_de_usuario
+[ ] seleccionar_permiso_de_grupo
 
 [ ] autentificación
 [ ] métodos para filtrar por autentificación
+
+
+
   [ ] src/autoapi/05.servidor/ayudante/autentificacion.js
   [ ] src/autoapi/05.servidor/ayudante/excluye_grupo.js
   [ ] src/autoapi/05.servidor/ayudante/excluye_permiso.js
