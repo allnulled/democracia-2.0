@@ -12,7 +12,7 @@ module.exports = async function (utilidades_de_test) {
         });
 
         subtest("Servicio de autorización para «seleccionar_permiso_segun_nombre» al final acepta los parámetros correctos", async function () {
-            const respuesta_1 = await axios.post(ruta_de_app("/auth/seleccionar_permiso_segun_nombre"), { nombre: "permiso_1_para_test" });
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/seleccionar_permiso_segun_nombre"), { nombre: "permiso_0_para_test" });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
         });

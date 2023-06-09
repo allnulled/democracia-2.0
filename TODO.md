@@ -55,16 +55,11 @@ Hechos acción, desde petición y test:
 [x] seleccionar_permiso_segun_nombre
 [x] seleccionar_grupo_segun_nombre
 [x] seleccionar_usuario_segun_nombre
+[x] actualizar_grupo
+[x] actualizar_permiso
+[x] actualizar_usuario
 
 Próximos por hacer:
-
-[ ] actualizar_grupo
-[ ] actualizar_permiso
-[ ] actualizar_usuario
-
-[ ] agregar_grupo
-[ ] agregar_permiso
-[ ] agregar_usuario
 
 [ ] eliminar_grupo
 [ ] eliminar_permiso
