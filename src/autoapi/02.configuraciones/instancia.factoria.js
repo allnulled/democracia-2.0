@@ -4,6 +4,7 @@ module.exports = function () {
         tipo: "configuraciones",
         estado: "cargado",
         valores: require(__dirname + "/configuraciones.json"),
+        arquitectura: require(__dirname + "/arquitectura.calo-db.json"),
         obtener: (id, por_defecto = undefined) => {
             this.utilidades.tracear("this.configuraciones.instancia.obtener");
             if (!(id in this.configuraciones.instancia.valores)) {

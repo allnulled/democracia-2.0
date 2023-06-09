@@ -1,6 +1,7 @@
 const alfabeto_ingles = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
 
 module.exports = function(caracteres, alfabeto = alfabeto_ingles) {
+    this.utilidades.tracear("this.utilidades.generar_texto_aleatorio");
     if (typeof caracteres !== "number") {
         throw new Error("Se requiere parámetro «caracteres» de ser un número para «this.utilidades.generar_texto_aleatorio»");
     }

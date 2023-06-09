@@ -22,15 +22,13 @@ A continuación se ofrece una explicación más detallada del funcionamiento de 
 
 En la [**ejecución**](#instalación-y-ejecución) se va a llamar al [`src/iniciar.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/iniciar.js) del [**servidor de despliegue**](#).
 
-A partir de ahí, la información del [**esquema de datos** en `src/autoapi/XX.datos/03.esquema/arquitectura.calo-db.json`](https://github.com/allnulled/democracia-2.0/blob/main/src/autoapi/XX.datos/03.esquema/arquitectura.calo-db.json) puede ser utilizada en cualquier momento.
+A partir de ahí, la información del [**esquema de datos** en `src/autoapi/XX.configuraciones/arquitectura.calo-db.json`](https://github.com/allnulled/democracia-2.0/blob/main/src/autoapi/02.configuraciones/arquitectura.calo-db.json) puede ser utilizada en cualquier momento. Puede estar tanto en `this.configuraciones.instancia.arquitectura` como en `this.datos.esquema.instancia.arquitectura`. 
 
 ## El ciclo de vida
 
 El programa se inicia al ejecutarse, llamando a [`src/iniciar.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/iniciar.js) como se decía. Pues éste, a su vez, cargará la **API de Democracia 2.0 para Node.js** del fichero [`src/democracia.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/democracia.js), que puede ser importada para otras funciones, sin necesidad de desplegar el servidor.
 
 En [`src/democracia.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/democracia.js) lo único que se hace es importar la función de [`src/autoapi/XX.utilidades/importar_directorio_recursivamente.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/autoapi/XX.utilidades/importar_directorio_recursivamente.js) y llamarse con el directorio [`src/autoapi`](https://github.com/allnulled/democracia-2.0/tree/main/src/autoapi) como parámetro único. Dado que esta función será la responsable de cargar toda la **API de Democracia 2.0 para Node.js**, se explica más en profundidad en la sección de [La carga de la API de Node.js](#la-carga-de-la-api-de-node.js).
-
-Y aquí, se delega la carga de la **API de Democracia 2.0 para Node.js** a un único algoritmo, definido en unas 60 líneas. Esta poderosa función permite cargar una serie de tipos de fichero que importará de forma diferente `*.factoria.js`
 
 Después de esto, [`src/iniciar.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/iniciar.js) continúa la ejecución llamando a la función `this.servidor.instancia.iniciar()` que se encuentra en el fichero [`src/autoapi/XX.servidor/instancia.factoria.js`](#).
 
@@ -85,7 +83,7 @@ Puede usarse para ampliar las configuraciones del proyecto y así personalizarlo
 
 #### El fichero de esquema de la base de datos
 
-Otro fichero importante es `src/autoapi/XX.datos/XX.esquema/arquitectura.calo-db.json`, también cargado por su vecino `instancia.factoria.js`.
+Otro fichero importante es `src/autoapi/XX.configuraciones/arquitectura.calo-db.json`, también cargado por su vecino `instancia.factoria.js`.
 
 En este fichero, se especifica la estructura de datos que va a seguir la base de datos SQL (sea `sqlite` o `mysql`), y también datos que van a interesar para la creación de una **HTTP REST API automática**. Para crear este fichero, puedes ir a **[Constructor de bases de datos de Castelog](https://github.com/allnulled/constructor-de-bases-de-datos-de-castelog)**, que permite **importar y exportar** estos tipos de ficheros. Aún y así, esta aplicación permite generar ficheros `json` con demasiada amplitud. Para conocer más sobre la estructura de datos que se espera en este fichero `json`, puedes ir a este otro documento de la documentación: **[Guía para la arquitectura de la base de datos de la Democracia 2.0](./Guía-para-la-arquitectura-de-la-base-de-datos-de-la-Democracia-2.0.md)**.
 

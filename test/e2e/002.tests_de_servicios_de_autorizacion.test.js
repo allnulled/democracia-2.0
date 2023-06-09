@@ -84,6 +84,18 @@ describe("✔✔✔ Tests de servicios de autorización", function() {
 
     // Métodos auth para seleccionar:
 
+    it("Servicio de autorización para «seleccionar_usuario_segun_nombre»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «seleccionar_usuario_segun_nombre».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «seleccionar_grupo_segun_nombre»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «seleccionar_grupo_segun_nombre».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
+    it("Servicio de autorización para «seleccionar_permiso_segun_nombre»", async function () {
+        try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «seleccionar_permiso_segun_nombre».js")(utilidades_de_test); } catch (error) { throw error; }
+    });
+
     it("Servicio de autorización para «seleccionar_usuario»", async function () {
         try { await require(__dirname + "/servicios_de_autorizacion/Servicio de autorización para «seleccionar_usuario».js")(utilidades_de_test); } catch (error) { throw error; }
     });

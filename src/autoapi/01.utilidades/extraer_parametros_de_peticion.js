@@ -1,4 +1,5 @@
 module.exports = function (req, parametros = [], vias = ["body","querystring","httpheaders"]) {
+    this.utilidades.tracear("this.utilidades.extraer_parametros");
     const extraccion = {};
     Iterando_parametros:
     for(let index_parametros = 0; index_parametros < parametros.length; index_parametros++) {

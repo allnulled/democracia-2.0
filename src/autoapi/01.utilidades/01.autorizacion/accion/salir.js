@@ -39,7 +39,6 @@ module.exports = async function (token_de_sesion = false) {
             sesion_desactivada: true,
             resultado: [resultado_1, resultado_2]
         };
-
     } catch (error) {
         this.utilidades.error("this.utilidades.autorization.accion.salir", error);
         throw error;

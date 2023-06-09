@@ -22,14 +22,12 @@ module.exports = async function (utilidades_de_test) {
 
         subtest("Servicio de autorización para «agregar_permiso» al final acepta los parámetros correctos", async function () {
             const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_permiso"), {
-                nombre: "permiso_0_para_test",
-                detalles: "Permiso inventado para tests 0.",
+                nombre: "permiso_1_para_test",
+                detalles: "Permiso inventado para tests 1.",
             });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
         });
-
-        await iniciar();
 
         await iniciar();
 

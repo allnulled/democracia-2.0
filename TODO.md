@@ -47,3 +47,39 @@
             que al final, lo vas a tener que hacer igual, porque se hará un panel de administración 
             de toda esta historia de las «autorizaciones del sistema democrático». No hay rodeos.
 
+Hechos acción, desde petición y test:
+
+[x] agregar_permiso
+[x] agregar_grupo
+[x] agregar_usuario
+[x] seleccionar_permiso_segun_nombre
+[x] seleccionar_grupo_segun_nombre
+[x] seleccionar_usuario_segun_nombre
+
+Próximos por hacer:
+
+[ ] actualizar_grupo
+[ ] actualizar_permiso
+[ ] actualizar_usuario
+
+[ ] agregar_grupo
+[ ] agregar_permiso
+[ ] agregar_usuario
+
+[ ] eliminar_grupo
+[ ] eliminar_permiso
+[ ] eliminar_usuario
+
+[ ] seleccionar_grupo
+[ ] seleccionar_permiso
+[ ] seleccionar_usuario
+
+[ ] autentificación
+[ ] métodos para filtrar por autentificación
+  [ ] src/autoapi/05.servidor/ayudante/autentificacion.js
+  [ ] src/autoapi/05.servidor/ayudante/excluye_grupo.js
+  [ ] src/autoapi/05.servidor/ayudante/excluye_permiso.js
+  [ ] src/autoapi/05.servidor/ayudante/excluye_usuario.js
+  [ ] src/autoapi/05.servidor/ayudante/incluye_grupo.js
+  [ ] src/autoapi/05.servidor/ayudante/incluye_permiso.js
+  [ ] src/autoapi/05.servidor/ayudante/incluye_usuario.js

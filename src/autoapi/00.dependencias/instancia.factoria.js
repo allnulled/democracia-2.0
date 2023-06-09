@@ -1,6 +1,7 @@
 module.exports = function() {
     return {
         fs: require("fs"),
+        url: require("url"),
         path: require("path"),
         ruta: (...args) => {
             return this.dependencias.instancia.path.resolve(__dirname, "..", "..", "..", ...args);
@@ -16,6 +17,7 @@ module.exports = function() {
         sqlite3: require("sqlite3").verbose(),
         mysql2original: require("mysql2"),
         mysql2: require("mysql2/promise"),
-        sqlstring: require("sqlstring")
+        sqlstring: require("sqlstring"),
+        mime_types: require("mime-types")
     };
 };

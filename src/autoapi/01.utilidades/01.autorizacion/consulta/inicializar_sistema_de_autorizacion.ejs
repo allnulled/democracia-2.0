@@ -34,7 +34,7 @@ CREATE TABLE Usuario (
 
 CREATE TABLE Grupo (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
-  nombre VARCHAR(255),
+  nombre VARCHAR(255) NOT NULL UNIQUE,
   detalles TEXT
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE Grupo (
 
 CREATE TABLE Permiso (
   id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
-  nombre VARCHAR(255),
+  nombre VARCHAR(255) NOT NULL UNIQUE,
   detalles TEXT
 );
 
@@ -89,7 +89,7 @@ CREATE TABLE Sesion (
 
 /* Inicio de nueva query */
 
-INSERT INTO Usuario (nombre, contrasenya, correo) VALUES ('administrador', 'admin-admin-no-mucho', 'admin@admin.xx');
+INSERT INTO Usuario (nombre, contrasenya, correo) VALUES ('administrador', 'admin-no-mucho', 'admin@admin.xx');
 
 /* Inicio de nueva query */
 

@@ -1,0 +1,42 @@
+asigno window.Democracia20 como una clase con {
+    método constructor con (url_base) donde {
+        asigno this.url_base como url_base.
+    }.
+    método mostrar_error(error) donde {
+        imprimo error.
+    }.
+    método crear_url con (...incluyo args) donde {
+        creo variable salida como this.base_url.replace(una nueva RegExp("\\/$", "")).
+        desde 0 hasta args.length {
+            creo arg como args[index].
+            incremento salida en "/" + arg.replace(una nueva RegExp("^\\/", "")).
+        }.
+        retorno salida.
+    }.
+    método asíncrono autentificarse con (nombre, contrasenya) donde {
+        compruebo que nombre es tipo texto.
+        compruebo que contrasenya es tipo texto.
+        creo variable resultado_1 como undefined.
+        creo variable usuario como undefined.
+        creo variable sesion como undefined.
+        creo variable grupos como undefined.
+        creo variable permisos como undefined.
+        @POR-HACER: la petición de /auth/entrar y sacar los datos.
+        en proceso hacer_peticion {
+            creo resultado_1 como asíncronamente una petición http
+                con url this.crear_url("/auth/entrar")
+                con método "POST"
+                con cuerpo { nombre, contrasenya }.
+            imprimo resultado_1.
+        }.
+        en proceso extraer_datos {
+            
+        }.
+        retorno {
+            usuario,
+            sesion,
+            grupos,
+            permisos
+        }.
+    } en errores hago this.mostrar_error(error).
+}.

@@ -1,6 +1,7 @@
 module.exports = function () {
     const enrutador = new this.dependencias.instancia.express.Router();
     const {
+        plantillas_estaticas,
         ficheros_estaticos,
         controlador_simple,
         gestion_de_error,
@@ -10,8 +11,9 @@ module.exports = function () {
     // @TODO: desplegar todos los servicios
     enrutador.get("^/hi", controlador_simple((rq,rs) => rs.json("OK")));
     enrutador.use("^/auth", sistema_de_autentificacion());
-    enrutador.use("^/data", sistema_de_datos());
-    enrutador.use("^/", ficheros_estaticos(this.dependencias.instancia.ruta("src/www")));
+    enrutador.use("^/datos", sistema_de_datos());
+    enrutador.use("^/", plantillas_estaticas(this.dependencias.instancia.ruta("src/www/ejs")));
+    enrutador.use("^/", ficheros_estaticos(this.dependencias.instancia.ruta("src/www/html")));
     enrutador.use(gestion_de_error());
     return enrutador;
 }
