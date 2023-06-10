@@ -26,9 +26,9 @@ module.exports = async function (utilidades_de_test) {
         subtest("Servicio de autorización para «entrar» al final acepta los parámetros correctos", async function () {
             const { nombre, contrasenya } = utilidades_de_test.obtener_dato("usuario_1_para_test_e2e");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/entrar"), { nombre, contrasenya });
-            console.log(respuesta_1.data);
+            console.log(respuesta_1.data.respuesta.datos);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
-            const token_de_sesion = respuesta_1.data.respuesta.datos.sesion_activa.token_de_sesion;
+            const token_de_sesion = respuesta_1.data.respuesta.datos.autentificacion.sesion.token_de_sesion;
             utilidades_de_test.agregar_dato("token_de_sesion_activa_1", token_de_sesion);
         });
 

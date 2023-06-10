@@ -49,6 +49,7 @@ module.exports = async function(nombre = false, correo = false, contrasenya = fa
         }
         let sesion_activa = undefined;
         let tiene_sesion_activa = false;
+        let autentificacion = false;
         Seleccionar_sesion_activa: {
             let sql = "SELECT * FROM Sesion WHERE ";
             sql += "id_usuario = ";
@@ -59,6 +60,7 @@ module.exports = async function(nombre = false, correo = false, contrasenya = fa
             } else {
                 tiene_sesion_activa = true;
                 sesion_activa = resultado_2[0];
+                token_de_sesion = sesion_activa.token_de_sesion;
             }
         }
         Insertar_nueva_sesion: {
@@ -76,11 +78,13 @@ module.exports = async function(nombre = false, correo = false, contrasenya = fa
                 };
             }
         }
+        Autentificar_sesion: {
+            autentificacion = await this.utilidades.autorizacion.accion.autentificar_token_de_sesion(token_de_sesion);
+        }
         return {
-            sesion_activa,
+            autentificacion,
             resultado: [resultado_1, resultado_2, resultado_3]
         };
-        
     } catch(error) {
         this.utilidades.error("this.utilidades.autorization.accion.entrar", error);
         throw error;

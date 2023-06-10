@@ -12,7 +12,7 @@ module.exports = async function (utilidades_de_test) {
             });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
-            const token_de_sesion = respuesta_1.data.respuesta.datos.sesion_activa.token_de_sesion;
+            const token_de_sesion = respuesta_1.data.respuesta.datos.autentificacion.sesion.token_de_sesion;
             utilidades_de_test.agregar_dato("token_de_sesion_de_administrador", token_de_sesion);
         });
 

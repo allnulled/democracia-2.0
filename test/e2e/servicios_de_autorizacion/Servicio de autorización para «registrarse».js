@@ -48,12 +48,12 @@ module.exports = async function (utilidades_de_test) {
         });
 
         subtest("Servicio de autorización para «registrarse» al final acepta los parámetros correctos", async function () {
-            const respuesta_1 = await axios.post(ruta_de_app("/auth/registrarse"), { nombre: "00", contrasenya: "000000", correo: "00@00.00", otros: "{}" });
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/registrarse"), { nombre: "usuario_anterior_para_test", contrasenya: "000000", correo: "00@00.00", otros: "{}" });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
             revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "token_de_confirmacion"], token => (typeof token === "string") && (token.length === 100));
             utilidades_de_test.agregar_dato("usuario_1_para_test_e2e", {
-                nombre: "00",
+                nombre: "usuario_anterior_para_test",
                 contrasenya: "000000",
                 correo: "00@00.00",
                 token_de_confirmacion: respuesta_1.data.respuesta.datos.token_de_confirmacion

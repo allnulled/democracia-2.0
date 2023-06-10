@@ -70,22 +70,22 @@ Hechos acción, desde petición y test:
 
 Próximos por hacer:
 
-
-[ ] seleccionar_grupo_de_usuario (id_grupo, id_usuario)
-[ ] seleccionar_permiso_de_usuario (id_permiso, id_usuario)
-[ ] seleccionar_permiso_de_grupo (id_permiso, id_grupo)
-
-[ ] autentificación
-  [ ] src/autoapi/XX.servidor/ayudante/autentificar_peticion.js
-  [ ] src/autoapi/XX.servidor/mediador/autentificar_peticion.js
-  [ ] src/autoapi/XX.utilidade/autentificar_peticion.js
-[ ] métodos para filtrar por autentificación
-  [ ] src/autoapi/XX.servidor/ayudante/incluir_segun_autorizacion.js
-  [ ] src/autoapi/XX.servidor/ayudante/excluir_segun_autorizacion.js
+[x] autentificación
+  [x] src/autoapi/XX.servidor/ayudante/factoria/autentificacion.js
+  [x] src/autoapi/XX.servidor/mediador/factoria/autentificacion.js
+  [x] src/autoapi/XX.utilidades/autentificar_peticion.js
+  [x] src/autoapi/XX.utilidades/extraer_token_de_sesion_de_peticion.js
+[x] métodos para filtrar por autentificación
+  [x] src/autoapi/XX.servidor/ayudante/incluir_segun_autorizacion.js
+  [x] src/autoapi/XX.servidor/ayudante/excluir_segun_autorizacion.js
   [ ] src/autoapi/XX.servidor/mediador/incluir_segun_autorizacion.js
   [ ] src/autoapi/XX.servidor/mediador/excluir_segun_autorizacion.js
 
 [ ] Proteger métodos para cambiar el auth con incluir: grupo:administradores de autorizaciones
+
+[ ] seleccionar_grupo_de_usuario (id_grupo, id_usuario)
+[ ] seleccionar_permiso_de_usuario (id_permiso, id_usuario)
+[ ] seleccionar_permiso_de_grupo (id_permiso, id_grupo)
 
 Próxima tanda:
 

@@ -10,30 +10,93 @@ const obtener_campos_de_autentificacion = function() {
                     Permiso.nombre as 'Permiso.nombre',
                     Permiso.detalles as 'Permiso.detalles',
                     Sesion.id as 'Sesion.id',
+                    Sesion.id_usuario as 'Sesion.id_usuario',
                     Sesion.token_de_sesion as 'Sesion.token_de_sesion'
     `;
 };
 
 const formatear_datos_de_sesion_brutos = function(datos_de_sesion_en_bruto = []) {
     const datos_de_sesion = {
-        usuario: undefined,
+        usuario: null,
         grupos: [],
         permisos: [],
-        sesion: undefined,
+        sesion: null,
     };
     for(let index = 0; index < datos_de_sesion_en_bruto.length; index++) {
         const fila = datos_de_sesion_en_bruto[index];
         Formatear_datos_de_usuario: {
-
+            if(fila["Usuario.id"]) {
+                if (datos_de_sesion.usuario) {
+                    throw new Error("La autentificación se completó con más de 1 usuario");
+                }
+                datos_de_sesion.usuario = {
+                    id: fila["Usuario.id"],
+                    nombre: fila["Usuario.nombre"],
+                    contrasenya: fila["Usuario.contrasenya"],
+                    correo: fila["Usuario.correo"],
+                    activado: fila["Usuario.activado"],
+                };
+            }
         }
         Formatear_datos_de_grupos: {
-    
+            if(fila["Grupo.id"]) {
+                const id_grupo_1 = fila["Grupo.id"];
+                let esta_incluida = false;
+                for(let index_grupo = 0; index_grupo < datos_de_sesion.permisos.length; index_grupo++) {
+                    const contrafila = datos_de_sesion.permisos[index_grupo];
+                    const id_grupo_2 = contrafila.id;
+                    if (id_grupo_1 === id_grupo_2) {
+                        esta_incluida = true;
+                    }
+                }
+                if(!esta_incluida) {
+                    datos_de_sesion.grupos.push({
+                        id: fila["Grupo.id"],
+                        nombre: fila["Grupo.nombre"],
+                        detalles: fila["Grupo.detalles"],
+                    });
+                }
+            }
         }
         Formatear_datos_de_permisos: {
-    
+            if (fila["Permiso.id"]) {
+                const id_grupo_1 = fila["Permiso.id"];
+                let esta_incluida = false;
+                for (let index_grupo = 0; index_grupo < datos_de_sesion.permisos.length; index_grupo++) {
+                    const contrafila = datos_de_sesion.permisos[index_grupo];
+                    const id_grupo_2 = contrafila.id;
+                    if (id_grupo_1 === id_grupo_2) {
+                        esta_incluida = true;
+                    }
+                }
+                if (!esta_incluida) {
+                    datos_de_sesion.permisos.push({
+                        id: fila["Permiso.id"],
+                        nombre: fila["Permiso.nombre"],
+                        detalles: fila["Permiso.detalles"],
+                    });
+                }
+            }
         }
         Formatear_datos_de_sesion: {
-    
+            if (fila["Sesion.id"]) {
+                const id_grupo_1 = fila["Sesion.id"];
+                let esta_incluida = false;
+                for (let index_sesion = 0; index_sesion < datos_de_sesion.length; index_sesion++) {
+                    const contrafila = datos_de_sesion[index_sesion];
+                    const id_sesion_2 = contrafila.id;
+                    if (id_sesion_1 === id_sesion_2) {
+                        esta_incluida = true;
+                    }
+                }
+                if (!esta_incluida) {
+                    datos_de_sesion.sesion = {
+                        id: fila["Sesion.id"],
+                        id_usuario: fila["Sesion.id_usuario"],
+                        token_de_sesion: fila["Sesion.token_de_sesion"],
+                    };
+                }
+            }
         }
     }
     return datos_de_sesion;
@@ -75,12 +138,9 @@ module.exports = async function (token_de_sesion = false) {
             if (resultado_1.length !== 1) {
                 throw new Error("El «token_de_sesion» referido no está registrado en la base de datos al «autentificar_token_de_sesion»");
             }
-            datos_de_sesion = formatear_datos_de_sesion_brutos(resultado_1[0]);
+            datos_de_sesion = formatear_datos_de_sesion_brutos(resultado_1);
         }
-        return {
-            autentificacion: datos_de_sesion,
-            resultado: [resultado_1]
-        };
+        return datos_de_sesion;
     } catch (error) {
         this.utilidades.error("this.utilidades.autorization.accion.autentificar_token_de_sesion", error);
         throw error;

@@ -9,7 +9,7 @@ module.exports = async function (utilidades_de_test) {
             const { nombre, contrasenya } = utilidades_de_test.obtener_dato("usuario_1_para_test_e2e");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/entrar"), { nombre, contrasenya });
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
-            const token_de_sesion = respuesta_1.data.respuesta.datos.sesion_activa.token_de_sesion;
+            const token_de_sesion = respuesta_1.data.respuesta.datos.autentificacion.sesion.token_de_sesion;
             utilidades_de_test.agregar_dato("token_de_sesion_activa_3", token_de_sesion);
         });
 
