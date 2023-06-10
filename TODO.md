@@ -64,12 +64,12 @@ Hechos acción, desde petición y test:
 [x] agregar_grupo_a_usuario (id_grupo, id_usuario)
 [x] agregar_permiso_a_usuario (id_permiso, id_usuario)
 [x] agregar_permiso_a_grupo (id_permiso, id_grupo)
+[x] eliminar_grupo_a_usuario (id_grupo, id_usuario)
+[x] eliminar_permiso_a_usuario (id_permiso, id_usuario)
+[x] eliminar_permiso_a_grupo (id_permiso, id_grupo)
 
 Próximos por hacer:
 
-[ ] eliminar_grupo_a_usuario (id_grupo, id_usuario)
-[ ] eliminar_permiso_a_usuario (id_permiso, id_usuario)
-[ ] eliminar_permiso_a_grupo (id_permiso, id_grupo)
 
 [ ] seleccionar_grupo_de_usuario (id_grupo, id_usuario)
 [ ] seleccionar_permiso_de_usuario (id_permiso, id_usuario)
@@ -84,6 +84,8 @@ Próximos por hacer:
   [ ] src/autoapi/XX.servidor/ayudante/excluir_segun_autorizacion.js
   [ ] src/autoapi/XX.servidor/mediador/incluir_segun_autorizacion.js
   [ ] src/autoapi/XX.servidor/mediador/excluir_segun_autorizacion.js
+
+[ ] Proteger métodos para cambiar el auth con incluir: grupo:administradores de autorizaciones
 
 Próxima tanda:
 
