@@ -81,7 +81,7 @@ Próximos por hacer:
   [ ] src/autoapi/XX.servidor/mediador/incluir_segun_autorizacion.js
   [ ] src/autoapi/XX.servidor/mediador/excluir_segun_autorizacion.js
 
-[ ] Proteger métodos para cambiar el auth con incluir: grupo:administradores de autorizaciones
+[x] Proteger métodos para cambiar el auth con incluir: grupo:administradores de autorizaciones
 
 [ ] seleccionar_grupo_de_usuario (id_grupo, id_usuario)
 [ ] seleccionar_permiso_de_usuario (id_permiso, id_usuario)

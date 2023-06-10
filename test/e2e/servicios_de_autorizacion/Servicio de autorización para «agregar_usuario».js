@@ -6,17 +6,21 @@ module.exports = async function (utilidades_de_test) {
         const { subtest, iniciar } = tester("Conjunto de tests del servicio de autorización para «agregar_usuario»", { debuga: 0 });
 
         subtest("Servicio de autorización para «agregar_usuario» exige un «nombre», una «contrasenya» y un «correo»", async function () {
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_usuario"), {
+                token_de_sesion,
                 // nombre: "usuario_0_para_test",
                 contrasenya: "admin-admin",
                 correo: "usuario_0_para_test@test.org"
             });
             const respuesta_2 = await axios.post(ruta_de_app("/auth/agregar_usuario"), {
+                token_de_sesion,
                 nombre: "usuario_0_para_test",
                 // contrasenya: "admin-admin",
                 correo: "usuario_0_para_test@test.org"
             });
             const respuesta_3 = await axios.post(ruta_de_app("/auth/agregar_usuario"), {
+                token_de_sesion,
                 nombre: "usuario_0_para_test",
                 contrasenya: "admin-admin",
                 // correo: "usuario_0_para_test@test.org"
@@ -30,7 +34,9 @@ module.exports = async function (utilidades_de_test) {
         });
 
         subtest("Servicio de autorización para «agregar_usuario» al final acepta los parámetros correctos", async function () {
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_usuario"), {
+                token_de_sesion,
                 nombre: "usuario_0_para_test",
                 contrasenya: "admin-admin",
                 correo: "usuario_0_para_test@test.org"

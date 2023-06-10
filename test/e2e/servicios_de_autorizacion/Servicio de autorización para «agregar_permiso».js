@@ -6,11 +6,14 @@ module.exports = async function (utilidades_de_test) {
         const { subtest, iniciar } = tester("Conjunto de tests del servicio de autorización para «agregar_permiso»", { debuga: 0 });
 
         subtest("Servicio de autorización para «agregar_permiso» exige un «nombre» y unos «detalles»", async function () {
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_permiso"), {
+                token_de_sesion,
                 // nombre: "permiso_0_para_test",
                 detalles: "Permiso inventado para tests 0.",
             });
             const respuesta_2 = await axios.post(ruta_de_app("/auth/agregar_permiso"), {
+                token_de_sesion,
                 nombre: "permiso_0_para_test",
                 // detalles: "Permiso inventado para tests 0.",
             });
@@ -21,7 +24,9 @@ module.exports = async function (utilidades_de_test) {
         });
 
         subtest("Servicio de autorización para «agregar_permiso» al final acepta los parámetros correctos", async function () {
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
             const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_permiso"), {
+                token_de_sesion,
                 nombre: "permiso_0_para_test",
                 detalles: "Permiso inventado para tests 1.",
             });

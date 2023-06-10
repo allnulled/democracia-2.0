@@ -7,8 +7,9 @@ module.exports = async function (utilidades_de_test) {
         const metadatos = {};
 
         subtest("Servicio de autorización para «eliminar_permiso_a_grupo» puede recuperar «id» a partir de «nombre»", async function () {
-            const respuesta_1 = await axios.post(ruta_de_app("/auth/seleccionar_permiso_segun_nombre"), { nombre: "permiso_1_para_test" });
-            const respuesta_2 = await axios.post(ruta_de_app("/auth/seleccionar_grupo_segun_nombre"), { nombre: "grupo_1_para_test" });
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/seleccionar_permiso_segun_nombre"), { token_de_sesion, nombre: "permiso_1_para_test" });
+            const respuesta_2 = await axios.post(ruta_de_app("/auth/seleccionar_grupo_segun_nombre"), { token_de_sesion, nombre: "grupo_1_para_test" });
             console.log(respuesta_1.data);
             console.log(respuesta_2.data);
             metadatos.id_permiso = respuesta_1.data.respuesta.datos.permiso.id;
@@ -17,9 +18,10 @@ module.exports = async function (utilidades_de_test) {
 
         subtest("Servicio de autorización para «eliminar_permiso_a_grupo» exige «id_permiso» e «id_grupo»", async function () {
             const { id_permiso, id_grupo } = metadatos;
-            const respuesta_1 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), {});
-            const respuesta_2 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { id_grupo });
-            const respuesta_3 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { id_permiso });
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { token_de_sesion });
+            const respuesta_2 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { token_de_sesion, id_grupo });
+            const respuesta_3 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { token_de_sesion, id_permiso });
             console.log(respuesta_1.data);
             console.log(respuesta_2.data);
             console.log(respuesta_3.data);
@@ -30,7 +32,8 @@ module.exports = async function (utilidades_de_test) {
 
         subtest("Servicio de autorización para «eliminar_permiso_a_grupo» al final acepta los parámetros correctos", async function () {
             const { id_permiso, id_grupo } = metadatos;
-            const respuesta_1 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { id_permiso, id_grupo });
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/eliminar_permiso_a_grupo"), { token_de_sesion, id_permiso, id_grupo });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
         });
