@@ -61,30 +61,42 @@ Hechos acción, desde petición y test:
 [x] eliminar_grupo
 [x] eliminar_permiso
 [x] eliminar_usuario
+[x] agregar_grupo_a_usuario (id_grupo, id_usuario)
+[x] agregar_permiso_a_usuario (id_permiso, id_usuario)
+[x] agregar_permiso_a_grupo (id_permiso, id_grupo)
 
 Próximos por hacer:
 
-[ ] agregar_grupo_a_usuario
-[ ] agregar_permiso_a_usuario
-[ ] agregar_permiso_a_grupo
+[ ] eliminar_grupo_a_usuario (id_grupo, id_usuario)
+[ ] eliminar_permiso_a_usuario (id_permiso, id_usuario)
+[ ] eliminar_permiso_a_grupo (id_permiso, id_grupo)
 
-[ ] eliminar_grupo_a_usuario
-[ ] eliminar_permiso_a_usuario
-[ ] eliminar_permiso_a_grupo
-
-[ ] seleccionar_grupo_de_usuario
-[ ] seleccionar_permiso_de_usuario
-[ ] seleccionar_permiso_de_grupo
+[ ] seleccionar_grupo_de_usuario (id_grupo, id_usuario)
+[ ] seleccionar_permiso_de_usuario (id_permiso, id_usuario)
+[ ] seleccionar_permiso_de_grupo (id_permiso, id_grupo)
 
 [ ] autentificación
+  [ ] src/autoapi/XX.servidor/ayudante/autentificar_peticion.js
+  [ ] src/autoapi/XX.servidor/mediador/autentificar_peticion.js
+  [ ] src/autoapi/XX.utilidade/autentificar_peticion.js
 [ ] métodos para filtrar por autentificación
+  [ ] src/autoapi/XX.servidor/ayudante/incluir_segun_autorizacion.js
+  [ ] src/autoapi/XX.servidor/ayudante/excluir_segun_autorizacion.js
+  [ ] src/autoapi/XX.servidor/mediador/incluir_segun_autorizacion.js
+  [ ] src/autoapi/XX.servidor/mediador/excluir_segun_autorizacion.js
 
+Próxima tanda:
 
-
-  [ ] src/autoapi/05.servidor/ayudante/autentificacion.js
-  [ ] src/autoapi/05.servidor/ayudante/excluye_grupo.js
-  [ ] src/autoapi/05.servidor/ayudante/excluye_permiso.js
-  [ ] src/autoapi/05.servidor/ayudante/excluye_usuario.js
-  [ ] src/autoapi/05.servidor/ayudante/incluye_grupo.js
-  [ ] src/autoapi/05.servidor/ayudante/incluye_permiso.js
-  [ ] src/autoapi/05.servidor/ayudante/incluye_usuario.js
+[ ] datos
+  [ ] insertar
+  [ ] seleccionar
+    [ ] filtro
+    [ ] orden
+    [ ] pagina
+    [ ] elementos
+  [ ] actualizar
+  [ ] eliminar
+  [ ] insertar_elemento
+  [ ] actualizar_elemento
+  [ ] eliminar_elemento
+  [ ] seleccionar_elementos

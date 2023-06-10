@@ -23,6 +23,15 @@ module.exports = async function (utilidades_de_test) {
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
         });
 
+        subtest("Servicio de autorización para «eliminar_grupo» deja 1 usuario para tests en la base de datos", async function () {
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_grupo"), {
+                nombre: "grupo_1_para_test",
+                detalles: "Grupo inventado para tests 1.",
+            });
+            console.log(respuesta_1.data);
+            revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
+        });
+
         await iniciar();
 
     } catch (error) {

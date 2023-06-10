@@ -4,7 +4,7 @@ module.exports = async function (req, res, next) {
         await this.servidor.ayudante.parsear_cuerpo(req, res);
         // @TOOD: filtrar por autentificación + permiso "administrar autorizaciones"
         const parametros = await this.utilidades.extraer_parametros_de_peticion(req, ["id_permiso", "id_grupo"], ["post", "get"]);
-        const { id_permiso, id_grupo, dato } = parametros;
+        const { id_permiso, id_grupo } = parametros;
         const resultado = await this.utilidades.autorizacion.accion.agregar_permiso_a_grupo(id_permiso, id_grupo);
         return resultado;
     } catch (error) {

@@ -23,6 +23,16 @@ module.exports = async function (utilidades_de_test) {
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
         });
 
+        subtest("Servicio de autorización para «eliminar_usuario» deja 1 usuario para tests en la base de datos", async function () {
+            const respuesta_1 = await axios.post(ruta_de_app("/auth/agregar_usuario"), {
+                nombre: "usuario_1_para_test",
+                contrasenya: "admin-admin",
+                correo: "usuario_1_para_test@test.org"
+            });
+            console.log(respuesta_1.data);
+            revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
+        });
+
         await iniciar();
 
     } catch (error) {
