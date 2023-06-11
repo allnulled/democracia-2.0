@@ -1,4 +1,5 @@
 module.exports = function () {
+    this.utilidades.tracear("this.servidor.rutas");
     const enrutador = new this.dependencias.instancia.express.Router();
     const {
         plantillas_estaticas,

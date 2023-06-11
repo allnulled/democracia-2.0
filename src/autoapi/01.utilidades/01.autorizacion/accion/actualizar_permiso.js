@@ -26,7 +26,7 @@ module.exports = async function (id_permiso = false, dato = false) {
         Actualizar_permiso_en_base_de_datos: {
             let sql = "UPDATE Permiso";
             sql += "\n  SET ";
-            sql += this.utilidades.datos.funcion.obtener_sql_update_de_objeto(dato_parseado);
+            sql += this.utilidades.datos.funcion.obtener_sql_update_set_de_objeto(dato_parseado);
             sql += "\n  WHERE id = "
             sql += id_permiso_sanitizado;
             sql += ";";

@@ -7,6 +7,11 @@ module.exports = async function() {
         if(this.configuraciones.instancia.valores.BASE_DE_DATOS_TIPO === "local") {
             const fichero_id = this.configuraciones.instancia.obtener("BASE_DE_DATOS_LOCAL_FICHERO");
             const fichero_path = this.dependencias.instancia.ruta("src/" + fichero_id + ".sqlite3");
+            const esta_por_resetear = this.configuraciones.instancia.obtener("BASE_DE_DATOS_LOCAL_FICHERO_RESETEAR_AL_INICIO") === "si";
+            if (esta_por_resetear) {
+                this.utilidades.log(`[*] Reseteando base de datos local vía SQLite (por BASE_DE_DATOS_LOCAL_FICHERO: si)`)
+                await this.datos.gestion.resetear_base_de_datos_local();
+            }
             this.utilidades.log(`[*] Cargando conexión «principal» vía SQLite`);
             principal = await this.datos.conectores.conector_para_sqlite({
                 file: fichero_path,

@@ -37,13 +37,8 @@ En el JSON lo encontrarás en *esquema » {tabla} » columnas » {columna} » at
 
 | Campo | Tipo | Detalles | Ejemplos |
 | ----- | ---- | -------- | -------- |
-| es_tipo | Texto | Texto especificando el tipo. Abierto. | `texto`, `texto largo`, `numero entero`, ... |
-| es_tipo_en_sql | Texto | Texto especificando el tipo en SQL. Se usará para la columna de sql. | `varchar(255)`, `int(10)`, ... |
-| es_tipo_formulario | Texto | Texto especificando el tipo para formularios. | Por ejemplo, un número entero puede querer poder representarse como `campo de numero` o como `deslizador de numero`. Luego, con `Castelog` puedes especificar el front correspondiente para dichos tipos en el formulario con tu fórmula personalizada con `vue.js`. |
-| es_unico | Boolean | `si` si debe ser campo único. Se usará para el `UNIQUE` de sql. | `si`, `no` |
-| es_por_defecto | Texto | Valor por defecto. Se usará para el `DEFAULT` de sql. | `si`, `no` |
-| es_autoincremental | Boolean | `si` si debe ser campo autoincremental. Se usará para el `AUTOINCREMENT` de sql. | `si`, `no` |
-| es_clave_primaria | Boolean | `si` si debe ser campo clave_primaria. Se usará para el `PRIMARY KEY` de sql. | `si`, `no` |
+| tiene_sql_al_crearse | Texto | Texto que se usará en la línea de `CREATE TABLE` del SQL. | `VARCHAR(255)`, `INTEGER UNIQUE NOT NULL`, ... |
+
 
 ## Ejemplo
 

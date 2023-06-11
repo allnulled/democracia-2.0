@@ -26,7 +26,7 @@ module.exports = async function (id_grupo = false, dato = false) {
         Actualizar_grupo_en_base_de_datos: {
             let sql = "UPDATE Grupo";
             sql += "\n  SET ";
-            sql += this.utilidades.datos.funcion.obtener_sql_update_de_objeto(dato_parseado);
+            sql += this.utilidades.datos.funcion.obtener_sql_update_set_de_objeto(dato_parseado);
             sql += "\n  WHERE id = "
             sql += id_grupo_sanitizado;
             sql += ";";

@@ -1,5 +1,5 @@
 module.exports = function(dato_parseado = {}) {
-    this.utilidades.tracear("this.utilidades.datos.funcion.obtener_claves_para_sql_update_set");
+    this.utilidades.tracear("this.utilidades.datos.funcion.obtener_sql_update_set_de_objeto");
     let sql = "";
     sql += "";
     const claves = Object.keys(dato_parseado);
