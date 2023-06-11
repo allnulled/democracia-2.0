@@ -1,0 +1,110 @@
+<%
+
+const conf = framework.configuraciones.instancia.valores;
+const autoincrement_keyword = conf.BASE_DE_DATOS_TIPO === 'local' ? "AUTOINCREMENT" : "AUTO_INCREMENT";
+const es_entorno_de_pruebas = conf.ENTORNO_DE_PRUEBAS === 'si';
+
+%>
+
+/* Inicio de nueva query */
+
+CREATE TABLE Usuario_no_confirmado (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255) NOT NULL UNIQUE,
+  contrasenya VARCHAR(255),
+  correo VARCHAR(255) NOT NULL UNIQUE,
+  otros VARCHAR(512),
+  token_de_confirmacion VARCHAR(100) NOT NULL UNIQUE,
+  detalles TEXT
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Usuario (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255) NOT NULL UNIQUE,
+  contrasenya VARCHAR(255),
+  correo VARCHAR(255) NOT NULL UNIQUE,
+  otros VARCHAR(512),
+  activado INT DEFAULT 1 NOT NULL,
+  detalles TEXT
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Grupo (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255) NOT NULL UNIQUE,
+  detalles TEXT
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Permiso (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  nombre VARCHAR(255) NOT NULL UNIQUE,
+  detalles TEXT
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Grupos_por_usuario (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_grupo INT,
+  id_usuario INT,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id),
+  FOREIGN KEY (id_grupo) REFERENCES Grupo (id)
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Permisos_por_grupo (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_permiso INT,
+  id_grupo INT,
+  FOREIGN KEY (id_permiso) REFERENCES Permiso (id),
+  FOREIGN KEY (id_grupo) REFERENCES Grupo (id)
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Permisos_por_usuario (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_permiso INT,
+  id_usuario INT,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id),
+  FOREIGN KEY (id_permiso) REFERENCES Permiso (id)
+);
+
+/* Inicio de nueva query */
+
+CREATE TABLE Sesion (
+  id INTEGER PRIMARY KEY <%=autoincrement_keyword%>,
+  id_usuario INT,
+  token_de_sesion VARCHAR(100) NOT NULL UNIQUE,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id)
+);
+
+<% if(es_entorno_de_pruebas) { %>
+
+/* Inicio de nueva query */
+
+INSERT INTO Usuario (nombre, contrasenya, correo) VALUES ('administrador', 'admin-no-mucho', 'admin@admin.xx');
+
+/* Inicio de nueva query */
+
+INSERT INTO Grupo (nombre, detalles) VALUES ('administracion de autorizaciones', 'Administrar usuario, grupo y permiso');
+
+/* Inicio de nueva query */
+
+INSERT INTO Permiso (nombre, detalles) VALUES ('administrar autorizaciones', 'Permite administrar usuario, grupo y permiso');
+
+/* Inicio de nueva query */
+
+INSERT INTO Grupos_por_usuario (id_usuario, id_grupo) VALUES (1, 1);
+
+/* Inicio de nueva query */
+
+INSERT INTO Permisos_por_usuario (id_permiso, id_usuario) VALUES (1, 1);
+
+<% } %>

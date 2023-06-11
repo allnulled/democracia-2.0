@@ -12,19 +12,18 @@ module.exports = async function () {
         } catch (error) {
             this.utilidades.log(error);
             // Si sí falla, se inicializan las tablas de autorizaciones:
+            Inicializar_sistema_de_autorizacion: {
             try {
-                Inicializar_sistema_de_autorizacion: {
-                    const consulta_para_iniciar_auth = await this.utilidades.autorizacion.consulta.inicializar_sistema_de_autorizacion();
-                    await db.consultar_multiplemente(consulta_para_iniciar_auth);
+                    await this.datos.inicializacion.inicializar_sistema_de_autorizacion();
+                } catch (error) {
+                    this.utilidades.error("this.datos.inicializacion.instancia + this.datos.inicializacion.inicializar_sistema_de_autorizacion", error);
+                    this.utilidades.log("No se pudo inicializar la base de datos con el «sistema_de_autorizacion». El arranque de «democracia-2.0» no puede completarse correctamente.");
+                    this.utilidades.finalizar(db, resultado);
                 }
-            } catch (error) {
-                this.utilidades.error("this.datos.inicializacion.instancia | sistema_de_autorizacion", error);
-                this.utilidades.log("No se pudo inicializar la base de datos con el «sistema de autorizaciones». El arranque de «democracia-2.0» no puede completarse correctamente.");
-                this.utilidades.finalizar(db, resultado);
             }
         }
+        // Después, se itera en todas las tablas del esquema:
         try {
-            // Después, se itera en todas las tablas del esquema:
             Inicializar_sistema_de_datos: {
                 const esquema = this.datos.esquema.instancia.arquitectura.esquema;
                 const tablas_ids = Object.keys(esquema);

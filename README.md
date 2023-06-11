@@ -23,6 +23,7 @@ Democracia Directa 2.0. Servidores para la gestión de comunidades humanas igual
 
 **Paso 2**. Clica en `instalar.bat` si usas *Windows* o `instalar.sh` si usas *Linux*.
 
+**Paso alternativo**. Si los anteriores no surgen efecto, puedes escribir en una terminal del sistema: `npm run up` y obtendrás lo mismo.
 
 ## Guías teóricas
 

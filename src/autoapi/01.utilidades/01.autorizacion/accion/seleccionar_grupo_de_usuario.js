@@ -7,7 +7,7 @@ module.exports = async function (id_grupo = false, id_usuario = false) {
         let id_grupo_sanitizado = undefined;
         let id_usuario_sanitizado = undefined;
         Validar_parametros: {
-            if ((typeof id_grupo !== "string") && (typeof id_usuario !== "string")) {
+            if ((typeof id_grupo === "undefined") && (typeof id_usuario === "undefined")) {
                 throw new Error("El «id_grupo» o el «id_usuario» deben proporcionarse como parámetros al «seleccionar_grupo_de_usuario»")
             }
         }

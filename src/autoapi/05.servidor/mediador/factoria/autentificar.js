@@ -9,7 +9,7 @@ module.exports = function(configuracion_arg = {}) {
             if(req.autentificacion) {
                 return req.autentificacion;
             }
-            req.autentificacion = await this.utilidades.autentificar_peticion(req);
+            await this.utilidades.autentificar_peticion(req);
             return next();
         } catch(error) {
             return next(error);
