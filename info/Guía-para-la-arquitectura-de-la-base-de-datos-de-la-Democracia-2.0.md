@@ -22,7 +22,7 @@ Para usar la aplicación de construcción de arquitecturas de bases de datos, pu
 
 ## El esquema de datos
 
-Estos campos se rellenan según la aplicación, y luego puedes `Guardar` y puedes `Descargar » Exportar` a un fichero JSON. El cual puedes emplazar directamente en el `src/XX.datos/XX.esquema/arquitectura.calo-db.json` del proyecto y al levantarse, el servidor se volverá a adaptar a este esquema JSON desde el `this.datos` principalmente.
+Estos campos se rellenan según la aplicación, y luego puedes `Guardar` y puedes `Descargar » Exportar` a un fichero JSON. El cual puedes emplazar directamente en el `src/XX.configuraciones/arquitectura.calo-db.json` del proyecto y al levantarse, el servidor se volverá a adaptar a este esquema JSON desde el `this.datos` principalmente.
 
 -----
 
