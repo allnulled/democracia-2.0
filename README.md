@@ -20,19 +20,23 @@ Democracia Directa 2.0. Servidores para la gestión de comunidades humanas igual
 ## Instalación y ejecución
 
 **Paso 1**. Descarga el ZIP de este proyecto en alguna carpeta, y descomprímelo.
+
 **Paso 2**. Clica en `instalar.bat` si usas *Windows* o `instalar.sh` si usas *Linux*.
 
 
 ## Guías teóricas
 
 **Guía 1**. [Sociedad Horizontal 2.0](https://github.com/allnulled/democracia-2.0/blob/main/info/Sociedad-Horizontal-2.0.md). Sobre las sociedades no piramidales.
+
 **Guía 2**. [Estándar de Democracia Directa Tecnológica](https://github.com/allnulled/democracia-2.0/blob/main/info/Estándar-de-Democracia-Directa-Tecnológica.md) por [allnulled](https://github.com/allnulled). Sobre las organizaciones igualitarias.
+
 **Guía 3**. [Estándar de Economía Algorítmica](https://github.com/allnulled/democracia-2.0/blob/main/info/Estándar-de-Economía-Algorítmica.md) por [allnulled](https://github.com/allnulled). Sobre las economías realistas.
 
 
 ## Guías técnicas
 
 **Guía 4**. [Guía para el desarrollador de la Democracia 2.0](./info/Guía-para-el-desarrollador.md). Sobre cómo explotar este software.
+
 **Guía 5**. [Guía para la arquitectura de la base de datos de la Democracia 2.0](./info/Guía-para-la-arquitectura-de-la-base-de-datos-de-la-Democracia-2.0.md). Sobre cómo explotar el modelaje de datos de este software.
 
 ## Software adicional
