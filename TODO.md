@@ -44,6 +44,10 @@ Próximos por hacer:
 
 Próxima tanda backend:
 
+[ ] arquitectura.json debe influir en la creación de la bbdd.
+  [ ] src/autoapi/03.datos/05.inicializacion/02.inicializar_esquema_de_datos_para_tabla.js
+  [ ] src/autoapi/02.configuraciones/arquitectura.calo-db.json
+
 [ ] datos
   [ ] insertar
   [ ] seleccionar
