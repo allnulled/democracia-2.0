@@ -190,8 +190,26 @@
       "identificador_unico": "",
       "ruta_de_url_de_tabla": "/",
       "atributos_de_tabla": {},
-      "columnas": {},
-      "esta_mostrando_detalles": false
+      "columnas": {
+        "id_votacion": {
+          "tipo": "columna",
+          "nombre": "id_votacion",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {
+            "tiene_clave_foranea": "Votacion:id"
+          },
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": true
+        }
+      },
+      "esta_mostrando_detalles": true
     },
     "Comentario_de_votacion": {
       "tipo": "tabla",

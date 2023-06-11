@@ -16,18 +16,42 @@ module.exports = function (tabla_id = false) {
     sql += es_sintaxis_sqlite ? "AUTOINCREMENT" : "AUTO_INCREMENT";
     const columnas = esquema_de_tabla.columnas;
     const columnas_ids = Object.keys(columnas);
+    Crear_columnas:
     for(let index = 0; index < columnas_ids.length; index++) {
         const columna_id = columnas_ids[index];
         const columna_datos = columnas[columna_id];
+        const { tiene_sql_al_crearse } = columna_datos.atributos_de_columna;
         sql += ",\n  ";
         sql += sanitizar_id(columna_datos.nombre);
         Aplicar_esquema_en_columna: {
-            if(columna_datos.tiene_sql_al_crearse) {
-                sql += columna_datos.tiene_sql_al_crearse;
+            if (tiene_sql_al_crearse) {
+                sql += tiene_sql_al_crearse;
             } else {
                 sql += " VARCHAR(255)";
             }
         }
+    }
+    Crear_claves_foraneas: 
+    for (let index = 0; index < columnas_ids.length; index++) {
+        const columna_id = columnas_ids[index];
+        const columna_datos = columnas[columna_id];
+        const { tiene_clave_foranea } = columna_datos.atributos_de_columna;
+        if (typeof tiene_clave_foranea !== "string") {
+            continue Crear_claves_foraneas;
+        }
+        const referencia_foranea = tiene_clave_foranea.split(":");
+        if(referencia_foranea.length !== 2) {
+            throw new Error(`La configuración de esquema «tiene_clave_foranea» de columna «${columna_id}» tiene un formato incorrecto. El formato correcto es 'tabla_foranea:columna_foranea' pero no se sigue en «${referencia_foranea}».`);
+        }
+        const [tabla_foranea, columna_foranea] = referencia_foranea;
+        sql += ",\n  ";
+        sql += "FOREIGN KEY (";
+        sql += sanitizar_id(columna_datos.nombre);
+        sql += ") REFERENCES ";
+        sql += sanitizar_id(tabla_foranea);
+        sql += " (";
+        sql += sanitizar_id(columna_foranea);
+        sql += ")";
     }
     sql += "\n);";
     return sql;
