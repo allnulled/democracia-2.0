@@ -10,35 +10,86 @@ Este documento sirve para el proyecto de Democracia 2.0 porque define el esquema
   - 2.3. [Campos para atributos de columna](#campos-para-atributos-de-columna).
 - 3. [Ejemplo](#ejemplo).
 
+-----
+
 ## El constructor de bases de datos gráfico
 
 Para usar la aplicación de construcción de arquitecturas de bases de datos, puedes ir aquí:
 
 - [https://allnulled.github.io/constructor-de-bases-de-datos-de-castelog/](https://allnulled.github.io/constructor-de-bases-de-datos-de-castelog/)
 
+-----
+
 ## El esquema de datos
 
 Estos campos se rellenan según la aplicación, y luego puedes `Guardar` y puedes `Descargar » Exportar` a un fichero JSON. El cual puedes emplazar directamente en el `src/XX.datos/XX.esquema/arquitectura.calo-db.json` del proyecto y al levantarse, el servidor se volverá a adaptar a este esquema JSON desde el `this.datos` principalmente.
 
+-----
+
+### Vistazo rápido de atributos de esquema especiales
+
+Los atributos especiales de esquema son **atributos extra** de las **tablas y columnas** del **esquema** que la aplicación interpreta y usa de alguna forma especial. Fuera de estos, puedes personalizar al máximo todos los atributos que quieras asociar a tus tablas y columnas. Pero estos tienen incidencia significativa en el programa:
+
+| Ámbito | Atributo |
+| ------ | -------- |
+| Tabla | [`tiene_orden`](#tabla-tiene-orden) |
+| Tabla | [`tiene_conexion`](#tabla-tiene-conexion) |
+| Columna | [`tiene_sql_al_crearse`](#columna-tiene-sql-al-crearse) |
+| Columna | [`tiene_clave_foranea`](#tabla-tiene-clave-foranea) |
+
+-----
+
 ### Campos para atributos de tabla
 
-En el JSON lo encontrarás en *esquema » {tabla} » atributos_de_tabla*. Sus claves-valor significativos son:
+En el JSON lo encontrarás en *esquema » {tabla} » atributos_de_tabla*. En la aplicación, igual. Sus claves-valor significativos son los que siguen.
 
-| Campo | Tipo | Detalles | Ejemplos |
-| ----- | ---- | -------- | -------- |
-| tiene_prioridad | Número | Número de la prioridad de la tabla. Se usará para el `CREATE TABLE` de sql. (Sí, un royo.) | Por ejemplo, si `Trabajador` depende de `Usuario`, podríamos poner: `100` porque el `Usuario` se crea antes siempre. |
-| tiene_clave_foranea | Texto especial | Texto en formato `{columna_propia}={tabla}.{columna}` especificando la clave foránea. Se usará para el `FOREIGN KEY` de sql. | Por ejemplo, si quisiéramos añadirle una «imagen_de_grupo» a la tabla `Grupo`, podríamos poner: `imagen_de_grupo=Imagen.id` |
-| tiene_constrictores | Texto especial | Texto en formato `{columna 1} + {columna 2} + {columna 3}; {columna 4} + {columna 5}`. Se usará para el `MULTIPLE KEY` de sql. | Por ejemplo, si quisiéramos crear una clave múltiple para una región hipotética de subterritorios de 4 niveles de un país, podríamos poner: `id_pais + id_region_1 + id_region_2 + id_region_3 + id`. O podríamos poner: `id_region_3 + id` para basar la clave en el nivel anterior y el actual. |
-| tiene_conexion | Texto especial | Texto en formato `{Maquina}.{Proyecto}.{Conexion}`. Se usará para el `this.conexion.instancia.segun_tabla(tabla)` de la autoapi. | Este parámetro es solo opcional e inocuo. En versiones posteriores, puede significar algo. |
+-----
+
+#### Tabla `tiene_orden`
+
+**Tipo:** número.
+
+**Explicación:** número de la prioridad de la tabla. Se usará para el `CREATE TABLE` de sql. Hay que ponerlo si quieres priorizar unas tablas a otras en el orden de creación.
+
+**Ejemplo:** si una presunta tabla `Trabajador` dependiera de `Usuario`, puedes poner en `tiene_orden` de `Usuario`, `1`, y en el de `Trabajador`, `100`. Así, te aseguras que `Usuario` se creará antes que `Trabajador`.
+
+-----
+
+#### Tabla `tiene_conexion`
+
+**Tipo:** texto. Con formato especial.
+
+**Explicación:** el formato esperado es `{Maquina}::{Proyecto}::{Conexion}`. Se usará para el `this.conexion.instancia.segun_tabla(tabla)` de la autoapi, más adelante, probablemente. Este parámetro es solo opcional e inocuo. En versiones posteriores, puede significar algo. |
+
+**Ejemplo:** `Máquina única::Proyecto único::Conexión única`.
+
+-----
 
 ### Campos para atributos de columna
 
 En el JSON lo encontrarás en *esquema » {tabla} » columnas » {columna} » atributos_de_columna*. Sus claves-valor significativos son:
 
-| Campo | Tipo | Detalles | Ejemplos |
-| ----- | ---- | -------- | -------- |
-| tiene_sql_al_crearse | Texto | Texto que se usará en la línea de `CREATE TABLE` del SQL. | `VARCHAR(255)`, `INTEGER UNIQUE NOT NULL`, ... |
+-----
 
+#### Columna `tiene_sql_al_crearse`
+
+**Tipo:** texto. Con formato SQL.
+
+**Explicación:** texto que se usará en la línea de `CREATE TABLE` del SQL.
+
+**Ejemplo:** `VARCHAR(255)`, `INTEGER UNIQUE NOT NULL`, ...
+
+-----
+
+#### Columna `tiene_clave_foranea`
+
+**Tipo:** texto. Con formato especial.
+
+**Explicación:** texto que se usará en la línea de `CREATE TABLE` del SQL para los `FOREIGN KEY`s.
+
+**Ejemplo:** `Usuario:id`, por ejemplo, definiría una referencia (de la columna presente) a la columna `id` de la tabla `Usuario`. Y así todo.
+
+-----
 
 ## Ejemplo
 

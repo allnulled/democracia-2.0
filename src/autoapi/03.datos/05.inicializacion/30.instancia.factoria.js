@@ -27,7 +27,17 @@ module.exports = async function () {
         try {
             Inicializar_sistema_de_datos: {
                 const esquema = this.datos.esquema.instancia.arquitectura.esquema;
-                const tablas_ids = Object.keys(esquema);
+                const tablas_ids_sin_ordenar = Object.keys(esquema);
+                const tablas_ids = tablas_ids_sin_ordenar.sort((t1, t2) => {
+                    const o1 = esquema[t1].atributos_de_tabla.tiene_orden;
+                    const o2 = esquema[t2].atributos_de_tabla.tiene_orden;
+                    if (typeof o2 === "undefined") return -1;
+                    if (typeof o1 === "undefined") return 1;
+                    const o1_numero = parseInt(o1);
+                    const o2_numero = parseInt(o2);
+                    if (o2_numero < o1_numero) return 1;
+                    return -1;
+                });
                 Sanear_tablas:
                 for (let index_tabla = 0; index_tabla < tablas_ids.length; index_tabla++) {
                     const tabla_id = tablas_ids[index_tabla];
