@@ -36,9 +36,9 @@ Democracia Directa 2.0. Servidores para la gestión de comunidades humanas igual
 
 ## Guías técnicas
 
-**Guía 4**. [Guía para el desarrollador de la Democracia 2.0](./info/Guía-para-el-desarrollador.md). Sobre cómo explotar este software.
+**Guía 4**. [Guía para el desarrollador de la Democracia 2.0](https://github.com/allnulled/democracia-2.0/blob/main/info/Gu%C3%ADa-para-el-desarrollador-de-la-Democracia-2.0.md). Sobre cómo explotar este software.
 
-**Guía 5**. [Guía para la arquitectura de la base de datos de la Democracia 2.0](./info/Guía-para-la-arquitectura-de-la-base-de-datos-de-la-Democracia-2.0.md). Sobre cómo explotar el modelaje de datos de este software.
+**Guía 5**. [Guía para la arquitectura de la base de datos de la Democracia 2.0](https://github.com/allnulled/democracia-2.0/blob/main/info/Gu%C3%ADa-para-la-arquitectura-de-la-base-de-datos-de-la-Democracia-2.0.md). Sobre cómo explotar el modelaje de datos de este software.
 
 ## Software adicional
 
