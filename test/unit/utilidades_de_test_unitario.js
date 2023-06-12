@@ -1,4 +1,4 @@
-const configuraciones_de_app = require(__dirname + "/../../src/autoapi/02.configuraciones/configuraciones.json");
+const configuraciones_de_app = require(__dirname + "/../../src/autoapi/03.configuraciones/configuraciones.json");
 
 module.exports = {
     axios: require("axios"),

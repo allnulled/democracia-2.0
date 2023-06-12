@@ -44,9 +44,9 @@ Próximos por hacer:
 
 Próxima tanda backend:
 
-[ ] arquitectura.json debe influir en la creación de la bbdd.
-  [ ] src/autoapi/03.datos/05.inicializacion/02.inicializar_esquema_de_datos_para_tabla.js
-  [ ] src/autoapi/02.configuraciones/arquitectura.calo-db.json
+[x] arquitectura.json debe influir en la creación de la bbdd.
+  [x] src/autoapi/03.datos/05.inicializacion/02.inicializar_esquema_de_datos_para_tabla.js
+  [x] src/autoapi/03.configuraciones/arquitectura.calo-db.json
 [ ] arquitectura.json debe influir en los servicios de datos del servidor
   [ ] datos
     [ ] insertar
@@ -71,3 +71,36 @@ Próxima tanda frontend:
 [ ] PaginaDeImplementaciones
 [ ] ExploradorDeVotaciones
 [ ] ExploradorDeVotacion
+
+Próxima tanda backend:
+
+[ ] Que los permisos se puedan aplicar a las operaciones automáticas de datos:
+  [ ] a las operaciones se les puede aplicar «reglas de permisos» para:
+    [ ] «seleccionar»
+    [ ] «seleccionar uno»
+    [ ] «insertar»
+    [ ] «actualizar»
+    [ ] «eliminar»
+  [ ] a las operaciones anteriores + reglas de permisos se les puede asociar:
+    [ ] eventos_antes_de_operar
+    [ ] eventos_despues_de_operar
+    La regla iría así:
+      - Si el { usuario } en la { operación } cumple con las { reglas de permisos } entonces se aplican estos { eventos }.
+      - Si el { usuario } en la { operación } no cumple con las { reglas de permisos } entonces se aplican estos otros { eventos }.
+      {
+        operaciones: ["seleccionar", "insertar", "actualizar", "eliminar"],
+        reglas: {
+          incluir: {},
+          excluir: {
+            usuarios:["ok"]
+          },
+        },
+        afirmativo: {
+          antes: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
+          despues: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}]
+        },
+        negativo: {
+          antes: [{evento:"interventor"}]
+        }
+      }
+[ ] Documentar el cliente de JavaScript para navegador en otra guía. Cliente para el frontend. axios o fetch.

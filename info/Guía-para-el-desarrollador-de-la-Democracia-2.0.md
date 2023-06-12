@@ -22,7 +22,7 @@ A continuación se ofrece una explicación más detallada del funcionamiento de 
 
 En la [**ejecución**](#instalación-y-ejecución) se va a llamar al [`src/iniciar.js`](https://github.com/allnulled/democracia-2.0/blob/main/src/iniciar.js) del [**servidor de despliegue**](#).
 
-A partir de ahí, la información del [**esquema de datos** en `src/autoapi/XX.configuraciones/arquitectura.calo-db.json`](https://github.com/allnulled/democracia-2.0/blob/main/src/autoapi/02.configuraciones/arquitectura.calo-db.json) puede ser utilizada en cualquier momento. Puede estar tanto en `this.configuraciones.instancia.arquitectura` como en `this.datos.esquema.instancia.arquitectura`. 
+A partir de ahí, la información del [**esquema de datos** en `src/autoapi/XX.configuraciones/arquitectura.calo-db.json`](https://github.com/allnulled/democracia-2.0/blob/main/src/autoapi/03.configuraciones/arquitectura.calo-db.json) puede ser utilizada en cualquier momento. Puede estar tanto en `this.configuraciones.instancia.arquitectura` como en `this.datos.esquema.instancia.arquitectura`. 
 
 ## El ciclo de vida
 

@@ -59,7 +59,7 @@ En el JSON lo encontrarás en *esquema » {tabla} » atributos_de_tabla*. En la 
 
 **Tipo:** texto. Con formato especial.
 
-**Explicación:** el formato esperado es `{Maquina}::{Proyecto}::{Conexion}`. Se usará para el `this.conexion.instancia.segun_tabla(tabla)` de la autoapi, más adelante, probablemente. Este parámetro es solo opcional e inocuo. En versiones posteriores, puede significar algo. |
+**Explicación:** el formato esperado es `{Maquina}::{Proyecto}::{Conexion}`. Se usará para el `this.conexion.instancia.segun_tabla(tabla)` de la autoapi, más adelante, probablemente. Este parámetro es solo opcional e inocuo. En versiones posteriores, puede significar algo.
 
 **Ejemplo:** `Máquina única::Proyecto único::Conexión única`.
 
