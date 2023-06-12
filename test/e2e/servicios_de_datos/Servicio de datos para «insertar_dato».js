@@ -45,6 +45,7 @@ module.exports = async function (utilidades_de_test) {
             revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "dato_insertado"], dato_insertado => {
                 return (typeof dato_insertado === "object") && (typeof dato_insertado.id === "number");
             });
+            utilidades_de_test.agregar_dato("id_de_insercion_de_datos_1", respuesta_1.data.respuesta.datos.dato_insertado.id);
         });
 
         await iniciar();
