@@ -48,6 +48,37 @@ module.exports = async function (utilidades_de_test) {
             utilidades_de_test.agregar_dato("id_de_insercion_de_datos_1", respuesta_1.data.respuesta.datos.dato_insertado.id);
         });
 
+        subtest("Servicio de datos para «insertar_dato» crea otros registros para continuar los tests", async function () {
+            const token_de_sesion = utilidades_de_test.obtener_dato("token_de_sesion_de_administrador");
+            const datos = [{
+                nombre: "Segundo insert",
+                uuid: "tests.datos.servicio.insert.2",
+                detalles: "Segunda inserción de ejemplo desde los tests de los servicios de datos"
+            }, {
+                nombre: "Tercer insert",
+                uuid: "tests.datos.servicio.insert.3",
+                detalles: "Tercera inserción de ejemplo desde los tests de los servicios de datos"
+            }, {
+                nombre: "Cuarto insert",
+                uuid: "tests.datos.servicio.insert.4",
+                detalles: "Cuarto inserción de ejemplo desde los tests de los servicios de datos"
+            }, {
+                nombre: "Quinto insert",
+                uuid: "tests.datos.servicio.insert.5",
+                detalles: "Quinto inserción de ejemplo desde los tests de los servicios de datos"
+            }];
+            for(let index = 0; index < datos.length; index++) {
+                const dato = datos[index];
+                const respuesta_1 = await axios.post(ruta_de_app("/datos/insertar/dato"), { tabla: "Pruebas_para_tests", dato }, { headers: { token_de_sesion } });
+                console.log(respuesta_1.data);
+                revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
+                revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "dato_insertado"], dato_insertado => {
+                    return (typeof dato_insertado === "object") && (typeof dato_insertado.id === "number");
+                });
+                utilidades_de_test.agregar_dato("id_de_insercion_de_datos_" + (index + 2), respuesta_1.data.respuesta.datos.dato_insertado.id);
+            }
+        });
+
         await iniciar();
 
     } catch (error) {
