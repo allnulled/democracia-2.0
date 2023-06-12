@@ -16,6 +16,8 @@ A continuación se ofrece una explicación más detallada del funcionamiento de 
     - 3.3.4. [La carpeta de fiheros estáticos](#la-carpeta-de-ficheros-estáticos)
     - 3.3.5. [El fichero de la base de datos local](#el-fichero-de-la-base-de-datos-local)
     - 3.3.6. [El fichero del proceso del sistema](#el-fichero-del-proceso-del-sistema)
+- 4. [El comando de consola democracia20](#el-comando-de-consola-democracia20)
+  - 4.1. [El directorio de comandos de consola](#el-directorio-de-comandos-de-consola)
 
 
 ## La ejecución
@@ -130,3 +132,18 @@ Este fichero es el de `src/datos_locales.sqlite3`, y guarda la base de datos cua
 #### El fichero del proceso del sistema
 
 Eset fichero es el de `src/pid.txt`. Este fichero contiene el número del proceso del sistema operativo que ha iniciado la aplicación.
+
+## El comando de consola democracia20
+
+El comando de consola `democracia20` queda disponible desde que hacemos `npm link` para incorporarlo mediante `npm`. Este comando empieza en el fichero `bin/democracia20.bin.js`. Usará los ficheros que vea necesarios. Estos son algunos ejemplos de uso:
+
+```sh
+democracia20 iniciar                  # Es igual que: npm start
+democracia20 iniciar tests            # Es igual que: npm test
+democracia20 iniciar tests unitarios  # Es igual que: npm test:unit
+democracia20 iniciar tests e2e        # Es igual que: npm test:e2e
+```
+
+### El directorio de comandos de consola
+
+El directorio `bin/comandos` te permite ampliar los comandos de `democracia20` rápidamente para la consola. Puedes crear ficheros y carpetas libremente. La única regla es que el comando que sí existe, es una carpeta con un fichero `index.js`. El algoritmo que compila los parámetros de consola a un objeto fácilmente legible y usable, está escrito en `bin/comandos.js`. Luego, en `bin/utilidades.js` hay funciones de utilidad común en los binarios. Finalmente, en `bin/democracia20.bin.js` se usan estos ficheros contra el directorio de `bin/comandos`, y así se permite programar comandos fácilmente. Puedes ver los ejemplos que hay dentro, en los comandos de serie.

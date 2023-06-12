@@ -12,10 +12,14 @@
     "test:e2e": "mocha test/e2e/*.test.js",
     "test:unit": "mocha test/unit/*.test.js",
     "test:all": "npm run test:e2e && npm run test:unit",
-    "test": "npm run test:e2e -- --bail"
+    "test": "npm run test:e2e -- --bail",
+    "democracia20:iniciar:servidor": "./bin/democracia20.bin.js iniciar servidor",
+    "democracia20:iniciar:tests": "./bin/democracia20.bin.js iniciar tests",
+    "democracia20:iniciar:tests:e2e": "./bin/democracia20.bin.js iniciar tests e2e",
+    "democracia20:iniciar:tests:unitarios": "./bin/democracia20.bin.js iniciar tests unitarios"
   },
   "bin": {
-    "democracia20": "bin/democracia20.js"
+    "democracia20": "bin/democracia20.bin.js"
   },
   "keywords": [
     "direct democracy 2.0",
