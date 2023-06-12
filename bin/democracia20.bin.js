@@ -1,13 +1,9 @@
 #!/usr/bin/env node
 
-const version = require(__dirname + "/../package.json").version;
 const fs = require("fs");
-const carpeta_de_comandos = __dirname + "/comandos";
-const comandos_funcion = require(__dirname + "/comandos.js");
-const comandos = comandos_funcion(carpeta_de_comandos);
-const existe_comando = fs.existsSync(comandos.fichero);
+const cli_color = require("cli-color");
 const utilidades = require(__dirname + "/utilidades.js");
-const { imprimo_traza_de_comando_erroneo, imprimo_ayuda } = utilidades;
+const { imprimo_traza_de_comando_erroneo, imprimo_ayuda, carpeta_de_comandos, comandos_funcion, comandos, existe_comando, version } = utilidades;
 
 if(!existe_comando) {
     imprimo_traza_de_comando_erroneo();
@@ -19,17 +15,18 @@ if(!existe_comando) {
         }
         if(modulo_binario instanceof Promise) {
             modulo_binario.then(function() {
-                console.log(`[democracia20] [ ✔ ok] Comando finalizado exitosamente «democracia20 ${ comandos.comando.join(" ") }»`);
+                console.log(cli_color.greenBright(`[democracia20] [ ✔ ok] Comando (asíncrono) finalizado exitosamente «democracia20 ${ comandos.comando.join(" ") }»`));
+                return "OK";
             }).catch(function(error) {
-                console.log(`[democracia20] [error] Comando (asíncrono) erróneo «democracia20 ${comandos.comando.join(" ")}». Detalles del error:`);
+                console.log(cli_color.redBright(`[democracia20] [error] Comando (asíncrono) erróneo «democracia20 ${comandos.comando.join(" ")}». Detalles del error:`));
                 console.log(error);
-                imprimo_traza_de_comando_erroneo();
+                return imprimo_traza_de_comando_erroneo();
             });
         } else {
-            console.log(`[democracia20] [ ✔ ok] Comando finalizado exitosamente «democracia20 ${comandos.comando.join(" ")}»`);
+            console.log(cli_color.greenBright(`[democracia20] [ ✔ ok] Comando finalizado exitosamente «democracia20 ${comandos.comando.join(" ")}»`));
         }
     } catch(error) {
-        console.log(`[democracia20] [error] Comando erróneo «democracia20 ${comandos.comando.join(" ")}». Detalles del error:`);
+        console.log(cli_color.redBright(`[democracia20] [error] Comando erróneo «democracia20 ${comandos.comando.join(" ")}». Detalles del error:`));
         console.log(error);
         imprimo_traza_de_comando_erroneo();
     }

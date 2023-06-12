@@ -1,4 +1,10 @@
+const fs = require("fs");
 const cli_color = require("cli-color");
+const version = require(__dirname + "/../package.json").version;
+const carpeta_de_comandos = __dirname + "/comandos";
+const comandos_funcion = require(__dirname + "/comandos.js");
+const comandos = comandos_funcion(carpeta_de_comandos);
+const existe_comando = fs.existsSync(comandos.fichero);
 const imprimo_traza_de_comando_erroneo = function () {
     console.log(cli_color.redBright(`[democracia20] [Error] Traza del comando erróneo:`));
     console.log(cli_color.redBright(`[democracia20]    - Comando:    `) + comandos.comando.join(" "));
@@ -39,4 +45,12 @@ const imprimo_ayuda = function () {
     console.log(cli_color.cyanBright(`[democracia20] `));
 };
 
-module.exports = { imprimo_traza_de_comando_erroneo, imprimo_ayuda };
+module.exports = {
+    imprimo_traza_de_comando_erroneo,
+    imprimo_ayuda,
+    carpeta_de_comandos,
+    comandos_funcion,
+    comandos,
+    existe_comando,
+    version
+};
