@@ -49,14 +49,16 @@ Próxima tanda backend:
   [x] src/autoapi/03.configuraciones/arquitectura.calo-db.json
 [ ] arquitectura.json debe influir en los servicios de datos del servidor
   [ ] habilitar todos los servicios de datos para cada tabla:
-    [ ] insertar_dato
+    [x] insertar_dato
+    [x] actualizar_dato
+    [x] eliminar_dato
+
     [ ] seleccionar_dato
       [ ] filtro
       [ ] orden
       [ ] pagina
       [ ] elementos
-    [ ] actualizar_dato
-    [ ] eliminar_dato
+      [ ] texto
     [ ] insertar_elemento
     [ ] actualizar_elemento
     [ ] eliminar_elemento

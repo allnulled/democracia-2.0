@@ -30,6 +30,8 @@ module.exports = async function (tabla = false, filtro = false, orden = false, p
             let sql = "SELECT * FROM ";
             sql += tabla_sanitizada;
             sql += this.datos.utilidades.funcion.obtener_sql_select_where_de_array(filtro)
+            // sql += this.datos.utilidades.funcion.obtener_sql_select_order_by_de_array(orden);
+            // sql += this.datos.utilidades.funcion.obtener_sql_select_limit_y_offset_by_de_pagina_y_elementos(padina, elementos);
             resultado_1 = await db.consultar(sql);
         }
         return {
