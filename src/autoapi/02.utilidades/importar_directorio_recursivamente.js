@@ -62,6 +62,7 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
         }
     } catch (error) {
         console.error("Error in «importar_directorio_recursivamente»", error);
+        throw error;
     }
 }
 importar_directorio_recursivamente.default = importar_directorio_recursivamente;

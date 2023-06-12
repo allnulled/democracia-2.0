@@ -5,13 +5,13 @@ module.exports = function () {
             const subruta_de_datos_objetivo = req.url;
             let resultado = {};
             if (subruta_de_datos_objetivo.startsWith("/seleccionar/dato")) {
-                resultado = await this.datos.utilidades.accion.seleccionar_dato(req, res, next);
+                resultado = await this.datos.utilidades.accion.desde_peticion.seleccionar_dato(req, res, next);
             } else if (subruta_de_datos_objetivo.startsWith("/insertar/dato")) {
-                resultado = await this.datos.utilidades.accion.insertar_dato(req, res, next);
+                resultado = await this.datos.utilidades.accion.desde_peticion.insertar_dato(req, res, next);
             } else if (subruta_de_datos_objetivo.startsWith("/actualizar/dato")) {
-                resultado = await this.datos.utilidades.accion.actualizar_dato(req, res, next);
+                resultado = await this.datos.utilidades.accion.desde_peticion.actualizar_dato(req, res, next);
             } else if (subruta_de_datos_objetivo.startsWith("/eliminar/dato")) {
-                resultado = await this.datos.utilidades.accion.eliminar_dato(req, res, next);
+                resultado = await this.datos.utilidades.accion.desde_peticion.eliminar_dato(req, res, next);
             } else {
                 return this.utilidades.responder_como_error(new Error(`El sistema de datos no reconoció la ruta «${subruta_de_datos_objetivo}»`), req, res, next);
             }

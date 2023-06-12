@@ -12,8 +12,6 @@ module.exports = function (dato_parseado = {}) {
         }
         sql += "\n    ";
         sql += sanitizar_id(clave);
-        sql += ' = ';
-        sql += sanitizar_valor(valor);
     }
     return sql;
 }

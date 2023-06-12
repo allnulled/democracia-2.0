@@ -10,8 +10,6 @@ module.exports = function (dato_parseado = {}) {
             sql += ",";
         }
         sql += "\n    ";
-        sql += this.datos.utilidades.funcion.sanitizar_id(clave);
-        sql += ' = ';
         sql += this.datos.utilidades.funcion.sanitizar_valor(valor);
     }
     return sql;

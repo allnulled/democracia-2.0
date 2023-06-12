@@ -209,7 +209,7 @@
           "esta_mostrando_detalles": true
         }
       },
-      "esta_mostrando_detalles": true
+      "esta_mostrando_detalles": false
     },
     "Comentario_de_votacion": {
       "tipo": "tabla",
@@ -279,6 +279,90 @@
       "ruta_de_url_de_tabla": "/",
       "atributos_de_tabla": {},
       "columnas": {},
+      "esta_mostrando_detalles": false
+    },
+    "Pruebas_para_tests": {
+      "tipo": "tabla",
+      "nombre": "Pruebas_para_tests",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {
+        "nombre": {
+          "tipo": "columna",
+          "nombre": "nombre",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        },
+        "uuid": {
+          "tipo": "columna",
+          "nombre": "uuid",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        },
+        "detalles": {
+          "tipo": "columna",
+          "nombre": "detalles",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {},
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        }
+      },
+      "esta_mostrando_detalles": false
+    },
+    "Comprobaciones_para_tests": {
+      "tipo": "tabla",
+      "nombre": "Comprobaciones_para_tests",
+      "descripcion": "",
+      "identificador_unico": "",
+      "ruta_de_url_de_tabla": "/",
+      "atributos_de_tabla": {},
+      "columnas": {
+        "id_prueba": {
+          "tipo": "columna",
+          "nombre": "id_prueba",
+          "descripcion": "",
+          "identificador_unico": "",
+          "ruta_de_url_de_columna": "/",
+          "atributos_de_columna": {
+            "tiene_clave_foranea": "Pruebas_para_tests:id"
+          },
+          "tipo_de_dato": "texto",
+          "es_identificador": false,
+          "es_clave_unica": false,
+          "es_clave_foranea": false,
+          "es_columna_virtual": false,
+          "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        }
+      },
       "esta_mostrando_detalles": false
     }
   }

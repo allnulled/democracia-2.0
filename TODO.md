@@ -48,29 +48,23 @@ Próxima tanda backend:
   [x] src/autoapi/03.datos/05.inicializacion/02.inicializar_esquema_de_datos_para_tabla.js
   [x] src/autoapi/03.configuraciones/arquitectura.calo-db.json
 [ ] arquitectura.json debe influir en los servicios de datos del servidor
-  [ ] datos
-    [ ] insertar
-    [ ] seleccionar
+  [ ] habilitar todos los servicios de datos para cada tabla:
+    [ ] insertar_dato
+    [ ] seleccionar_dato
       [ ] filtro
       [ ] orden
       [ ] pagina
       [ ] elementos
-    [ ] actualizar
-    [ ] eliminar
+    [ ] actualizar_dato
+    [ ] eliminar_dato
     [ ] insertar_elemento
     [ ] actualizar_elemento
     [ ] eliminar_elemento
-    [ ] seleccionar_elementos
-
-Próxima tanda frontend:
-
-[ ] PaginaDeAplicaciones
-[ ] BreadcrumbComponente
-[ ] PaginaDeProblemas
-[ ] PaginaDeSoluciones
-[ ] PaginaDeImplementaciones
-[ ] ExploradorDeVotaciones
-[ ] ExploradorDeVotacion
+    [ ] seleccionar_elemento
+    [ ] insertar_fichero
+    [ ] actualizar_fichero
+    [ ] eliminar_fichero
+    [ ] seleccionar_fichero
 
 Próxima tanda backend:
 
@@ -104,3 +98,13 @@ Próxima tanda backend:
         }
       }
 [ ] Documentar el cliente de JavaScript para navegador en otra guía. Cliente para el frontend. axios o fetch.
+
+Próxima tanda frontend:
+
+[ ] PaginaDeAplicaciones
+[ ] BreadcrumbComponente
+[ ] PaginaDeProblemas
+[ ] PaginaDeSoluciones
+[ ] PaginaDeImplementaciones
+[ ] ExploradorDeVotaciones
+[ ] ExploradorDeVotacion
