@@ -127,11 +127,14 @@ Al igual que en `src/www/html` puedes servir ficheros estáticos, en `src/www/ej
 En ellas, puedes esperar las siguientes variables:
  
    - `framework`: aquí se carga la autoapi.
-   - `request`: un objeto `Request` de `express`.
-   - `response`: un objeto `Request` de `express`.
+   - `request`: el objeto `Request` de `express` correspondiente a la petición de usuario.
+   - `response`: el objeto `Request` de `express` correspondiente a la respuesta al usuario.
+   - `require`: el método `require` de `node`.
+   - `process`: la variable `process` de `node`.
+   - `global`: la variable `global` de `node`.
    - `__filename`: ruta del fichero de la plantilla.
    - `__dirname`: ruta del directorio de la plantilla.
-   - `require`: el método `require` de `node`.
+
 
 
 #### El fichero de la base de datos local
@@ -165,13 +168,26 @@ Los servicios del sistema de autorización se encuentran en la URL del servidor 
 
 Los **servicios del sistema de autorización generales** son estos, y están disponibles para todos los usuarios:
 
- - `/auth/registrarse`. Sirve para pedir un `Usuario_no_confirmado` en la aplicación, que posteriormente se puede confirmar.
- - `/auth/confirmarse`. Sirve para confirmar un `Usuario_no_confirmado` en la aplicación.
- - `/auth/entrar`. Sirve para abrir la sesión de usuario.
+ - `/auth/registrarse`. Sirve para pedir un `Usuario_no_confirmado` en la aplicación, que posteriormente se puede confirmar. Acepta como parámetros:
+   - `nombre`. **Obligatorio**. Texto con el nombre de usuario.
+   - `contrasenya`. **Obligatorio**. Texto con el contraseña de usuario. 
+   - `correo`. **Obligatorio**. Texto con el correo de usuario. Debe tener 5 caracteres mínimo.
+   - `otros`. *Opcional*. Objeto con otros datos del usuario.
+ - `/auth/confirmarse`. Sirve para confirmar un `Usuario_no_confirmado` en la aplicación. Este servicio no está realmente disponible, así que la alta en el registro no corre por cuenta libre del usuario: un administrador debe ingresar manualmente las credenciales del usuario. Esto es para evitar falsaciones de la identidad, usuarios vacíos y usuarios malintencionados sin una identidad real detrás.
+ - `/auth/entrar`. Sirve para abrir la sesión de usuario. Acepta los parámetros:
+   - `nombre`. **Obligatorio**, alternativamente se puede usar el `correo`. Texto con el nombre de usuario.
+   - `correo`. **Obligatorio**, alternativamente se puede usar el `nombre`. Texto con el correo del usuario.
+   - `contrasenya`. **Obligatorio**. Texto con la contraseña del usuario.
  - `/auth/salir`. Sirve para cerrar la sesión de usuario.
+   - `token_de_sesion`. **Obligatorio**. Texto con el token de sesión del usuario. Puede usarse en las cabeceras HTTP también, con el mismo nombre: `token_de_sesion`.
  - `/auth/refrescarse`. Sirve para refrescar el token de sesión del usuario.
- - `/auth/eliminarse`. Sirve para eliminar un usuario de la aplicación.
+   - `token_de_sesion`. **Obligatorio**.
+ - `/auth/eliminarse`. Sirve para eliminar un usuario de la aplicación. En realidad, lo dejará inactivo, puesto que puede haber datos en la aplicación que dependan de este registro.
+   - `token_de_sesion`. **Obligatorio**.
  - `/auth/autentificarse`. Sirve para obtener la autentificación de un usuario.
+   - `token_de_sesion`. **Obligatorio**.
+
+Los tests de estos servicios están dentro de `test/e2e/servicios_de_autorizacion/`.
 
 #### Servicios de autorización específicos
 
@@ -202,7 +218,11 @@ Los **servicios del sistema de autorización específicos** son estos, y están 
  - `/auth/eliminar_permiso`
  - `/auth/eliminar_usuario`
 
-Estos servicios son usados por la aplicación del usuario automáticamente, y son considerados parte del estándar de servidor de **Democracia Directa 2.0**. Todos ellos están emplazados en la carpeta `src/autoapi/XX.autorizacion/01.utilidades/accion` (las funciones directas) y en su subcarpeta `desde_peticion` (los controladores de petición). Estos controladores son usados por el controlador en `src/autoapi/XX.servidor/controlador/factoria/sistema_de_autentificacion.js`. Este se encarga de discriminar las peticiones y su respectivo método de resolución, de entre estos controladores/funciones.
+Estos servicios son usados por la aplicación del usuario automáticamente, y son considerados parte del estándar de servidor de **Democracia Directa 2.0**. Todos ellos están emplazados en la carpeta `src/autoapi/XX.autorizacion/01.utilidades/accion` (las funciones directas) y en su subcarpeta `desde_peticion` (los controladores de petición). Estos controladores son usados por el controlador en `src/autoapi/XX.servidor/controlador/factoria/sistema_de_autentificacion.js`. 
+
+No se explican los contratos de tipos de estos servicios, porque son más internos, no pensados para explotarse desde clientes ajenos especialmente. Pero puedes ver sus códigos fuentes, y sus tests fácilmente.
+
+Los tests de estos servicios también están dentro de `test/e2e/servicios_de_autorizacion/`.
 
 ### Los servicios del sistema de datos
 
@@ -214,6 +234,10 @@ Se encuentra en `/datos/insertar/dato` y sirve para insertar datos en una tabla.
   - `tabla`. **Obligatorio**. Acepta un texto. Significa el nombre de la tabla de la base de datos a la que se ataca.
   - `dato`. **Obligatorio**. Acepta un objeto. Significan los datos (*pares de columna-valor*) que se van a insertar. Las propiedades del objeto deben aparecer como columnas de la tabla objetivo.
 
+La respuesta interesante de la petición la encontrarás (usando `axios`) en: `response.data.respuesta.datos.insercion`.
+
+El test de este servicio lo encontrarás en: `test/e2e/servicios_de_datos/Servicio de datos para «insertar_dato».js`.
+
 #### Servicio de actualización
 
 Se encuentra en `/datos/actualizar/dato` y sirve para cambiar datos de una tabla. Puedes usar los parámetros siguientes:
@@ -221,11 +245,19 @@ Se encuentra en `/datos/actualizar/dato` y sirve para cambiar datos de una tabla
   - `id`. **Obligatorio**. Acepta un número. Significa el `id` del elemento que se va a cambiar.
   - `dato`. **Obligatorio**. Acepta un objeto. Significan los datos (*pares de columna-valor*) que se van a insertar. Las propiedades del objeto deben aparecer como columnas de la tabla objetivo.
 
+La respuesta interesante de la petición la encontrarás (usando `axios`) en: `response.data.respuesta.datos.actualizacion`.
+
+El test de este servicio lo encontrarás en: `test/e2e/servicios_de_datos/Servicio de datos para «actualizar_dato».js`.
+
 #### Servicio de eliminación
 
 Se encuentra en `/datos/eliminar/dato` y sirve para eliminar datos de una tabla. Puedes usar los parámetros siguientes:
   - `tabla`. **Obligatorio**. Acepta un texto. Significa el nombre de la tabla de la base de datos a la que se ataca.
   - `id`. **Obligatorio**. Acepta un número. Significa el `id` del elemento que se va a eliminar.
+
+La respuesta interesante de la petición la encontrarás (usando `axios`) en: `response.data.respuesta.datos.eliminacion`.
+
+El test de este servicio lo encontrarás en: `test/e2e/servicios_de_datos/Servicio de datos para «eliminar_dato».js`.
 
 #### Servicio de selección
 
@@ -255,5 +287,7 @@ Se encuentra en `/datos/seleccionar/dato` y sirve para seleccionar datos de una 
   - `pagina`. *Opcional*. Acepta un número. Significa el número de página que quieres que se entregue.
   - `busqueda`. *Opcional*. Acepta un texto. Se usará para eliminar del filtro los elementos que no contengan este texto.
 
+La respuesta interesante de la petición la encontrarás (usando `axios`) en: `response.data.respuesta.datos.seleccion`.
 
+El test de este servicio lo encontrarás en: `test/e2e/servicios_de_datos/Servicio de datos para «seleccionar_dato».js`.
 

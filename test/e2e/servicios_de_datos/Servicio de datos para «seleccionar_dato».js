@@ -20,6 +20,7 @@ module.exports = async function (utilidades_de_test) {
             }, { headers: { token_de_sesion } });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "seleccion"], seleccion => Array.isArray(seleccion));
         });
 
         subtest("Servicio de datos para «seleccionar_dato» permite filtros con «in» como operador", async function () {
@@ -36,6 +37,7 @@ module.exports = async function (utilidades_de_test) {
             }, { headers: { token_de_sesion } });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "seleccion"], seleccion => Array.isArray(seleccion));
         });
 
         await iniciar();

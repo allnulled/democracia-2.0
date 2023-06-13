@@ -95,9 +95,9 @@ Próxima tanda backend:
 Próxima tanda frontend:
 
 [ ] PaginaDeAplicaciones
-[ ] BreadcrumbComponente
 [ ] PaginaDeProblemas
 [ ] PaginaDeSoluciones
 [ ] PaginaDeImplementaciones
-[ ] ExploradorDeVotaciones
-[ ] ExploradorDeVotacion
+[ ] MigasDePan
+[ ] ExploradorDeTabla
+[ ] FormularioDeTabla

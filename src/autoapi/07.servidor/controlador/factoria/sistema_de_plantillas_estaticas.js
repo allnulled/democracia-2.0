@@ -1,9 +1,9 @@
 module.exports = function (dir) {
-    this.utilidades.tracear("this.servidor.controlador.factoria.plantillas_estaticas");
+    this.utilidades.tracear("this.servidor.controlador.factoria.sistema_de_plantillas_estaticas");
     let subfichero_global = undefined;
     return async (req, res, next) => {
         try {
-            this.utilidades.tracear("this.servidor.controlador.factoria.plantillas_estaticas (controlador)");
+            this.utilidades.tracear("this.servidor.controlador.factoria.sistema_de_plantillas_estaticas (controlador)");
             subfichero_global = undefined;
             const { mime_types, path } = this.dependencias.instancia;
             const subruta = req.url.replace(/^\//g, "").split("?").shift();
@@ -24,7 +24,7 @@ module.exports = function (dir) {
                 request: req,
                 response: res,
                 __filename: subfichero,
-                __dirname: __dirname,
+                __dirname: path.dirname(subfichero),
                 process: process,
                 require: require,
                 global: global,

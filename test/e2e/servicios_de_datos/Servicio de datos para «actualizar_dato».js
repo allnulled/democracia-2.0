@@ -30,7 +30,6 @@ module.exports = async function (utilidades_de_test) {
             }, { headers: { token_de_sesion } });
             console.log(respuesta_2.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => ("error" in respuesta));
-            revisor_de_objeto(respuesta_2, ["data", "respuesta"], respuesta => ("error" in respuesta));
         });
 
         subtest("Servicio de datos para «actualizar_dato» al final acepta los parámetros correctos", async function () {

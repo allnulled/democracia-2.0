@@ -1,13 +1,16 @@
-asigno window.Democracia20 como una clase con {
+creo Democracia20Cliente como una clase con {
     
+    @Sección de método constructor de instancias:
     método constructor con (url_base) donde {
         asigno this.url_base como url_base.
     }.
     
+    @Sección de método para mostrar error:
     método mostrar_error(error) donde {
         imprimo error.
     }.
     
+    @Sección de método para crear URLs relativas al servidor de Democracia Directa 2.0:
     método crear_url con (...incluyo args) donde {
         creo variable salida como this.base_url.replace(una nueva RegExp("\\/$", "")).
         desde 0 hasta args.length {
@@ -17,6 +20,7 @@ asigno window.Democracia20 como una clase con {
         retorno salida.
     }.
 
+    @Sección de método para autentificarse:
     método asíncrono autentificarse con (nombre, contrasenya) donde {
         compruebo que nombre es tipo texto.
         compruebo que contrasenya es tipo texto.
@@ -27,6 +31,7 @@ asigno window.Democracia20 como una clase con {
         retorno resultado_1.data.respuesta.datos.autentificacion.
     } en errores hago this.mostrar_error(error).
     
+    @Sección de método para seleccionar datos:
     método asíncrono seleccionar_dato con (argumentos) donde {
         compruebo que argumentos es tipo objeto.
         compruebo que argumentos.tabla es tipo texto.
@@ -37,6 +42,7 @@ asigno window.Democracia20 como una clase con {
         retorno resultado_1.data.respuesta.datos.seleccion.
     } en errores hago this.mostrar_error(error).
     
+    @Sección de método para insertar datos:
     método asíncrono insertar_dato con (argumentos) donde {
         compruebo que argumentos es tipo objeto.
         compruebo que argumentos.tabla es tipo texto.
@@ -48,6 +54,7 @@ asigno window.Democracia20 como una clase con {
         retorno resultado_1.data.respuesta.datos.insercion.
     } en errores hago this.mostrar_error(error).
 
+    @Sección de método para actualizar datos:
     método asíncrono actualizar_dato con (argumentos) donde {
         compruebo que argumentos es tipo objeto.
         compruebo que argumentos.tabla es tipo texto.
@@ -60,6 +67,7 @@ asigno window.Democracia20 como una clase con {
         retorno resultado_1.data.respuesta.datos.actualizacion.
     } en errores hago this.mostrar_error(error).
 
+    @Sección de método para eliminar datos:
     método asíncrono eliminar_dato con (argumentos) donde {
         compruebo que argumentos es tipo objeto.
         compruebo que argumentos.tabla es tipo texto.
@@ -70,4 +78,5 @@ asigno window.Democracia20 como una clase con {
             con cuerpo argumentos.
         retorno resultado_1.data.respuesta.datos.eliminacion.
     } en errores hago this.mostrar_error(error).
+
 }.
