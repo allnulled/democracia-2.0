@@ -18,7 +18,16 @@ A continuación se ofrece una explicación más detallada del funcionamiento de 
     - 3.3.6. [El fichero del proceso del sistema](#el-fichero-del-proceso-del-sistema)
 - 4. [El comando de consola democracia20](#el-comando-de-consola-democracia20)
   - 4.1. [El directorio de comandos de consola](#el-directorio-de-comandos-de-consola)
+- 5. [Los servicios del sistema de autorización](#los-servicios-del-sistema-de-autorización)
+    - 5.1. [Servicios de autorización generales](#servicios-de-autorización-generales)
+    - 5.2. [Servicios de autorización específicos](#servicios-de-autorización-específicos)
+- 6. [Los servicios del sistema de datos](#los-servicios-del-sistema-de-datos)
+    - 6.1. [Servicio de inserción](#servicio-de-inserción)
+    - 6.2. [Servicio de actualización](#servicio-de-actualización)
+    - 6.3. [Servicio de eliminación](#servicio-de-eliminación)
+    - 6.4. [Servicio de selección](#servicio-de-selección)
 
+ Los servicios del sistema de datos
 
 ## La ejecución
 
@@ -147,3 +156,104 @@ democracia20 iniciar tests e2e        # Es igual que: npm test:e2e
 ### El directorio de comandos de consola
 
 El directorio `bin/comandos` te permite ampliar los comandos de `democracia20` rápidamente para la consola. Puedes crear ficheros y carpetas libremente. La única regla es que el comando que sí existe, es una carpeta con un fichero `index.js`. El algoritmo que compila los parámetros de consola a un objeto fácilmente legible y usable, está escrito en `bin/comandos.js`. Luego, en `bin/utilidades.js` hay funciones de utilidad común en los binarios. Finalmente, en `bin/democracia20.bin.js` se usan estos ficheros contra el directorio de `bin/comandos`, y así se permite programar comandos fácilmente. Puedes ver los ejemplos que hay dentro, en los comandos de serie.
+
+### Los servicios del sistema de autorización
+
+Los servicios del sistema de autorización se encuentran en la URL del servidor `/auth`. Sirven para gestionar los temas de usuarios, grupos, permisos y sesiones. Hay una serie de tablas implicadas, que son creadas automáticamente en el despliegue de no encontrarse en la base de datos.
+
+#### Servicios de autorización generales
+
+Los **servicios del sistema de autorización generales** son estos, y están disponibles para todos los usuarios:
+
+ - `/auth/registrarse`. Sirve para pedir un `Usuario_no_confirmado` en la aplicación, que posteriormente se puede confirmar.
+ - `/auth/confirmarse`. Sirve para confirmar un `Usuario_no_confirmado` en la aplicación.
+ - `/auth/entrar`. Sirve para abrir la sesión de usuario.
+ - `/auth/salir`. Sirve para cerrar la sesión de usuario.
+ - `/auth/refrescarse`. Sirve para refrescar el token de sesión del usuario.
+ - `/auth/eliminarse`. Sirve para eliminar un usuario de la aplicación.
+ - `/auth/autentificarse`. Sirve para obtener la autentificación de un usuario.
+
+#### Servicios de autorización específicos
+
+Los **servicios del sistema de autorización específicos** son estos, y están disponibles para algunos usuarios solamente, con el permiso especial de `administrar autorizaciones` que es el primer permiso que se crea en la aplicación:
+
+ - `/auth/seleccionar_grupo_de_usuario`
+ - `/auth/seleccionar_grupo_segun_nombre`
+ - `/auth/seleccionar_grupo`
+ - `/auth/seleccionar_permiso_de_grupo`
+ - `/auth/seleccionar_permiso_de_usuario`
+ - `/auth/seleccionar_permiso_segun_nombre`
+ - `/auth/seleccionar_permiso`
+ - `/auth/seleccionar_usuario_segun_nombre`
+ - `/auth/seleccionar_usuario`
+ - `/auth/agregar_grupo_a_usuario`
+ - `/auth/agregar_grupo`
+ - `/auth/agregar_permiso_a_grupo`
+ - `/auth/agregar_permiso_a_usuario`
+ - `/auth/agregar_permiso`
+ - `/auth/agregar_usuario`
+ - `/auth/actualizar_grupo`
+ - `/auth/actualizar_permiso`
+ - `/auth/actualizar_usuario`
+ - `/auth/eliminar_grupo_a_usuario`
+ - `/auth/eliminar_grupo`
+ - `/auth/eliminar_permiso_a_grupo`
+ - `/auth/eliminar_permiso_a_usuario`
+ - `/auth/eliminar_permiso`
+ - `/auth/eliminar_usuario`
+
+Estos servicios son usados por la aplicación del usuario automáticamente, y son considerados parte del estándar de servidor de **Democracia Directa 2.0**. Todos ellos están emplazados en la carpeta `src/autoapi/XX.autorizacion/01.utilidades/accion` (las funciones directas) y en su subcarpeta `desde_peticion` (los controladores de petición). Estos controladores son usados por el controlador en `src/autoapi/XX.servidor/controlador/factoria/sistema_de_autentificacion.js`. Este se encarga de discriminar las peticiones y su respectivo método de resolución, de entre estos controladores/funciones.
+
+### Los servicios del sistema de datos
+
+Los servicios del sistema de datos sirven para interactuar con la base de datos rápidamente, sin necesidad de crear nuevos controladores específicos para resolver preguntas específicas. Son los que se explican a continuación.
+
+#### Servicio de inserción
+
+Se encuentra en `/datos/insertar/dato` y sirve para insertar datos en una tabla. Puedes usar los parámetros siguientes:
+  - `tabla`. **Obligatorio**. Acepta un texto. Significa el nombre de la tabla de la base de datos a la que se ataca.
+  - `dato`. **Obligatorio**. Acepta un objeto. Significan los datos (*pares de columna-valor*) que se van a insertar. Las propiedades del objeto deben aparecer como columnas de la tabla objetivo.
+
+#### Servicio de actualización
+
+Se encuentra en `/datos/actualizar/dato` y sirve para cambiar datos de una tabla. Puedes usar los parámetros siguientes:
+  - `tabla`. **Obligatorio**. Acepta un texto. Significa el nombre de la tabla de la base de datos a la que se ataca.
+  - `id`. **Obligatorio**. Acepta un número. Significa el `id` del elemento que se va a cambiar.
+  - `dato`. **Obligatorio**. Acepta un objeto. Significan los datos (*pares de columna-valor*) que se van a insertar. Las propiedades del objeto deben aparecer como columnas de la tabla objetivo.
+
+#### Servicio de eliminación
+
+Se encuentra en `/datos/eliminar/dato` y sirve para eliminar datos de una tabla. Puedes usar los parámetros siguientes:
+  - `tabla`. **Obligatorio**. Acepta un texto. Significa el nombre de la tabla de la base de datos a la que se ataca.
+  - `id`. **Obligatorio**. Acepta un número. Significa el `id` del elemento que se va a eliminar.
+
+#### Servicio de selección
+
+Se encuentra en `/datos/seleccionar/dato` y sirve para seleccionar datos de una tabla. Puedes usar los parámetros siguientes:
+  - `tabla`. **Obligatorio**. Acepta un texto. Significa el nombre de la tabla de la base de datos a la que se ataca.
+  - `filtro`. *Opcional*. Acepta un array de arrays de 2 a 4 elementos. Ejemplo:
+    - `[["id","=",5]]`. Buscará elementos cuyo `id` sea igual que `5`.
+    - `[["id","=",5,"valor"]]`. Lo mismo. El cuarto parámetro simplemente dice que `5` es un `valor` y no una `columna`.
+    - `[["id","!=",5]]`. Buscará elementos cuyo `id` no sea igual que `5`.
+    - `[["fecha_de_eliminacion","!null"]]`. Buscará elementos cuya `fecha_de_eliminacion` no sea `NULL`.
+    - `[["fecha_de_eliminacion","null"]]`. Buscará elementos cuya `fecha_de_eliminacion` sí sea `NULL`.
+    - `[["nombre","!like","%Carl Carlson%"]]`. Buscará elementos cuyo `nombre` no contenga el texto `Carl Carlson`.
+    - `[["nombre","like","%Carl Carlson%"]]`. Buscará elementos cuyo `nombre` sí contenga el texto `Carl Carlson`.
+    - `[["id","!=",5],["id","!=",6]]`. Buscará elementos cuyo `id` no sea igual que `5` ni que `6`.
+    - `[["nombre","!in",["Carl","Corl","Curl"]]]`. Buscará elementos cuyo `nombre` no sea alguno de los de la lista.
+    - `[["nombre","in",["Carl","Corl","Curl"]]]`. Buscará elementos cuyo `nombre` sí sea alguno de los de la lista.
+    - `[["edad",">",18]]`. Buscará elementos cuya `edad` sí sea mayor que `18`.
+    - `[["edad",">=",18]]`. Buscará elementos cuya `edad` sí sea mayor o igual que `18`.
+    - Y así.
+  - `orden`. *Opcional*. Acepta un array de arrays de 1 a 2 elementos. Ejemplo:
+    - `[["id"]]`. Ordenará los elementos según el `id` en orden ascendiente.
+    - `[["id","asc"]]`. Igual.
+    - `[["id","desc"]]`. Ordenará los elementos según el `id` en orden descendiente.
+    - `[["nombre","asc"],["id","asc"]]]`. Ordenará los elementos según el `nombre` en orden ascendiente, y si coinciden, según el `id` en orden ascendiente.
+    - Y así. Por defecto, siempre se ordena por `id`, que es un campo que se crea automáticamente en todas las tablas del esquema.
+  - `elementos`. *Opcional*. Acepta un número. Significa el número de elementos que quieres incluir en la página. Por defecto, siempre son `20`.
+  - `pagina`. *Opcional*. Acepta un número. Significa el número de página que quieres que se entregue.
+  - `busqueda`. *Opcional*. Acepta un texto. Se usará para eliminar del filtro los elementos que no contengan este texto.
+
+
+
