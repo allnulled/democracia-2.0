@@ -52,6 +52,7 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
             resultado_1 = await db.consultar(sql);
         }
         return {
+            seleccion: resultado_1,
             resultado: [resultado_1]
         };
     } catch (error) {

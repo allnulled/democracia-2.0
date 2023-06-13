@@ -6,7 +6,7 @@ module.exports = async function (tabla, dato) {
         const { esquema } = this.datos.esquema.instancia.arquitectura;
         let db = undefined;
         let tabla_sanitizada = undefined;
-        let dato_insertado = undefined;
+        let insercion = undefined;
         let resultado_1 = undefined;
         let resultado_2 = undefined;
         Validar_parametros: {
@@ -55,10 +55,10 @@ module.exports = async function (tabla, dato) {
             console.log(resultados);
             resultado_1 = resultados[0];
             resultado_2 = resultados[1].resultado[0].ultimo_id;
-            dato_insertado = true;
+            insercion = true;
         }
         return {
-            dato_insertado: { id: resultado_2, ...dato },
+            insercion: { id: resultado_2, ...dato },
             resultado: [resultado_1]
         };
 

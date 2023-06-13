@@ -7,7 +7,7 @@ module.exports = async function (tabla, id, dato) {
         let db = undefined;
         let tabla_sanitizada = undefined;
         let id_sanitizado = undefined;
-        let dato_actualizado = undefined;
+        let actualizacion = undefined;
         let resultado_1 = undefined;
         Validar_parametros: {
             Comprobar_tipos_iniciales: {
@@ -48,10 +48,10 @@ module.exports = async function (tabla, id, dato) {
             sql += id_sanitizado;
             sql += ";";
             resultado_1 = await db.consultar(sql);
-            dato_actualizado = true;
+            actualizacion = true;
         }
         return {
-            dato_actualizado: { id, ...dato },
+            actualizacion: { id, ...dato },
             resultado: [resultado_1]
         };
 

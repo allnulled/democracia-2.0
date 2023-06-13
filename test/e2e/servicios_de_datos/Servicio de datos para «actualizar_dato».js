@@ -45,8 +45,8 @@ module.exports = async function (utilidades_de_test) {
             }, { headers: { token_de_sesion } });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "dato_actualizado"], dato_actualizado => {
-                return (typeof dato_actualizado === "object");
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "actualizacion"], actualizacion => {
+                return (typeof actualizacion === "object");
             });
         });
 

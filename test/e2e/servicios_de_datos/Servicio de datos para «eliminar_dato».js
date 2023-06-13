@@ -26,7 +26,7 @@ module.exports = async function (utilidades_de_test) {
             }, { headers: { token_de_sesion } });
             console.log(respuesta_1.data);
             revisor_de_objeto(respuesta_1, ["data", "respuesta"], respuesta => !("error" in respuesta));
-            revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "dato_eliminado"], dato_eliminado => dato_eliminado === true);
+            revisor_de_objeto(respuesta_1, ["data", "respuesta", "datos", "eliminacion"], eliminacion => eliminacion.id === id_de_insercion_1);
         });
 
         await iniciar();
