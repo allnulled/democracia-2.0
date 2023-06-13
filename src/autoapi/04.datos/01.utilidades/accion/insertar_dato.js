@@ -23,8 +23,12 @@ module.exports = async function (tabla, dato) {
                 const columnas = esquema[tabla].columnas;
                 const columnas_ids = Object.keys(columnas);
                 const propiedades_de_dato = Object.keys(dato);
+                Iterando_propiedades:
                 for(let index = 0; index < propiedades_de_dato.length; index++) {
                     const propiedad_de_dato = propiedades_de_dato[index];
+                    if(propiedad_de_dato === "id") {
+                        continue Iterando_propiedades;
+                    }
                     if (columnas_ids.indexOf(propiedad_de_dato) === -1) {
                         throw new Error("el parámetro «dato» tiene que tener todas las propiedades existentes como columnas en la tabla «" + tabla + "» pero no ocurre así con la propiedad «" + propiedad_de_dato + "» al «insertar_dato»")
                     }
@@ -47,8 +51,10 @@ module.exports = async function (tabla, dato) {
             sql += "\n);";
             sql += "\n/* Inicio de nueva query */\n";
             sql += "SELECT LAST_INSERT_ROWID() AS 'ultimo_id';";
-            [resultado_1, resultado_2] = await db.consultar_multiplemente(sql);
-            resultado_2 = resultado_2.resultado[0].ultimo_id;
+            const resultados = await db.consultar_multiplemente(sql);
+            console.log(resultados);
+            resultado_1 = resultados[0];
+            resultado_2 = resultados[1].resultado[0].ultimo_id;
             dato_insertado = true;
         }
         return {
