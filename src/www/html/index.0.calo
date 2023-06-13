@@ -7,7 +7,7 @@ Ejecutable como documento HTML5
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/calo.js"></script>
-    <script src="js/democracia20.cliente.js"></script>
+    <script src="js/democracia20-comunicador.js"></script>
     <style>
       .static_windows_1 {
         position: fixed; top: 0; bottom: 0; left: 0; right: 0;
@@ -34,13 +34,31 @@ Ejecutable como documento HTML5
       }
     </style>
     <style>
-    .estilo_migas_de_pan {}
-    .estilo_migas_de_pan > li {
+
+    .link {
+      color: blue;
+      cursor: pointer;
+    }
+    .link:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 1px blue;
+    }
+
+    .MigasDePan {
+      padding: 5px;
+      border: 1px solid #333;
+      box-shadow: 0 0 4px black;
+      background-color: #E0E0E0;
+    }
+    .MigasDePan ul.estilo_migas_de_pan {
+      margin: 0;
+      padding: 0;
+    }
+    .MigasDePan ul.estilo_migas_de_pan > li {
       display: inline-block;
     }
-    .estilo_migas_de_pan > li > .link {
-      color: blue;
-    }
+    .MigasDePan ul.estilo_migas_de_pan > li > .link {}
+
     </style>
 </head>
 <body><div id="app"></div></body>.
@@ -52,7 +70,8 @@ creo MigasDePan como un componente vue2 con nombre "MigasDePan" con plantilla {
     <ul class="estilo_migas_de_pan">
       <li v-for="(subseccion, subseccion_index) in seccion" v-bind:key="'miga_de_pan_' + subseccion_index">
         <span class="separador" v-if="subseccion_index !== 0"> » </span>
-        <span class="link"> {{ typeof subseccion === 'string' ? subseccion : subseccion.nombre }} </span>
+        <span class="link" v-if="typeof subseccion === 'string'" v-on:click="() => $router.history.push('/' + subseccion.toLowerCase())"> {{ subseccion }} </span>
+        <span class="link" v-else-if="typeof subseccion === 'object'" v-on:click="() => $router.history.push(subseccion.link)"> {{ subseccion.nombre }} </span>
       </li>
     </ul>
   </div>
@@ -65,44 +84,6 @@ creo MigasDePan como un componente vue2 con nombre "MigasDePan" con plantilla {
       },
       seccion: {
         propiedad type como Array.
-        propiedad required como true.
-      }
-    }.
-    método data donde {
-      retorno {
-        error: undefined,
-        otros: {}
-      }.
-    }.
-    propiedad methods como {
-      mostrar_error: una función con (error) donde {
-        asigno this.error como error.
-        hago setTimeout(una lambda donde asigno this.error como undefined, 5000).
-      }
-    }.
-  }.
-}.
-
-creo PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio" con plantilla {
-  <div class="PaginaDeInicio Component">
-    <MigasDePan :app="app" :seccion="['App','Inicio']" />
-    <ul>
-      <li>
-        <span class="link_active">Inicio</span>
-      </li>
-      <li>
-        <span class="link">Votaciones</span>
-      </li>
-      <li>
-        <span class="link">Perfil</span>
-      </li>
-    </ul>
-  </div>
-} con lógica donde {
-  retorno {
-    propiedad props como {
-      app: {
-        propiedad type como Object.
         propiedad required como true.
       }
     }.
@@ -204,6 +185,178 @@ creo PaginaDeLogin como un componente vue2 con nombre "PaginaDeLogin" con planti
   }.
 }.
 
+creo PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio" con plantilla {
+  <div class="PaginaDeInicio Component">
+    <MigasDePan :app="app" :seccion="['🏛']" />
+    <ul>
+      <li>
+        <span class="link_active">Inicio</span>
+      </li>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/votaciones')">Votaciones</span>
+      </li>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/problemas')">Problemas</span>
+      </li>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/soluciones')">Soluciones</span>
+      </li>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/implementaciones')">Implementaciones</span>
+      </li>
+    </ul>
+  </div>
+} con lógica donde {
+  retorno {
+    propiedad props como {
+      app: {
+        propiedad type como Object.
+        propiedad required como true.
+      }
+    }.
+    método data donde {
+      retorno {
+        error: undefined,
+        otros: {}
+      }.
+    }.
+    propiedad methods como {
+      mostrar_error: una función con (error) donde {
+        asigno this.error como error.
+        hago setTimeout(una lambda donde asigno this.error como undefined, 5000).
+      }
+    }.
+  }.
+}.
+
+creo PaginaDeVotaciones como un componente vue2 con nombre "PaginaDeVotaciones" con plantilla {
+  <div class="PaginaDeVotaciones Component">
+    <MigasDePan :app="app" :seccion="['🏛','Votaciones']" />
+    <ul>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/')">Volver</span>
+      </li>
+    </ul>
+  </div>
+} con lógica donde {
+  retorno {
+    propiedad props como {
+      app: {
+        propiedad type como Object.
+        propiedad required como true.
+      }
+    }.
+    método data donde {
+      retorno {
+        error: undefined,
+        otros: {}
+      }.
+    }.
+    propiedad methods como {
+      mostrar_error: una función con (error) donde {
+        asigno this.error como error.
+        hago setTimeout(una lambda donde asigno this.error como undefined, 5000).
+      }
+    }.
+  }.
+}.
+
+creo PaginaDeProblemas como un componente vue2 con nombre "PaginaDeProblemas" con plantilla {
+  <div class="PaginaDeProblemas Component">
+    <MigasDePan :app="app" :seccion="['🏛','Problemas']" />
+    <ul>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/')">Volver</span>
+      </li>
+    </ul>
+  </div>
+} con lógica donde {
+  retorno {
+    propiedad props como {
+      app: {
+        propiedad type como Object.
+        propiedad required como true.
+      }
+    }.
+    método data donde {
+      retorno {
+        error: undefined,
+        otros: {}
+      }.
+    }.
+    propiedad methods como {
+      mostrar_error: una función con (error) donde {
+        asigno this.error como error.
+        hago setTimeout(una lambda donde asigno this.error como undefined, 5000).
+      }
+    }.
+  }.
+}.
+
+creo PaginaDeSoluciones como un componente vue2 con nombre "PaginaDeSoluciones" con plantilla {
+  <div class="PaginaDeSoluciones Component">
+    <MigasDePan :app="app" :seccion="['🏛','Soluciones']" />
+    <ul>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/')">Volver</span>
+      </li>
+    </ul>
+  </div>
+} con lógica donde {
+  retorno {
+    propiedad props como {
+      app: {
+        propiedad type como Object.
+        propiedad required como true.
+      }
+    }.
+    método data donde {
+      retorno {
+        error: undefined,
+        otros: {}
+      }.
+    }.
+    propiedad methods como {
+      mostrar_error: una función con (error) donde {
+        asigno this.error como error.
+        hago setTimeout(una lambda donde asigno this.error como undefined, 5000).
+      }
+    }.
+  }.
+}.
+
+creo PaginaDeImplementaciones como un componente vue2 con nombre "PaginaDeImplementaciones" con plantilla {
+  <div class="PaginaDeImplementaciones Component">
+    <MigasDePan :app="app" :seccion="['🏛','Implementaciones']" />
+    <ul>
+      <li>
+        <span class="link" v-on:click="() => $router.history.push('/')">Volver</span>
+      </li>
+    </ul>
+  </div>
+} con lógica donde {
+  retorno {
+    propiedad props como {
+      app: {
+        propiedad type como Object.
+        propiedad required como true.
+      }
+    }.
+    método data donde {
+      retorno {
+        error: undefined,
+        otros: {}
+      }.
+    }.
+    propiedad methods como {
+      mostrar_error: una función con (error) donde {
+        asigno this.error como error.
+        hago setTimeout(una lambda donde asigno this.error como undefined, 5000).
+      }
+    }.
+  }.
+}.
+
 creo App como una aplicación vue2 con nombre "App" con rutas [{
     propiedad path como "/login".
     propiedad name como "Login".
@@ -211,8 +364,29 @@ creo App como una aplicación vue2 con nombre "App" con rutas [{
     propiedad props como {}.
 },{
     propiedad path como "/".
+    propiedad alias como "/🏛".
     propiedad name como "Inicio".
     propiedad component como PaginaDeInicio.
+    propiedad props como {}.
+},{
+    propiedad path como "/votaciones".
+    propiedad name como "PaginaDeVotaciones".
+    propiedad component como PaginaDeVotaciones.
+    propiedad props como {}.
+},{
+    propiedad path como "/problemas".
+    propiedad name como "PaginaDeProblemas".
+    propiedad component como PaginaDeProblemas.
+    propiedad props como {}.
+},{
+    propiedad path como "/soluciones".
+    propiedad name como "PaginaDeSoluciones".
+    propiedad component como PaginaDeSoluciones.
+    propiedad props como {}.
+},{
+    propiedad path como "/implementaciones".
+    propiedad name como "PaginaDeImplementaciones".
+    propiedad component como PaginaDeImplementaciones.
     propiedad props como {}.
 }] con traducciones {
     propiedad es como {}.

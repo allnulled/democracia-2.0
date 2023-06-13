@@ -2,16 +2,21 @@
 
 Documento oficial para la estandarización de la **Democracia Directa Tecnológica**.
 
-Seré breve, porque la mayor parte del contenido de estos estándares lo estoy poniendo en [./Sociedad-Horizontal-2.0.md].
+Seré breve, porque la mayor parte del contenido de estos estándares lo estoy poniendo en [Sociedad-Horizontal-2.0.md](https://github.com/allnulled/democracia-2.0/blob/main/info/Sociedad-Horizontal-2.0.md).
+
+## Índice
+
+1. [Oligarquía y democracia](#oligarquía-y-democracia)
+2. [Democracia tecnológica](#democracia-tecnológica)
 
 ## Oligarquía y democracia
 
 En las escuelas públicas están enseñando que «democracia» es «oligarquía», pero no lo que es la oligarquía.
 
 Por favor, ver las definiciones en Wikipedia de:
-  - [oligarquía](https://es.wikipedia.org/wiki/Oligarqu%C3%ADa). Puedes ver cómo claramente vivimos en una oligaquía, donde el poder real lo tienen «unos pocos».
-  - [democracia representativa](https://es.wikipedia.org/wiki/Democracia_representativa). Puedes ver cómo claramente, esos «pocos poderosos» (oligarquía) son los representantes (representativa). Por tanto, es una forma de oligarquía, simplemente. Es una **«oligarquía representativa»**, si quieres.
-  - [democracia directa](https://es.wikipedia.org/wiki/Democracia_directa). Puedes ver cómo claramente, la minoría aquí desaparece, y entonces sí podemos hablar de **«democraciax**.
+  - [Oligarquía](https://es.wikipedia.org/wiki/Oligarqu%C3%ADa). Puedes ver cómo claramente vivimos en una oligaquía, donde el poder real lo tienen «unos pocos».
+  - [Democracia representativa](https://es.wikipedia.org/wiki/Democracia_representativa). Puedes ver cómo claramente, esos «pocos poderosos» (oligarquía) son los representantes (representativa). Por tanto, es una forma de oligarquía, simplemente. Es una **«oligarquía representativa»**, si quieres.
+  - [Democracia directa](https://es.wikipedia.org/wiki/Democracia_directa). Puedes ver cómo claramente, la minoría aquí desaparece, y entonces sí podemos hablar de **«democracia**.
 
 ## Democracia tecnológica
 
@@ -29,7 +34,7 @@ La democratización real del poder puede convenirse con soluciones tecnológicas
 
 Quiero decir, hace 50 años que existe internet. Y no tanto los smartphones. Pues ahora sí existen todos. Ahora, la democracia, no tiene porqué ser solo una falsa promesa.
 
-Por eso estoy intentando ofrecer una solución enfocada a la organización de comunidades humanas horizontales, donde el poder legislativo se distribuya de forma ecuánime real. Y no por ello *vote* la tecnología. La tecnología es la tecnología. El uso que hace el humano de ella, es el uso que hace el humano de ella. Y ese humano, es ese humano. Y ese otro, ese otro.
+Por eso estoy intentando ofrecer una solución enfocada a la organización de comunidades humanas horizontales, donde el poder legislativo se distribuya de forma ecuánime real. Y no por ello se *vote* la tecnología. La tecnología es la tecnología. El uso que hace el humano de ella, es el uso que hace el humano de ella. Y ese humano, es ese humano. Y ese otro, ese otro.
 
 La democracia tecnológica se basa, principalmente, en estas 2 tecnologías: **internet** y **smartphones**. Que se dice rápido, pero son un compendio de tecnologías que no te acabas, juntas, y empalmadas bien una con otra. Son muchos años de progreso tecnológico. Ahora, falta, personalmente, creo, actualizar la cultura y el pensamiento antropocéntrico siendo coherentes con el avance tecnológico, y las carencias de nuestra sociedad.
 

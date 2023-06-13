@@ -1,0 +1,20 @@
+Exporto como módulo es5 una función con (configuraciones o en su defecto {}) donde {
+    Desacoplo constantes {
+        tracear,
+        responder_como_exito
+    } a partir de this.utilidades.
+    Hago tracear("this.servidor.controlador.factoria.sistema_democratico").
+    Retorno una lambda con (peticion, respuesta) donde {
+        Hago tracear("this.servidor.controlador.factoria.sistema_democratico (controlador)").
+        Creo subruta como peticion.url.
+        Creo variable resultado como {}.
+        Si false {}
+        Pero si subruta.startsWith("") {}
+        Pero si subruta.startsWith("") {}
+        Pero si subruta.startsWith("") {}
+        Pero si subruta.startsWith("") {}
+        Pero si subruta.startsWith("") {}
+        Pero si subruta.startsWith("") {}.
+        Hago responder_como_error(un nuevo Error("El sistema democrático no reconoció la ruta «${subruta}»"), peticion, respuesta).
+    }.
+}.

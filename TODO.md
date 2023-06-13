@@ -59,6 +59,18 @@ Próxima tanda backend:
       [x] elementos
       [x] texto
 
+Próxima tanda frontend:
+
+[ ] PaginaDeAplicaciones
+[ ] PaginaDeProblemas
+[ ] PaginaDeSoluciones
+[ ] PaginaDeImplementaciones
+[ ] MigasDePan
+[ ] ExploradorDeTabla
+[ ] FormularioDeTabla
+
+
+
 Próxima tanda backend:
 
 [ ] Que los permisos se puedan aplicar a las operaciones automáticas de datos:
@@ -92,12 +104,4 @@ Próxima tanda backend:
       }
 [ ] Documentar el cliente de JavaScript para navegador en otra guía. Cliente para el frontend. axios o fetch.
 
-Próxima tanda frontend:
 
-[ ] PaginaDeAplicaciones
-[ ] PaginaDeProblemas
-[ ] PaginaDeSoluciones
-[ ] PaginaDeImplementaciones
-[ ] MigasDePan
-[ ] ExploradorDeTabla
-[ ] FormularioDeTabla
