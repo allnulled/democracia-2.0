@@ -3,7 +3,7 @@
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/calo.js"></script>
-    <script src="js/democracia20.js"></script>
+    <script src="js/democracia20.cliente.js"></script>
     <style>
       .static_windows_1 {
         position: fixed; top: 0; bottom: 0; left: 0; right: 0;
@@ -34,11 +34,14 @@
     .estilo_migas_de_pan > li {
       display: inline-block;
     }
+    .estilo_migas_de_pan > li > .link {
+      color: blue;
+    }
     </style>
 </head><body><div id="app"></div><script>
-// [castelog:html5izable] ACTIVADO con: {"autor":"allnulled","nombre":"index","version":"0","contenido":{"head":"<head>\n    <title>Democracia 2.0</title>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    &gt;script src=\"js/calo.js\">&gt;/script>\n    &gt;script src=\"js/democracia20.js\">&gt;/script>\n    <style>\n      .static_windows_1 {\n        position: fixed; top: 0; bottom: 0; left: 0; right: 0;\n        background: url(\"img/hielos_1.png\");\n      }\n      .static_windows_2 {\n        display: table;\n        width: 100%;\n        height: 100%;\n      }\n      .static_windows_3 {\n        display: table-cell;\n        width: 100%;\n        height: 100%;\n        text-align: center;\n        vertical-align: middle;\n      }\n      .dialog_window_container_1 {\n        display: inline-block;\n        width: auto;\n      }\n      .dialog_window_container_2 {\n        width: 100%;\n      }\n    </style>\n    <style>\n    .estilo_migas_de_pan {}\n    .estilo_migas_de_pan > li {\n      display: inline-block;\n    }\n    </style>\n</head>","body":"<body><div id=\"app\"></div></body>"}}
+// [castelog:html5izable] ACTIVADO con: {"autor":"allnulled","nombre":"index","version":"0","contenido":{"head":"<head>\n    <title>Democracia 2.0</title>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    &gt;script src=\"js/calo.js\">&gt;/script>\n    &gt;script src=\"js/democracia20.cliente.js\">&gt;/script>\n    <style>\n      .static_windows_1 {\n        position: fixed; top: 0; bottom: 0; left: 0; right: 0;\n        background: url(\"img/hielos_1.png\");\n      }\n      .static_windows_2 {\n        display: table;\n        width: 100%;\n        height: 100%;\n      }\n      .static_windows_3 {\n        display: table-cell;\n        width: 100%;\n        height: 100%;\n        text-align: center;\n        vertical-align: middle;\n      }\n      .dialog_window_container_1 {\n        display: inline-block;\n        width: auto;\n      }\n      .dialog_window_container_2 {\n        width: 100%;\n      }\n    </style>\n    <style>\n    .estilo_migas_de_pan {}\n    .estilo_migas_de_pan > li {\n      display: inline-block;\n    }\n    .estilo_migas_de_pan > li > .link {\n      color: blue;\n    }\n    </style>\n</head>","body":"<body><div id=\"app\"></div></body>"}}
 
-const democracia20 = new window.Democracia20( window.location.protocol + "//" + window.location.host );
+const democracia20 = new window.Democracia20Comunicador( window.location.protocol + "//" + window.location.host );
 const MigasDePan = Castelog.metodos.un_componente_vue2("MigasDePan",
   "<div class=\"MigasDePan Component\">"
  + "    <ul class=\"estilo_migas_de_pan\">"

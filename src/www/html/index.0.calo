@@ -38,11 +38,14 @@ Ejecutable como documento HTML5
     .estilo_migas_de_pan > li {
       display: inline-block;
     }
+    .estilo_migas_de_pan > li > .link {
+      color: blue;
+    }
     </style>
 </head>
 <body><div id="app"></div></body>.
 
-creo democracia20 como una nueva window.Democracia20(window.location.protocol + "//" + window.location.host).
+creo democracia20 como una nueva window.Democracia20Comunicador(window.location.protocol + "//" + window.location.host).
 
 creo MigasDePan como un componente vue2 con nombre "MigasDePan" con plantilla {
   <div class="MigasDePan Component">

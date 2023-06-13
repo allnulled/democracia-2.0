@@ -1,4 +1,4 @@
-creo Democracia20Cliente como una clase con {
+creo Democracia20Comunicador como una clase con {
     
     @Sección de método constructor de instancias:
     método constructor con (url_base) donde {
@@ -79,4 +79,12 @@ creo Democracia20Cliente como una clase con {
         retorno resultado_1.data.respuesta.datos.eliminacion.
     } en errores hago this.mostrar_error(error).
 
+}.
+
+si window no es tipo indefinido {
+    asigno window.Democracia20Comunicador como Democracia20Comunicador.
+}.
+
+si global no es tipo indefinido {
+    asigno global.Democracia20Comunicador como Democracia20Comunicador.
 }.
