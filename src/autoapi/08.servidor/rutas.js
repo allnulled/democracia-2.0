@@ -9,8 +9,24 @@ module.exports = function () {
         sistema_de_plantillas_estaticas,
         sistema_de_ficheros_estaticos,
         sistema_democratico,
+        traceo_de_peticion_simple,
     } = this.servidor.controlador.factoria;
     // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO:       CUSTOMIZABLE
+    // @TODO:       CUSTOMIZABLE
+    // @TODO:       CUSTOMIZABLE
+    // @TODO:       CUSTOMIZABLE
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    // @TODO: desplegar todos los servicios
+    enrutador.use("*", traceo_de_peticion_simple());
     enrutador.get("^/es-democracia-directa", controlador_simple((rq,rs) => rs.json({ mensaje: "Es Democracia Directa 2.0" })));
     enrutador.use("^/auth", sistema_de_autentificacion());
     enrutador.use("^/datos", sistema_de_datos());

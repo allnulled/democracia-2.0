@@ -1,20 +1,60 @@
 Exporto como módulo es5 una función con (configuraciones o en su defecto {}) donde {
     Desacoplo constantes {
         tracear,
+        responder_como_error,
         responder_como_exito
     } a partir de this.utilidades.
+    Desacoplo constantes {
+        implementaciones_clasificadas,
+        implementaciones_elegidas,
+        implementaciones_propuestas,
+        implementaciones,
+        problemas_clasificados,
+        problemas_elegidos,
+        problemas_propuestos,
+        problemas,
+        soluciones_clasificadas,
+        soluciones_elegidas,
+        soluciones_propuestas,
+        soluciones,
+        votaciones
+    } a partir de this.servidor.ayudante.democracia.interfaz.
     Hago tracear("this.servidor.controlador.factoria.sistema_democratico").
-    Retorno una lambda con (peticion, respuesta) donde {
+    Retorno una lambda asíncrona con (peticion, respuesta, siguiente) donde {
         Hago tracear("this.servidor.controlador.factoria.sistema_democratico (controlador)").
         Creo subruta como peticion.url.
         Creo variable resultado como {}.
-        Si false {}
-        Pero si subruta.startsWith("") {}
-        Pero si subruta.startsWith("") {}
-        Pero si subruta.startsWith("") {}
-        Pero si subruta.startsWith("") {}
-        Pero si subruta.startsWith("") {}
-        Pero si subruta.startsWith("") {}.
-        Hago responder_como_error(un nuevo Error("El sistema democrático no reconoció la ruta «${subruta}»"), peticion, respuesta).
+        Si subruta.startsWith("/interfaz/inicio") {
+            Asigno resultado como asíncronamente inicio(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/votaciones") {
+            Asigno resultado como asíncronamente votaciones(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/problemas_propuestos") {
+            Asigno resultado como asíncronamente problemas_propuestos(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/problemas_clasificados") {
+            Asigno resultado como asíncronamente problemas_clasificados(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/problemas_elegidos") {
+            Asigno resultado como asíncronamente problemas_elegidos(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/problemas") {
+            Asigno resultado como asíncronamente problemas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/soluciones_propuestas") {
+            Asigno resultado como asíncronamente soluciones_propuestas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/soluciones_clasificadas") {
+            Asigno resultado como asíncronamente soluciones_clasificadas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/soluciones_elegidas") {
+            Asigno resultado como asíncronamente soluciones_elegidas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/soluciones") {
+            Asigno resultado como asíncronamente soluciones(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/implementaciones_propuestas") {
+            Asigno resultado como asíncronamente implementaciones_propuestas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/implementaciones_clasificadas") {
+            Asigno resultado como asíncronamente implementaciones_clasificadas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/implementaciones_elegidas") {
+            Asigno resultado como asíncronamente implementaciones_elegidas(peticion, respuesta, siguiente).
+        } pero si subruta.startsWith("/interfaz/implementaciones") {
+            Asigno resultado como asíncronamente implementaciones(peticion, respuesta, siguiente).
+        } y si no {
+            Hago responder_como_error(un nuevo Error("El sistema democrático no reconoció la ruta «${subruta}»"), peticion, respuesta).
+        }.
+        Retorno responder_como_exito(resultado, peticion, respuesta).
     }.
 }.
