@@ -12,18 +12,42 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: url("img/hielos_1.png");
+            background-color: #0d293a;
+        }
+        .static_windows_2 {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        .static_windows_3 {
+            display: table-cell;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .dialog_window_container_1 {
+            display: inline-block;
+            width: auto;
+        }
+        .dialog_window_container_2 {
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <h4>Democracia 2.0</h4>
-    <div class="static_windows_1"></div>
+    <div class="static_windows_1">
+    <div class="static_windows_2">
+    <div class="static_windows_3" style="font-family: monospace; font-size: 20px; color: white;">
+        «Democracia Directa 2.0»
+    </div>
+    </div>
+    </div>
     <script>
         window.addEventListener("load", () => {
             setTimeout(() => {
                 window.location.href = "index.0.html";
-            }, 1000 * 5);
+            }, 1000 * 2);
         });
     </script>
 </body>

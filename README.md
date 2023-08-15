@@ -42,7 +42,7 @@ Democracia Directa 2.0. Servidores para la gestión de comunidades humanas igual
 
 ## Software adicional
 
-**Aplicación 1**. [Constructor de bases de datos de Castelog](https://allnulled.github.io/constructor-de-bases-de-datos-de-castelog/). Para los modelos de datos y la infraestructura de proyectos basados en **Democracia 2.0**.
+**Aplicación 1**. [Constructor de bases de datos de Castelog](https://allnulled.github.io/constructor-de-bases-de-datos-de-castelog/). Para los modelos de datos y la infraestructura de proyectos basados en **Democracia 2.0**. Puedes encontrar su [guía de referencia aquí](https://github.com/allnulled/constructor-de-bases-de-datos-de-castelog/).
 
 ## Licencia
 
