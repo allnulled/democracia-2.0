@@ -41,7 +41,9 @@
       "descripcion": "",
       "identificador_unico": "",
       "ruta_de_url_de_tabla": "/",
-      "atributos_de_tabla": {},
+      "atributos_de_tabla": {
+        "autorizaciones": ""
+      },
       "columnas": {
         "nombre": {
           "tipo": "columna",
