@@ -40,7 +40,7 @@ module.exports = async function (tabla, id, dato, autentificacion) {
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
         Aplicar_autorizador_al_pre_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_pre_aceptar", [], autentificacion, { tabla, id, dato, db, esquema });
+            this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_pre_aceptar", autentificacion, { tabla, id, dato, db, esquema });
         }
         let sql = undefined;
         Insertar_usuario_nuevo: {
@@ -55,7 +55,7 @@ module.exports = async function (tabla, id, dato, autentificacion) {
             actualizacion = true;
         }
         Aplicar_autorizador_al_post_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_post_aceptar", [], autentificacion, { tabla, id, dato, sql, resultado: resultado_1, db, esquema });
+            this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_post_aceptar", autentificacion, { tabla, id, dato, sql, resultado: resultado_1, db, esquema });
         }
         return {
             actualizacion: { id, ...dato },
@@ -65,7 +65,7 @@ module.exports = async function (tabla, id, dato, autentificacion) {
     } catch (error) {
         this.utilidades.error("this.datos.utilidades.accion.actualizar_dato", error);
         Aplicar_autorizador_al_rechazar: {
-            this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_rechazar", [], autentificacion, { tabla, id, dato, error });
+            this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_rechazar", autentificacion, { tabla, id, dato, error });
         }
         throw error;
     }

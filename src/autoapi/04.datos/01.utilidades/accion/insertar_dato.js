@@ -42,7 +42,7 @@ module.exports = async function (tabla, dato, autentificacion) {
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
         Aplicar_autorizador_al_pre_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("insertar", "al_pre_aceptar", [], autentificacion, { tabla, dato, db, esquema });
+            this.servidor.ayudante.aplicar_autorizacion("insertar", "al_pre_aceptar", autentificacion, { tabla, dato, db, esquema });
         }
         let sql = undefined;
         Insertar_usuario_nuevo: {
@@ -62,7 +62,7 @@ module.exports = async function (tabla, dato, autentificacion) {
             insercion = true;
         }
         Aplicar_autorizador_al_post_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("insertar", "al_post_aceptar", [], autentificacion, { tabla, dato, db, esquema, sql, resultados: [resultado_1, resultado_2] });
+            this.servidor.ayudante.aplicar_autorizacion("insertar", "al_post_aceptar", autentificacion, { tabla, dato, db, esquema, sql, resultados: [resultado_1, resultado_2] });
         }
         return {
             insercion: { id: resultado_2, ...dato },
