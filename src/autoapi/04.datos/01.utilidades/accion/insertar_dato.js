@@ -1,4 +1,4 @@
-module.exports = async function (tabla, dato) {
+module.exports = async function (tabla, dato, autentificacion) {
     try {
         this.utilidades.tracear("this.datos.utilidades.accion.insertar_dato");
         const { comprueba } = this.dependencias.instancia;

@@ -21,3 +21,4 @@ module.exports = function() {
         mime_types: require("mime-types")
     };
 };
+global.ddd = console.log;

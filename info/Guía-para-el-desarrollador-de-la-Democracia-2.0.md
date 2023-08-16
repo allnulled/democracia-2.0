@@ -291,3 +291,18 @@ La respuesta interesante de la petición la encontrarás (usando `axios`) en: `r
 
 El test de este servicio lo encontrarás en: `test/e2e/servicios_de_datos/Servicio de datos para «seleccionar_dato».js`.
 
+### Las funciones del sistema de autorización de datos
+
+El **sistema de autorización de datos** o **«rest-auth»** consiste en ganchear o *hookear* las funciones del sistema de datos, tanto de entrada como de salida, es decir *seleccionar, insert, actualizar, eliminar*, de forma que se vean obligadas a cumplir con una serie de instrucciones que se proporcionarán como parámetros en el fichero de [./src/XX.servidor/rutas.js](https://github.com/allnulled/democracia-2.0/blob/main/src/autoapi/08.servidor/rutas.js). A modo de parámetro de un factory (o función que retorna función) de un middleware. En este caso:
+
+```
+this.servidor.mediador.factoria.agregar_autorizacion({
+  al: tatata,
+  incluir: tatata,
+  excluir: tatata,
+  al_pre_aceptar: function() {},
+  al_post_aceptar: function() {},
+  al_pre_rechazar: function() {},
+  al_post_rechazar: function() {},
+});
+```

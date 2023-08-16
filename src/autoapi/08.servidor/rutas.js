@@ -9,8 +9,11 @@ module.exports = function () {
         sistema_de_plantillas_estaticas,
         sistema_de_ficheros_estaticos,
         sistema_democratico,
-        traceo_de_peticion_simple,
     } = this.servidor.controlador.factoria;
+    const {
+        aplicar_autorizacion,
+        traceo_de_peticion_simple,
+    } = this.servidor.mediador.factoria;
     // @TODO: desplegar todos los servicios
     // @TODO: desplegar todos los servicios
     // @TODO: desplegar todos los servicios

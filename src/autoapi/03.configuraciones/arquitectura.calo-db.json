@@ -25,7 +25,7 @@
               "puerto_de_base_de_datos": "",
               "nombre_de_base_de_datos": "",
               "identificador_unico": "",
-              "esta_mostrando_detalles": false
+              "esta_mostrando_detalles": true
             }
           ],
           "esta_mostrando_detalles": false
@@ -56,7 +56,7 @@
           "es_clave_foranea": false,
           "es_columna_virtual": false,
           "tiene_valor_por_defecto": null,
-          "esta_mostrando_detalles": false
+          "esta_mostrando_detalles": true
         },
         "contrasenya": {
           "tipo": "columna",
@@ -71,7 +71,7 @@
           "es_clave_foranea": false,
           "es_columna_virtual": false,
           "tiene_valor_por_defecto": null,
-          "esta_mostrando_detalles": false
+          "esta_mostrando_detalles": true
         },
         "correo": {
           "tipo": "columna",
@@ -86,7 +86,7 @@
           "es_clave_foranea": false,
           "es_columna_virtual": false,
           "tiene_valor_por_defecto": null,
-          "esta_mostrando_detalles": false
+          "esta_mostrando_detalles": true
         }
       },
       "esta_mostrando_detalles": false
@@ -206,10 +206,25 @@
           "es_clave_foranea": false,
           "es_columna_virtual": false,
           "tiene_valor_por_defecto": null,
+          "esta_mostrando_detalles": false
+        },
+        "id_usuario": {
+          "tipo": "columna",
+          "nombre": "id_usuario",
+          "descripcion": "",
+          "atributos_de_columna": {
+            "tiene_clave_foranea": {
+              "tipo": "atributo de columna",
+              "nombre": "tiene_clave_foranea",
+              "valor": "Usuario:id",
+              "es_json": false,
+              "esta_mostrando_detalles": false
+            }
+          },
           "esta_mostrando_detalles": true
         }
       },
-      "esta_mostrando_detalles": false
+      "esta_mostrando_detalles": true
     },
     "Comentario_de_votacion": {
       "tipo": "tabla",

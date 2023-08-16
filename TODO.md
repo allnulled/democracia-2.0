@@ -36,17 +36,18 @@ Próxima tanda backend:
     [ ] eventos_antes_de_operar
     [ ] eventos_despues_de_operar
     La regla iría así:
-      - Si el { usuario } en la { operación } cumple con las { reglas de permisos } entonces se aplican estos { eventos }.
-      - Si el { usuario } en la { operación } no cumple con las { reglas de permisos } entonces se aplican estos otros { eventos }.
+      [ ] Si el { usuario } en la { operación } cumple con las { reglas de permisos } entonces se aplican estos { eventos }.
+      [ ] Si el { usuario } en la { operación } no cumple con las { reglas de permisos } entonces se aplican estos otros { eventos }.
       {
         al: ["seleccionar", "insertar", "actualizar", "eliminar"],
         // incluir: {},
         excluir: {usuarios:["ok"]},
-        antes_de_aceptado: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
-        despues_de_aceptado: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
-        antes_de_rechazado: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
-        despues_de_rechazado: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
+        al_pre_aceptar: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
+        al_post_aceptar: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
+        al_pre_rechazar: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
+        al_post_rechazar: [{evento:"interventor"},{evento:"interventor"},{evento:"interventor"}],
       }
+      [ ] Esto se establecería en el parámetro «requiere_autorizacion»
 [ ] Documentar el cliente de JavaScript para navegador en otra guía. Cliente para el frontend. axios o fetch.
 
 -----

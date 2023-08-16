@@ -1,4 +1,4 @@
-module.exports = async function (tabla_arg = false, filtro_arg = false, orden_arg = false, pagina_arg = false, elementos_arg = false, busqueda_arg = false, ) {
+module.exports = async function (tabla_arg = false, filtro_arg = false, orden_arg = false, pagina_arg = false, elementos_arg = false, busqueda_arg = false, autentificacion) {
     try {
         this.utilidades.tracear("this.datos.utilidades.accion.seleccionar_dato");
         const { comprueba } = this.dependencias.instancia;
