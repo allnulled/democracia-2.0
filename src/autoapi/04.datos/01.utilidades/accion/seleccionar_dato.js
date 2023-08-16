@@ -18,7 +18,7 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
                 filtro = [];
             }
             if (!orden) {
-                orden = ["id"];
+                orden = [["id"]];
             }
             if (!pagina) {
                 pagina = 1;

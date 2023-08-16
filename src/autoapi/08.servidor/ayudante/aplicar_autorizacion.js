@@ -18,13 +18,31 @@ module.exports = function (accion, evento, reglas = [], autentificacion = 0, par
         if (!es_evento_valido) throw new Error("Se requiere una evento válido como «al_pre_aceptar», «al_post_aceptar» o «al_rechazar» para «this.servidor.ayudante.aplicar_autorizacion»");
         ddd(parametros_de_la_accion, reglas, autentificacion, es_operacion_valida, es_evento_valido);
         if(autentificacion === 0) {
-            return "OK";
+            return console.log("Autorización bypaseada con un 0: " + accion + ":" + evento);
         }
-        for(let index_reglas = 0; index_reglas < reglas.length; index_reglas++) {
-            const regla = reglas[index_reglas];
-            validar_regla(regla);
-            const { al, incluir, excluir, al_pre_aceptar, al_post_aceptar, al_rechazar } = regla;
-            
+        const { tabla, esquema } = parametros_de_la_accion;
+        if(typeof esquema[tabla].atributos_de_tabla !== "undefined") {
+            const { autorizacion } = esquema[tabla];
+            ddd(autorizacion);
+            for(let index_reglas = 0; index_reglas < reglas.length; index_reglas++) {
+                const regla = reglas[index_reglas];
+                validar_regla(regla);
+                const { al, incluir = false, excluir = false, al_pre_aceptar = false, al_post_aceptar = false, al_rechazar = false } = regla;
+                if(accion === al) {
+                    let aceptado = false;
+                    if(incluir) {
+                        // @TODO...
+                    } else {
+                        aceptado = true;
+                    }
+                    if(excluir) {
+                        // @TODO...
+                    }
+                    if(!aceptado) {
+                        return [false, regla];
+                    }
+                }
+            }
         }
         return "OK";
     } catch (error) {

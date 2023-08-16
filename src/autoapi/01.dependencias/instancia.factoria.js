@@ -21,4 +21,9 @@ module.exports = function() {
         mime_types: require("mime-types")
     };
 };
-global.ddd = console.log;
+global.ddd = function(...args) {
+    for (let index = 0; index < args.length; index++) {
+        const arg = args[index];
+        console.log("[ DDD  ]", arg);
+    }
+}

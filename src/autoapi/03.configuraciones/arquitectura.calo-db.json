@@ -45,7 +45,7 @@
         "autorizacion": {
           "tipo": "atributo de tabla",
           "nombre": "autorizacion",
-          "valor": "[{\n  al: \"seleccionar\",\n  al_post_aceptar: function() {\n    console.log(\"La selección ha sido realizada\");\n  }\n\n}]",
+          "valor": "[{\n  al: \"seleccionar\",\n  al_post_aceptar: function(...args) {\n    console.log(\"La selección ha sido realizada\");\n    console.log(args);\n  }\n\n}]",
           "es_tipo": "js",
           "esta_mostrando_detalles": false
         }
