@@ -3,6 +3,7 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
         this.utilidades.tracear("this.datos.utilidades.accion.seleccionar_dato");
         const { comprueba } = this.dependencias.instancia;
         const { sanitizar_id, sanitizar_valor } = this.datos.utilidades.funcion;
+        const { esquema } = this.datos.esquema.instancia.arquitectura;
         let tabla = tabla_arg;
         let filtro = filtro_arg;
         let orden = orden_arg;
@@ -43,13 +44,20 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
         Obtener_base_de_datos_para_tabla: {
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
+        Aplicar_autorizador_al_pre_aceptar: {
+            this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_pre_aceptar", [], autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema });
+        }
+        let sql = undefined;
         Seleccionar_permiso_no_registrado_segun_token: {
-            let sql = "SELECT * FROM ";
+            sql = "SELECT * FROM ";
             sql += tabla_sanitizada;
             sql += this.datos.utilidades.funcion.obtener_sql_select_where_de_array(filtro, tabla, busqueda, true);
             sql += this.datos.utilidades.funcion.obtener_sql_select_order_by_de_array(orden, tabla, true);
             // sql += this.datos.utilidades.funcion.obtener_sql_select_limit_y_offset_by_de_pagina_y_elementos(pagina, elementos);
             resultado_1 = await db.consultar(sql);
+        }
+        Aplicar_autorizador_al_post_aceptar: {
+            this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_post_aceptar", [], autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema, sql, resultado: resultado_1 });
         }
         return {
             seleccion: resultado_1,

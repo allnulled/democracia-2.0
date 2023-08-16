@@ -27,14 +27,21 @@ module.exports = async function (tabla, id, autentificacion) {
         Obtener_base_de_datos_para_usuario_no_confirmado: {
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
+        Aplicar_autorizador_al_pre_aceptar: {
+            this.servidor.ayudante.aplicar_autorizacion("eliminar", "al_pre_aceptar", [], autentificacion, { tabla, id, db, esquema });
+        }
+        let sql = undefined;
         Insertar_usuario_nuevo: {
-            let sql = "DELETE FROM ";
+            sql = "DELETE FROM ";
             sql += tabla_sanitizada;
             sql += "\n  WHERE id = "
             sql += id_sanitizado;
             sql += ";";
             resultado_1 = await db.consultar(sql);
             eliminacion = true;
+        }
+        Aplicar_autorizador_al_post_aceptar: {
+            this.servidor.ayudante.aplicar_autorizacion("eliminar", "al_post_aceptar", [], autentificacion, { tabla, id, db, esquema, sql, resultado: resultado_1 });
         }
         return {
             eliminacion: { id },

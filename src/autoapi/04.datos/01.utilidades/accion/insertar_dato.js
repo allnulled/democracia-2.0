@@ -41,8 +41,12 @@ module.exports = async function (tabla, dato, autentificacion) {
         Obtener_base_de_datos_para_usuario_no_confirmado: {
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
+        Aplicar_autorizador_al_pre_aceptar: {
+            this.servidor.ayudante.aplicar_autorizacion("insertar", "al_pre_aceptar", [], autentificacion, { tabla, dato, db, esquema });
+        }
+        let sql = undefined;
         Insertar_usuario_nuevo: {
-            let sql = "INSERT INTO ";
+            sql = "INSERT INTO ";
             sql += tabla_sanitizada;
             sql += " (";
             sql += this.datos.utilidades.funcion.obtener_sql_insert_into_de_objeto(dato);
@@ -56,6 +60,9 @@ module.exports = async function (tabla, dato, autentificacion) {
             resultado_1 = resultados[0];
             resultado_2 = resultados[1].resultado[0].ultimo_id;
             insercion = true;
+        }
+        Aplicar_autorizador_al_post_aceptar: {
+            this.servidor.ayudante.aplicar_autorizacion("insertar", "al_post_aceptar", [], autentificacion, { tabla, dato, db, esquema, sql, resultados: [resultado_1, resultado_2] });
         }
         return {
             insercion: { id: resultado_2, ...dato },

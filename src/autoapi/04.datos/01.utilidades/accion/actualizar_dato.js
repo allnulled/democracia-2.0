@@ -54,7 +54,7 @@ module.exports = async function (tabla, id, dato, autentificacion) {
             resultado_1 = await db.consultar(sql);
             actualizacion = true;
         }
-        Aplicar_autorizador_al_pre_aceptar: {
+        Aplicar_autorizador_al_post_aceptar: {
             this.servidor.ayudante.aplicar_autorizacion("actualizar", "al_post_aceptar", [], autentificacion, { tabla, id, dato, sql, resultado: resultado_1, db, esquema });
         }
         return {
