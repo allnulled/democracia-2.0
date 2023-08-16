@@ -42,7 +42,13 @@
       "identificador_unico": "",
       "ruta_de_url_de_tabla": "/",
       "atributos_de_tabla": {
-        "autorizaciones": ""
+        "autorizacion": {
+          "tipo": "atributo de tabla",
+          "nombre": "autorizacion",
+          "valor": "[{\n  al: \"seleccionar\",\n  al_post_aceptar: function() {\n    console.log(\"La selección ha sido realizada\");\n  }\n\n}]",
+          "es_tipo": "js",
+          "esta_mostrando_detalles": false
+        }
       },
       "columnas": {
         "nombre": {
@@ -91,7 +97,7 @@
           "esta_mostrando_detalles": true
         }
       },
-      "esta_mostrando_detalles": false
+      "esta_mostrando_detalles": true
     },
     "Grupo": {
       "tipo": "tabla",
@@ -191,7 +197,15 @@
       "descripcion": "",
       "identificador_unico": "",
       "ruta_de_url_de_tabla": "/",
-      "atributos_de_tabla": {},
+      "atributos_de_tabla": {
+        "autorizacion": {
+          "tipo": "atributo de tabla",
+          "nombre": "autorizacion",
+          "valor": "",
+          "es_json": false,
+          "esta_mostrando_detalles": false
+        }
+      },
       "columnas": {
         "id_votacion": {
           "tipo": "columna",
@@ -226,7 +240,7 @@
           "esta_mostrando_detalles": true
         }
       },
-      "esta_mostrando_detalles": true
+      "esta_mostrando_detalles": false
     },
     "Comentario_de_votacion": {
       "tipo": "tabla",
