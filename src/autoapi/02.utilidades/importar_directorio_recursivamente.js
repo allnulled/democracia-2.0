@@ -1,14 +1,24 @@
 const fs = require("fs");
 const ejs = require("ejs");
 const path = require("path");
-const preparar_plantilla_compilada = function(plantilla_compilada, parametros_fijos = {}, configuraciones_fijas = {}) {
-    return function(parametros_arg = {}, configuraciones_arg = {}) {
+const preparar_plantilla_compilada = function (plantilla_compilada, parametros_fijos = {}, configuraciones_fijas = {}) {
+    return function (parametros_arg = {}, configuraciones_arg = {}) {
         return plantilla_compilada(
             Object.assign({}, parametros_arg, parametros_fijos),
             Object.assign({}, configuraciones_arg, configuraciones_fijas)
         );
     }
 };
+const require_monitoring_errors = function (file) {
+    try {
+        return require(file);
+    } catch (error) {
+        const cli_color = require("cli-color");
+        console.log(cli_color.bgRedBright.black("Error cargando el fichero «" + file + "»:"));
+        console.log(error);
+        throw error;
+    }
+}
 const importar_directorio_recursivamente = async function (directory, obj, prop, rootParameter = undefined) {
     try {
         const files = await fs.promises.readdir(directory);
@@ -23,7 +33,7 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
                 obj[prop][subprop] = {};
                 await importar_directorio_recursivamente(filepath, obj[prop], subprop, rootParameter);
             } else if (file.endsWith(".factoria.js")) {
-                const mod = require(filepath);
+                const mod = require_monitoring_errors(filepath);
                 if (typeof mod === "function") {
                     const result = mod.call(rootParameter);
                     obj[prop][subprop] = result;
@@ -31,7 +41,7 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
                     obj[prop][subprop] = mod;
                 }
             } else if (file.endsWith(".prometedor.js")) {
-                const mod = require(filepath);
+                const mod = require_monitoring_errors(filepath);
                 if (typeof mod === "function") {
                     const result = mod.call(rootParameter);
                     obj[prop][subprop] = await result;
@@ -39,13 +49,13 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
                     obj[prop][subprop] = mod;
                 }
             } else if (file.endsWith(".promesa.js")) {
-                obj[prop][subprop] = await require(filepath);
+                obj[prop][subprop] = await require_monitoring_errors(filepath);
             } else if (file.endsWith(".clase.js")) {
-                obj[prop][subprop] = require(filepath);
+                obj[prop][subprop] = require_monitoring_errors(filepath);
             } else if (file.endsWith(".estatico.js")) {
-                obj[prop][subprop] = require(filepath);
+                obj[prop][subprop] = require_monitoring_errors(filepath);
             } else if (file.endsWith(".js")) {
-                let mod = require(filepath);
+                let mod = require_monitoring_errors(filepath);
                 if (typeof mod === "function") {
                     mod = mod.bind(rootParameter);
                 }
@@ -66,7 +76,7 @@ const importar_directorio_recursivamente = async function (directory, obj, prop,
     }
 }
 importar_directorio_recursivamente.default = importar_directorio_recursivamente;
-module.exports = function(directory) {
+module.exports = function (directory) {
     const api = {};
     return new Promise((ok, fail) => {
         importar_directorio_recursivamente(directory, api, "api").then(() => {

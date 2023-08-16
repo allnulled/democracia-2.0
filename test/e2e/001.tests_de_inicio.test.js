@@ -21,7 +21,8 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
 
     it("Tests abren editor de código", async function () {
         const subproceso = child_process.spawn("npm", ["run", "edit"], {
-            cwd: __dirname + "/.."
+            cwd: __dirname + "/..",
+            stdio: [process.stdin, process.stderr, process.stdout]
         });
     });
 
@@ -33,6 +34,7 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
         try {
             const configuraciones_de_subproceso = {
                 cwd: __dirname + "/..",
+                stdio: [process.stdin, process.stderr, process.stdout]
             };
             // @POR-ESTO!
             if (configuraciones_de_test.salida_comun) {
