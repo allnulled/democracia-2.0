@@ -57,7 +57,9 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
             resultado_1 = await db.consultar(sql);
         }
         Aplicar_autorizador_al_post_aceptar: {
-            await this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_post_aceptar", autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema, sql, resultado: resultado_1 });
+            const all = { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema, sql, resultado: resultado_1 };
+            await this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_post_aceptar", autentificacion, all);
+            resultado_1 = all.resultado;
         }
         return {
             seleccion: resultado_1,

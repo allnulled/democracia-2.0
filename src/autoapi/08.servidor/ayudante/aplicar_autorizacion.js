@@ -9,10 +9,11 @@ const validar_regla = function (regla_presunta) {
 
 module.exports = async function (accion, evento, autentificacion = 0, parametros_de_la_accion = {}) {
     this.utilidades.tracear("this.servidor.ayudante.factoria.aplicar_autorizacion");
+    let tiene_autorizaciones = undefined;
     try {
         const { existe_propiedad } = this.utilidades;
         const { tabla, esquema } = parametros_de_la_accion;
-        const tiene_autorizaciones = (() => {
+        tiene_autorizaciones = (() => {
             try {
                 return esquema[tabla].atributos_de_tabla.autorizacion.valor;
             } catch (error) {
@@ -84,21 +85,21 @@ module.exports = async function (accion, evento, autentificacion = 0, parametros
             }
             if(esta_autorizado.startsWith("Autorizado")) {
                 if(evento === "al_pre_aceptar") {
-                    const operacion = parametros_de_la_accion.al_pre_aceptar;
-                    if(operacion) {
-                        await operacion(parametros_de_la_accion);
+                    const operacion = autorizacion.al_pre_aceptar;
+                    if(typeof operacion === "function") {
+                        await operacion.call(this, parametros_de_la_accion, autentificacion, evento, accion);
                     }
                 } else if(evento === "al_post_aceptar") {
-                    const operacion = parametros_de_la_accion.al_post_aceptar;
-                    if (operacion) {
-                        await operacion(parametros_de_la_accion);
+                    const operacion = autorizacion.al_post_aceptar;
+                    if (typeof operacion === "function") {
+                        await operacion.call(this, parametros_de_la_accion, autentificacion, evento, accion);
                     }
                 }
             } else if(esta_autorizado.startsWith("Restringido")) {
                 if (evento === "al_rechazar") {
-                    const operacion = parametros_de_la_accion.al_rechazar;
-                    if (operacion) {
-                        await operacion(parametros_de_la_accion);
+                    const operacion = autorizacion.al_rechazar;
+                    if (typeof operacion === "function") {
+                        await operacion.call(this, parametros_de_la_accion, autentificacion, evento, accion);
                     }
                 }
             } else {
