@@ -6,7 +6,7 @@ module.exports = async function (utilidades_de_test) {
         const { subtest, iniciar } = tester("Conjunto de tests del servicio de datos para «al_insertar» + ", { debuga: 0 });
         const metadatos = {};
 
-        subtest("Subtest contra una url concreta", async function () {
+        subtest("Puede insertar pasando por el interceptor estipulado en el esquema", async function () {
             try {
 
             } catch (error) {

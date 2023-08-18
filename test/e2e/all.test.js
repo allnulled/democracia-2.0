@@ -1,0 +1,5 @@
+require(__dirname + "/001.tests_de_inicio.test.js")
+require(__dirname + "/002.tests_de_servicios_de_autorizacion.test.js")
+require(__dirname + "/003.tests_de_servicios_de_datos.test.js")
+require(__dirname + "/004.tests_de_servicios_de_datos_y_auth.test.js")
+require(__dirname + "/999.tests_de_final.test.js")

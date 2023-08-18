@@ -45,7 +45,7 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
         Aplicar_autorizador_al_pre_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_pre_aceptar", autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema });
+            await this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_pre_aceptar", autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema });
         }
         let sql = undefined;
         Seleccionar_permiso_no_registrado_segun_token: {
@@ -57,7 +57,7 @@ module.exports = async function (tabla_arg = false, filtro_arg = false, orden_ar
             resultado_1 = await db.consultar(sql);
         }
         Aplicar_autorizador_al_post_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_post_aceptar", autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema, sql, resultado: resultado_1 });
+            await this.servidor.ayudante.aplicar_autorizacion("seleccionar", "al_post_aceptar", autentificacion, { tabla, filtro, orden, pagina, elementos, busqueda, db, esquema, sql, resultado: resultado_1 });
         }
         return {
             seleccion: resultado_1,

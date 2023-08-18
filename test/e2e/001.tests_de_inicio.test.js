@@ -24,6 +24,9 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
             cwd: __dirname + "/..",
             stdio: [process.stdin, process.stderr, process.stdout]
         });
+        setTimeout(() => new Promise((ok, fail) => {
+            ok()
+        }), 2000);
     });
 
     it("Tests localizan las dependencias", async function() {
@@ -36,13 +39,10 @@ describe("✔✔✔ Tests de inicio (end to end)", function() {
                 cwd: __dirname + "/..",
                 stdio: [process.stdin, process.stderr, process.stdout]
             };
-            // @POR-ESTO!
-            if (configuraciones_de_test.salida_comun) {
-                configuraciones_de_subproceso.stdio = [process.stdin, process.stdout, process.stderr];
-            }
-            const subproceso = child_process.spawn("npm", ["start"], configuraciones_de_subproceso);
-            utilidades_de_test.pid_de_proceso_de_servidor = subproceso.pid;
-            utilidades_de_test.subproceso_de_democracia = subproceso;
+            utilidades_de_test.democracia20 = require(__dirname + "/../../src/iniciar.js");
+            setTimeout(() => new Promise((ok, fail) => {
+                ok()
+            }), 2000);
         } catch(error) {
             utilidades_de_test.pid_de_proceso_de_servidor = require(__dirname + "/../src/pid.json");
         }

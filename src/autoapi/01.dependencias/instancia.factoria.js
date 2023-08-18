@@ -18,7 +18,7 @@ module.exports = function() {
         mysql2original: require("mysql2"),
         mysql2: require("mysql2/promise"),
         sqlstring: require("sqlstring"),
-        mime_types: require("mime-types")
+        mime_types: require("mime-types"),
     };
 };
 global.ddd = function(...args) {

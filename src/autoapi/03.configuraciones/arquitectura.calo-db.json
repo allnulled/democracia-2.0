@@ -395,6 +395,22 @@
         }
       },
       "esta_mostrando_detalles": false
+    },
+    "Pruebas_para_tests_2": {
+      "tipo": "tabla",
+      "nombre": "Pruebas_para_tests_2",
+      "descripcion": "",
+      "atributos_de_tabla": {
+        "autorizacion": {
+          "tipo": "atributo de tabla",
+          "nombre": "autorizacion",
+          "valor": "[{\n  al: \"seleccionar\",\n  al_post_aceptar: function(...args) {\n    console.log(\"La selección ha sido realizada\");\n    console.log(args);\n    console.log(\"La selección ha sido realizada\");\n    console.log(\"La selección ha sido realizada\");\n    console.log(\"La selección ha sido realizada\");\n    console.log(\"La selección ha sido realizada\");\n    console.log(\"La selección ha sido realizada\");\n  }\n\n}]",
+          "es_tipo": "js",
+          "esta_mostrando_detalles": false
+        }
+      },
+      "columnas": {},
+      "esta_mostrando_detalles": true
     }
   }
 }

@@ -28,7 +28,7 @@ module.exports = async function (tabla, id, autentificacion) {
             db = this.datos.conexion.instancia.segun_tabla(tabla);
         }
         Aplicar_autorizador_al_pre_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("eliminar", "al_pre_aceptar", autentificacion, { tabla, id, db, esquema });
+            await this.servidor.ayudante.aplicar_autorizacion("eliminar", "al_pre_aceptar", autentificacion, { tabla, id, db, esquema });
         }
         let sql = undefined;
         Insertar_usuario_nuevo: {
@@ -41,7 +41,7 @@ module.exports = async function (tabla, id, autentificacion) {
             eliminacion = true;
         }
         Aplicar_autorizador_al_post_aceptar: {
-            this.servidor.ayudante.aplicar_autorizacion("eliminar", "al_post_aceptar", autentificacion, { tabla, id, db, esquema, sql, resultado: resultado_1 });
+            await this.servidor.ayudante.aplicar_autorizacion("eliminar", "al_post_aceptar", autentificacion, { tabla, id, db, esquema, sql, resultado: resultado_1 });
         }
         return {
             eliminacion: { id },

@@ -16,7 +16,9 @@ describe("✔✔✔ Tests de final", function () {
 
     it("Cancelación de proceso de «democracia-2.0» desde línea de comandos", async function () {
         try {
-            utilidades_de_test.subproceso_de_democracia.kill();
+            const inicio = await utilidades_de_test.democracia20;
+            console.log(inicio)
+            inicio.utilidades.terminar_procesos_derivados();
         } catch (error) {
             throw error;
         }

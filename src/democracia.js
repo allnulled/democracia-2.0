@@ -1,3 +1,5 @@
+require("nodelive").PREFERRED_EDITOR = "code";
+
 module.exports = new Promise((ok, fail) => {
     try {
         const importar_directorio_recursivamente = require(__dirname + "/autoapi/02.utilidades/importar_directorio_recursivamente.js");

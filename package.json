@@ -50,7 +50,8 @@
   "devDependencies": {
     "axios": "^1.4.0",
     "chai": "^4.3.7",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "nodelive": "^1.0.6"
   },
   "directories": {
     "doc": "docs",
